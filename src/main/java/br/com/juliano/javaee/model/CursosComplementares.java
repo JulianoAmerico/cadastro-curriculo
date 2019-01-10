@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cursoscomplementares")
+@Table(name="cursos_complementares")
 public class CursosComplementares extends Cursos {
 
 	public CursosComplementares() {

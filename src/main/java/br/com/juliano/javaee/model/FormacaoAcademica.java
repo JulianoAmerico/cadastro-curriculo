@@ -7,7 +7,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="formacaoacademica")
+@Table(name="formacao_academica")
 public class FormacaoAcademica extends Cursos {
 
 	private enum NivelFormacao {
