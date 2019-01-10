@@ -8,7 +8,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "formacaoAcademica")
-
 public class FormacaoAcademica extends Cursos {
 
 	private enum NivelFormacao {
