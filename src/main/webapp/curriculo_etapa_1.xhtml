@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+	<meta charset="utf-8"/>
+	<meta name="author" content="Juliano R. Américo"/>
+	<meta name="keywords" content="Cadastro de Currículo, Currículo, currículo"/>
+	<meta name="description" content="Cadastro de Currículo Etapa - 1"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<title>Cadastro de Currículo Etapa - 1</title>
+</h:head>
+<h:body>
+	<!-- Topo da página -->
+	<header>
+        <h1>Cadastro de currículo</h1>
+	</header>
+
+	<!-- Formulário de cadastro currículo -->
+	<section>
+		<article>
+			<header>
+				<h1>Dados Pessoais</h1>
+                <h3>Etapa 1 de 3</h3>
+			</header>
+			<h:form id="formularioEtapa1">
+				<h:panelGrid columns="4">
+					<h:outputText value="Nome:"/>
+					<h:inputText id="nome" required="true"/> 
+					<h:message for="nome"/>
+					
+					<h:outputText value="Sexo: "/>
+					<h:selectOneRadio id="sexo">
+						<f:selectItem itemValue="1" itemLabel="Feminino" />
+						<f:selectItem itemValue="2" itemLabel="Masculino" />
+					</h:selectOneRadio>
+					<h:message for="sexo"/>
+					
+					<h:outputText value="Endereço:"/>
+					<h:inputText id="endereco" required="true"/> 
+					<h:message for="endereco"/>
+					
+					<h:outputText value="CEP:"/>
+					<h:inputText id="cep" required="true"/> 
+					<h:message for="cep"/>
+					
+					<h:outputText value="Bairro:"/>
+					<h:inputText id="bairro" required="true"/> 
+					<h:message for="bairro"/>
+					
+					<h:outputText value="Cidade:"/>
+					<h:inputText id="cidade" required="true"/> 
+					<h:message for="cidade"/>
+					
+					<h:outputText value="Estado:"/>
+					<h:inputText id="estado" required="true"/> 
+					<h:message for="estado"/>
+					
+					<h:outputText value="Nacionalidade:"/>
+					<h:inputText id="nacionalidade" required="true"/> 
+					<h:message for="nacionalidade"/>
+					
+					<h:outputText value="Estado civil:"/>
+					<h:inputText id="estadoCivil" required="true"/> 
+					<h:message for="estadoCivil"/>
+					
+					<h:outputText value="Data Nascimento:"/>
+					<h:inputText id="dataNascimento" required="true">
+						<f:convertDateTime pattern="dd/MM/yyyy" type="LocalDate"/>
+					</h:inputText> 
+					<h:message for="dataNascimento"/>
+					
+					<h:outputText value="Telefone celular:"/>
+					<h:inputText id="telefoneCelular" required="true">
+						<f:validateRegex pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
+					</h:inputText> 
+					<h:message for="telefoneCelular"/>
+					
+					<h:outputText value="Telefone outros:"/>
+					<h:inputText id="telefoneOutros">
+					<f:validateRegex pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
+					</h:inputText> 
+					<h:message for="telefoneOutros"/>
+					
+					<h:outputText value="E-mail"/>
+					<h:inputText id="email" pt:type="email" required="true"/> 
+					<h:message for="email"/>
+					
+					<h:outputText value="LinkedIn"/>
+					<h:inputText id="linkedin"/>
+					<h:message for="linkedin"/>
+					
+					<h:outputText value="Objetivo Profissional:"/>
+					<h:inputText id="objetivoProfissional" />
+					<h:message for="objetivoProfissional"/>
+					
+					<h:commandButton value="Etapa 2 ->" action=""/>
+				</h:panelGrid>		
+			</h:form>
+		</article>
+	</section>
+</h:body>
+</html>
