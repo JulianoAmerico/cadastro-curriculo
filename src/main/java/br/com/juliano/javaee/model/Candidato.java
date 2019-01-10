@@ -8,11 +8,10 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import br.com.juliano.javaee.model.Endereco;
 
 @Entity
 @Table(name = "candidato")
@@ -49,6 +48,10 @@ public class Candidato implements Serializable {
 	
 	@Column(nullable=false)
 	private Double pretensaoSalarial;
+	
+	@ManyToOne
+	@Column(name="expProfissional_id")
+	private ExperienciaProfissional expProfissional;
 
 	public Candidato() {
 	}
