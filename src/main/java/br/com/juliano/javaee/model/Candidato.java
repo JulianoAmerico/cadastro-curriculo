@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="candidato")
+@Table(name = "candidato")
 public class Candidato implements Serializable {
 
 	@Id
@@ -50,16 +50,16 @@ public class Candidato implements Serializable {
 	@Column(nullable = false)
 	private Double pretensaoSalarial;
 
-	@OneToMany(mappedBy="candidato")
+	@OneToMany(mappedBy = "candidato")
 	private List<ExperienciaProfissional> expProfissional;
 
-	@OneToMany(mappedBy="candidato")
+	@OneToMany(mappedBy = "candidato")
 	private List<Idioma> idioma;
-	
-	@OneToMany(mappedBy="candidato")
+
+	@OneToMany(mappedBy = "candidato")
 	private List<FormacaoAcademica> formacaoAcademica;
-	
-	@OneToMany(mappedBy="candidato")
+
+	@OneToMany(mappedBy = "candidato")
 	private List<CursosComplementares> cursosComplementares;
 
 	public Candidato() {
@@ -159,6 +159,22 @@ public class Candidato implements Serializable {
 
 	public void setIdioma(List<Idioma> idioma) {
 		this.idioma = idioma;
+	}
+
+	public List<FormacaoAcademica> getFormacaoAcademica() {
+		return formacaoAcademica;
+	}
+
+	public void setFormacaoAcademica(List<FormacaoAcademica> formacaoAcademica) {
+		this.formacaoAcademica = formacaoAcademica;
+	}
+
+	public List<CursosComplementares> getCursosComplementares() {
+		return cursosComplementares;
+	}
+
+	public void setCursosComplementares(List<CursosComplementares> cursosComplementares) {
+		this.cursosComplementares = cursosComplementares;
 	}
 
 }
