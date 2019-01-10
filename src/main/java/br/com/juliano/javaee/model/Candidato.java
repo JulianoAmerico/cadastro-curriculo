@@ -1,4 +1,4 @@
-package br.com.juliano.javaee.bean;
+package br.com.juliano.javaee.model;
 
 import java.io.Serializable;
 import java.util.Date;
