@@ -20,11 +20,11 @@ public class Idioma implements Serializable {
 	}
 
 	@Enumerated(EnumType.STRING)
-	@Column(nullable=true)
+	@Column(name="idioma", nullable=true)
 	private Idiomas idioma;
 
 	@Enumerated(EnumType.STRING)
-	@Column(nullable=true)
+	@Column(name="nivel", nullable=true)
 	private Niveis nivel;
 
 	public Idioma() {
