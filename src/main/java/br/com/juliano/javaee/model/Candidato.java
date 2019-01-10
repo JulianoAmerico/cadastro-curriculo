@@ -2,14 +2,15 @@ package br.com.juliano.javaee.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,22 +25,6 @@ public class Candidato implements Serializable {
 
 	@Embedded
 	private Endereco endereco;
-
-	public ExperienciaProfissional getExpProfissional() {
-		return expProfissional;
-	}
-
-	public void setExpProfissional(ExperienciaProfissional expProfissional) {
-		this.expProfissional = expProfissional;
-	}
-
-	public Idioma getIdioma() {
-		return idioma;
-	}
-
-	public void setIdioma(Idioma idioma) {
-		this.idioma = idioma;
-	}
 
 	@Column(nullable = false, length = 30)
 	private String nacionalidade;
@@ -66,13 +51,11 @@ public class Candidato implements Serializable {
 	@Column(nullable = false)
 	private Double pretensaoSalarial;
 
-	@ManyToOne
-	@JoinColumn(name="experienciaProfissional_id")
-	private ExperienciaProfissional expProfissional;
+	@OneToMany(fetch=FetchType.EAGER)
+	private List<ExperienciaProfissional> expProfissional;
 
-	@ManyToOne
-	@JoinColumn(name="idioma_id")
-	private Idioma idioma;
+	@OneToMany(fetch=FetchType.EAGER)
+	private List<Idioma> idioma;
 
 	public Candidato() {
 	}
@@ -155,6 +138,22 @@ public class Candidato implements Serializable {
 
 	public void setPretensaoSalarial(Double pretensaoSalarial) {
 		this.pretensaoSalarial = pretensaoSalarial;
+	}
+
+	public List<ExperienciaProfissional> getExpProfissional() {
+		return expProfissional;
+	}
+
+	public void setExpProfissional(List<ExperienciaProfissional> expProfissional) {
+		this.expProfissional = expProfissional;
+	}
+
+	public List<Idioma> getIdioma() {
+		return idioma;
+	}
+
+	public void setIdioma(List<Idioma> idioma) {
+		this.idioma = idioma;
 	}
 
 }
