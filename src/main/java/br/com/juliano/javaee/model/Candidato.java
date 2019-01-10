@@ -8,6 +8,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -66,10 +67,11 @@ public class Candidato implements Serializable {
 	private Double pretensaoSalarial;
 
 	@ManyToOne
-	@Column(name = "expProfissional_id")
+	@JoinColumn(name="experienciaProfissional_id")
 	private ExperienciaProfissional expProfissional;
 
-	@Embedded
+	@ManyToOne
+	@JoinColumn(name="idioma_id")
 	private Idioma idioma;
 
 	public Candidato() {
