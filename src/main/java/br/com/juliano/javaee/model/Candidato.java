@@ -23,35 +23,54 @@ public class Candidato implements Serializable {
 
 	@Embedded
 	private Endereco endereco;
-	
-	@Column(nullable=false, length=30)
+
+	public ExperienciaProfissional getExpProfissional() {
+		return expProfissional;
+	}
+
+	public void setExpProfissional(ExperienciaProfissional expProfissional) {
+		this.expProfissional = expProfissional;
+	}
+
+	public Idioma getIdioma() {
+		return idioma;
+	}
+
+	public void setIdioma(Idioma idioma) {
+		this.idioma = idioma;
+	}
+
+	@Column(nullable = false, length = 30)
 	private String nacionalidade;
-	
-	@Column(nullable=false, length=15)
+
+	@Column(nullable = false, length = 15)
 	private String estadoCivil;
-	
+
 	@Temporal(TemporalType.DATE)
-	@Column(nullable=false, length=10)
+	@Column(nullable = false, length = 10)
 	private Date dataNascimento;
-	
-	@Column(nullable=false, length=13)
+
+	@Column(nullable = false, length = 13)
 	private String telefoneCelular;
-	
-	@Column(nullable=false, length=50)
+
+	@Column(nullable = false, length = 50)
 	private String email;
-	
-	@Column(nullable=true, length=100)
+
+	@Column(nullable = true, length = 100)
 	private String linkedin;
-	
-	@Column(nullable=false, length=50)
+
+	@Column(nullable = false, length = 50)
 	private String objetivoProfissional;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private Double pretensaoSalarial;
-	
+
 	@ManyToOne
-	@Column(name="expProfissional_id")
+	@Column(name = "expProfissional_id")
 	private ExperienciaProfissional expProfissional;
+
+	@Embedded
+	private Idioma idioma;
 
 	public Candidato() {
 	}
