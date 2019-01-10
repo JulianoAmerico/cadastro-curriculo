@@ -4,16 +4,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="formacao_academica")
+@Table(name = "formacao_academica")
 public class FormacaoAcademica extends Cursos {
 
 	private enum NivelFormacao {
-		ENSINO_MEDIO_COMPLETO,
-		ENSINO_MEDIO_INCOMPLETO,
-		SUPERIOR_COMPLETO,
+		ENSINO_MEDIO_COMPLETO, 
+		ENSINO_MEDIO_INCOMPLETO, 
+		SUPERIOR_COMPLETO, 
 		SUPERIOR_INCOMPLETO, 
 		POS_GRADUACAO, 
 		MESTRADO,
@@ -25,6 +26,9 @@ public class FormacaoAcademica extends Cursos {
 	@Column(nullable = false)
 	private NivelFormacao nivelFormacao;
 
+	@ManyToOne(name = "candidato_id")
+	private Candidato candidato;
+
 	public FormacaoAcademica() {
 	}
 
@@ -34,6 +38,14 @@ public class FormacaoAcademica extends Cursos {
 
 	public void setNivelFormacao(NivelFormacao nivelFormacao) {
 		this.nivelFormacao = nivelFormacao;
+	}
+
+	public Candidato getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
 	}
 
 }
