@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -26,7 +27,8 @@ public class FormacaoAcademica extends Cursos {
 	@Column(nullable = false)
 	private NivelFormacao nivelFormacao;
 
-	@ManyToOne(name = "candidato_id")
+	@ManyToOne
+	@JoinColumn(name = "candidato_id")
 	private Candidato candidato;
 
 	public FormacaoAcademica() {
