@@ -3,11 +3,13 @@ package br.com.juliano.javaee.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Table;
 
-@Embeddable
+@Entity
+@Table(name="idioma")
 public class Idioma implements Serializable {
 
 	private enum Idiomas {
