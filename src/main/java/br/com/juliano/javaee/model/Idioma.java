@@ -6,10 +6,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="idioma")
+@Table(name = "idioma")
 public class Idioma implements Serializable {
 
 	private enum Idiomas {
@@ -21,15 +23,27 @@ public class Idioma implements Serializable {
 		BASICO, INTERMEDIARIO, AVANCADO;
 	}
 
+	@Id
+	@GeneratedValue
+	private Integer id;
+
 	@Enumerated(EnumType.STRING)
-	@Column(name="idioma", nullable=true)
+	@Column(name = "idioma", nullable = true)
 	private Idiomas idioma;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name="nivel", nullable=true)
+	@Column(name = "nivel", nullable = true)
 	private Niveis nivel;
 
 	public Idioma() {
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public Idiomas getIdioma() {
