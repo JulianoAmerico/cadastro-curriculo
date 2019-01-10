@@ -4,7 +4,8 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	lang="pt-br">
 <h:head>
 	<meta charset="utf-8"/>
 	<meta name="author" content="Juliano R. Américo"/>
@@ -23,11 +24,11 @@
 	<section>
 		<article>
 			<header>
-				<h1>Dados Pessoais</h1>
+				<h2>Dados Pessoais</h2>
                 <h3>Etapa 1 de 3</h3>
 			</header>
 			<h:form id="formularioEtapa1">
-				<h:panelGrid columns="4">
+				<h:panelGrid columns="3">
 					<h:outputText value="Nome:"/>
 					<h:inputText id="nome" required="true"/> 
 					<h:message for="nome"/>
@@ -97,7 +98,11 @@
 					<h:inputText id="objetivoProfissional" />
 					<h:message for="objetivoProfissional"/>
 					
-					<h:commandButton value="Etapa 2 ->" action=""/>
+					<h:outputText value="Pretensão Salarial:"/>
+					<h:inputText id="pretensaoSalarial" />
+					<h:message for="pretensaoSalarial"/>
+					
+					<h:commandButton value="Etapa 2 ->" action="result"/>
 				</h:panelGrid>		
 			</h:form>
 		</article>
