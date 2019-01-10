@@ -55,6 +55,12 @@ public class Candidato implements Serializable {
 
 	@OneToMany(mappedBy="candidato")
 	private List<Idioma> idioma;
+	
+	@OneToMany(mappedBy="candidato")
+	private List<FormacaoAcademica> formacaoAcademica;
+	
+	@OneToMany(mappedBy="candidato")
+	private List<CursosComplementares> cursosComplementares;
 
 	public Candidato() {
 	}
