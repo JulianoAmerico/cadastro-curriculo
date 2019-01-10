@@ -34,7 +34,7 @@ public class ExperienciaProfissional implements Serializable {
 	@Column(nullable = true, length = 10)
 	private Date termino;
 
-	@Column(columnDefinition = "null default true")
+	@Column(columnDefinition = "null default false")
 	private Boolean ateMomento;
 
 	@Column(nullable = false, length = 50)
