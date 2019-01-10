@@ -7,6 +7,6 @@ import javax.inject.Named;
 
 @Named("formularioEtapa1")
 @SessionScoped
-public class FormularioBean implements Serializable {
+public class Formulario1Bean implements Serializable {
 	
 }
