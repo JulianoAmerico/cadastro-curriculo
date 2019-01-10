@@ -1,7 +1,5 @@
 package br.com.juliano.javaee.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "formacaoAcademica")
 
-public class FormacaoAcademica extends Cursos implements Serializable {
+public class FormacaoAcademica extends Cursos {
 
 	private enum NivelFormacao {
 		ENSINO_MEDIO_COMPLETO,
