@@ -36,7 +36,7 @@ public class ExperienciaProfissional implements Serializable {
 	@Column(nullable = true, length = 10)
 	private Date termino;
 
-	@Column(columnDefinition = "null default false")
+	@Column(nullable=true)
 	private Boolean ateMomento;
 
 	@Column(nullable = false, length = 50)
@@ -127,4 +127,5 @@ public class ExperienciaProfissional implements Serializable {
 		this.candidato = candidato;
 	}
 
+	
 }
