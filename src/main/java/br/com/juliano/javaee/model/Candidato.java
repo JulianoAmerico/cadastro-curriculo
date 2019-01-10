@@ -7,16 +7,13 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "candidato")
 public class Candidato implements Serializable {
 
 	@Id
@@ -51,10 +48,10 @@ public class Candidato implements Serializable {
 	@Column(nullable = false)
 	private Double pretensaoSalarial;
 
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="candidato")
 	private List<ExperienciaProfissional> expProfissional;
 
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="candidato")
 	private List<Idioma> idioma;
 
 	public Candidato() {

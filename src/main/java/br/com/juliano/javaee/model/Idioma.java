@@ -8,10 +8,10 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
-@Table(name = "idioma")
 public class Idioma implements Serializable {
 
 	private enum Idiomas {
@@ -34,6 +34,10 @@ public class Idioma implements Serializable {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "nivel", nullable = true)
 	private Niveis nivel;
+
+	@ManyToOne
+	@JoinColumn(name = "candidato_id")
+	private Candidato candidato;
 
 	public Idioma() {
 	}
@@ -60,6 +64,14 @@ public class Idioma implements Serializable {
 
 	public void setNivel(Niveis nivel) {
 		this.nivel = nivel;
+	}
+
+	public Candidato getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
 	}
 
 }

@@ -4,16 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "formacaoAcademica")
 public class FormacaoAcademica extends Cursos {
 
 	private enum NivelFormacao {
 		ENSINO_MEDIO_COMPLETO,
-		ENSINO_MEDIO_INCOMPLETO, 
-		SUPERIOR_COMPLETO, 
+		ENSINO_MEDIO_INCOMPLETO,
+		SUPERIOR_COMPLETO,
 		SUPERIOR_INCOMPLETO, 
 		POS_GRADUACAO, 
 		MESTRADO,
@@ -22,7 +20,7 @@ public class FormacaoAcademica extends Cursos {
 	}
 
 	@Enumerated(EnumType.STRING)
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private NivelFormacao nivelFormacao;
 
 	public FormacaoAcademica() {

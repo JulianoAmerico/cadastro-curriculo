@@ -7,7 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -16,7 +17,6 @@ import javax.persistence.TemporalType;
  *
  */
 @Entity
-@Table(name = "experienciaProfissional")
 public class ExperienciaProfissional implements Serializable {
 
 	@Id
@@ -45,6 +45,10 @@ public class ExperienciaProfissional implements Serializable {
 
 	@Column(nullable = false, length = 300)
 	private String descricaoExperiencia;
+
+	@ManyToOne
+	@JoinColumn(name = "candidato_id")
+	private Candidato candidato;
 
 	public ExperienciaProfissional() {
 	}
@@ -111,6 +115,14 @@ public class ExperienciaProfissional implements Serializable {
 
 	public void setDescricaoExperiencia(String descricaoExperiencia) {
 		this.descricaoExperiencia = descricaoExperiencia;
+	}
+
+	public Candidato getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
 	}
 
 }
