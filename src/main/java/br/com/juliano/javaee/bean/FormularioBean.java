@@ -26,6 +26,8 @@ import br.com.juliano.javaee.model.Endereco;
 @SessionScoped
 public class FormularioBean implements Serializable {
 
+	//TODO Criar mascáras para campos como datas, cep e telefone.
+	
 	@EJB
 	private CandidatoBean candidatoBean;
 
