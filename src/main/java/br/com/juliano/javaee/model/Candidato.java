@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -18,12 +20,48 @@ import javax.persistence.TemporalType;
 @Table(name = "candidato")
 public class Candidato implements Serializable {
 
+	public enum Sexo {
+		FEMININO("Feminino"), MASCULINO("Masculino");
+
+		private String label;
+
+		Sexo(String label) {
+			this.label = label;
+		}
+
+		public String getLabel() {
+			return label;
+		}
+	}
+
+	public enum EstadoCivil {
+		SOLTEIRO("Solteiro(a)"), 
+		CASADO("Casado(a)"), 
+		VIUVO("Viuvo(a)"), 
+		DIVORCIADO("Divorciado(a)");
+
+		private String label;
+
+		private EstadoCivil(String label) {
+			this.label = label;
+		}
+
+		public String getLabel() {
+			return label;
+		}
+
+	}
+
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
-	@Column(nullable=false, length=50)
+
+	@Column(nullable = false, length = 50)
 	private String nome;
+
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private Sexo sexo;
 
 	@Embedded
 	private Endereco endereco;
@@ -31,8 +69,9 @@ public class Candidato implements Serializable {
 	@Column(nullable = false, length = 30)
 	private String nacionalidade;
 
-	@Column(nullable = false, length = 15)
-	private String estadoCivil;
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private EstadoCivil estadoCivil;
 
 	@Temporal(TemporalType.DATE)
 	@Column(nullable = false, length = 10)
@@ -75,13 +114,21 @@ public class Candidato implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
-	
+
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public Sexo getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(Sexo sexo) {
+		this.sexo = sexo;
 	}
 
 	public Endereco getEndereco() {
@@ -100,11 +147,11 @@ public class Candidato implements Serializable {
 		this.nacionalidade = nacionalidade;
 	}
 
-	public String getEstadoCivil() {
+	public EstadoCivil getEstadoCivil() {
 		return this.estadoCivil;
 	}
 
-	public void setEstadoCivil(String estadoCivil) {
+	public void setEstadoCivil(EstadoCivil estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
 
