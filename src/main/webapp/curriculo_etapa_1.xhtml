@@ -16,141 +16,160 @@
 	<h:outputScript library="js" name="cep.js"/>
 </h:head>
 <h:body>
-	<!-- Configurações -->
-	<h:outputStylesheet library="css" name="estilo.css"/>	
-	
-	<!-- Topo da página -->
-	<header>
-        <h1>Cadastro de currículo</h1>
-	</header>
+<!-- Configurações -->
+<h:outputStylesheet library="css" name="estilo.css"/>	
 
-	<!-- Formulário de cadastro currículo -->
-	<section>
-		<article>
-			<header>
-				<h2>Dados Pessoais</h2>
-                <h3>Etapa 1 de 3</h3>
-			</header>
-			<h:form id="formulario">
-				<h:panelGrid columns="3">
-					<h:outputText value="Nome:"/>
-					<h:inputText id="nome" value="#{formulario.candidato.nome}" required="true" pt:placeholder="José da Silva" maxlength="50" 
-								requiredMessage="Digite o seu nome."
-								validatorMessage="O nome é inválido."
-								converterMessage="Conversão inválida.">
-						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
-					</h:inputText> 
-					<h:message styleClass="error" for="nome"/>
-					
-					<h:outputText value="Sexo: "/>
-					<h:selectOneRadio id="sexo" value="#{formulario.candidato.sexo}" required="true"
-										requiredMessage="Selecione o seu sexo."
-										validatorMessage="Valor inválido"
-										converterMessage="Erro na conversão">
-						<f:selectItems value="#{formulario.sexoValues}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>
-					</h:selectOneRadio>
-					<h:message styleClass="error" for="sexo"/>
-					
-					<h:outputText value="CEP:"/>
-					<h:inputText id="cep" value="#{formulario.candidato.endereco.cep}" required="true" maxlength="9" pt:placeholder="10100-100"
-									requiredMessage="Digite o seu CEP."
-									validatorMessage="CEP é inválido. Exemplo:10100-100."
-									converterMessage="Erro na conversão."
-									pt:onBlur="searchcep(this.value)">
-						<f:validateRegex pattern="^[0-9]{5}-[0-9]{3}$"/>
-					</h:inputText> 
-					<h:message styleClass="error" for="cep"/>
-					
-					<h:outputText value="Endereço:"/>
-					<h:inputText id="endereco" value="#{formulario.candidato.endereco.rua}" required="true" maxlength="50" pt:placeholder="Rua da Santa Rita"
-									requiredMessage="Digite o nome da sua rua"
-									validatorMessage="Rua é inválida"
+<!-- Topo da página -->
+<header>
+       <h1>Cadastro de currículo</h1>
+</header>
+
+<!-- Formulário de cadastro currículo -->
+<section>
+	<article>
+		<header>
+			<h2>Dados Pessoais</h2>
+               <h3>Etapa 1 de 3</h3>
+		</header>
+		<h:form id="formulario">
+			<h:panelGrid columns="3">
+				<h:outputText value="Nome:"/>
+				<h:inputText id="nome" value="#{formulario.candidato.nome}" required="true" pt:placeholder="José da Silva" maxlength="50" 
+							requiredMessage="Digite o seu nome."
+							validatorMessage="O nome é inválido."
+							converterMessage="Conversão inválida.">
+					<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+				</h:inputText> 
+				<h:message styleClass="error" for="nome"/>
+				
+				<h:outputText value="Sexo: "/>
+				<h:selectOneRadio id="sexo" value="#{formulario.candidato.sexo}" required="true"
+									requiredMessage="Selecione o seu sexo."
+									validatorMessage="Valor inválido"
 									converterMessage="Erro na conversão">
-					</h:inputText> 
-					<h:message styleClass="error" for="endereco"/>
-										
-					<h:outputText value="Bairro:"/>
-					<h:inputText id="bairro" value="#{formulario.candidato.endereco.bairro}" required="true" maxlength="50" pt:placeholder="Jardim Florence"
-									requiredMessage="Digite o seu bairro."
-									validatorMessage="Bairro é inválido."
-									converterMessage="Erro na conversão."/>
-					<h:message styleClass="error" for="bairro"/>
-					
-					<h:outputText value="Cidade:"/>
-					<h:inputText id="cidade" value="#{formulario.candidato.endereco.cidade}" required="true" maxlength="50" pt:placeholder="Campinas"
-									requiredMessage="Digite a sua cidade."
-									validatorMessage="Cidade é inválida."
-									converterMessage="Erro na conversão."/>
-					<h:message styleClass="error" for="cidade"/>
-					
-					<h:outputText value="Estado:"/>
-					<h:selectOneMenu id="estado" value="#{formulario.candidato.endereco.estado}" required="true"
-										requiredMessage="Selecione o estado."
-										validatorMessage="Estado inválido."
-										converterMessage="Erro na conversão.">
-						<f:selectItems value="#{formulario.estados}"/>
-					</h:selectOneMenu>
-					<h:message styleClass="error" for="estado"/>
-					
-					<h:outputText value="Nacionalidade:"/>
-					<h:inputText id="nacionalidade" required="true" pt:placeholder="Brasileira"
-									requiredMessage="Digite sua nacionalidade."
-									validatorMessage="Nacionalidade inválida."
+					<f:selectItems value="#{formulario.sexoValues}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>
+				</h:selectOneRadio>
+				<h:message styleClass="error" for="sexo"/>
+				
+				<h:outputText value="CEP:"/>
+				<h:inputText id="cep" value="#{formulario.candidato.endereco.cep}" required="true" maxlength="9" pt:placeholder="10100-100"
+								requiredMessage="Digite o seu CEP."
+								validatorMessage="CEP é inválido. Exemplo:10100-100."
+								converterMessage="Erro na conversão."
+								pt:onBlur="searchcep(this.value)">
+					<f:validateRegex pattern="^[0-9]{5}-[0-9]{3}$"/>
+				</h:inputText> 
+				<h:message styleClass="error" for="cep"/>
+				
+				<h:outputText value="Endereço:"/>
+				<h:inputText id="endereco" value="#{formulario.candidato.endereco.rua}" required="true" maxlength="50" pt:placeholder="Rua da Santa Rita"
+								requiredMessage="Digite o nome da sua rua"
+								validatorMessage="Rua é inválida"
+								converterMessage="Erro na conversão">
+				</h:inputText> 
+				<h:message styleClass="error" for="endereco"/>
+									
+				<h:outputText value="Bairro:"/>
+				<h:inputText id="bairro" value="#{formulario.candidato.endereco.bairro}" required="true" maxlength="50" pt:placeholder="Jardim Florence"
+								requiredMessage="Digite o seu bairro."
+								validatorMessage="Bairro é inválido."
+								converterMessage="Erro na conversão."/>
+				<h:message styleClass="error" for="bairro"/>
+				
+				<h:outputText value="Cidade:"/>
+				<h:inputText id="cidade" value="#{formulario.candidato.endereco.cidade}" required="true" maxlength="50" pt:placeholder="Campinas"
+								requiredMessage="Digite a sua cidade."
+								validatorMessage="Cidade é inválida."
+								converterMessage="Erro na conversão."/>
+				<h:message styleClass="error" for="cidade"/>
+				
+				<h:outputText value="Estado:"/>
+				<h:selectOneMenu id="estado" value="#{formulario.candidato.endereco.estado}" required="true"
+									requiredMessage="Selecione o estado."
+									validatorMessage="Estado inválido."
 									converterMessage="Erro na conversão.">
-						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
-					</h:inputText> 
-					<h:message styleClass="error" for="nacionalidade"/>
-					
-					<h:outputText value="Estado civil:"/>
-					<h:selectOneMenu id="estadoCivil" value="#{formulario.candidato.estadoCivil}" required="true"
-										requiredMessage="Selecione o seu estado civil."
-										validatorMessage="Estado civil inválido."
-										converterMessage="Erro na conversão.">
-						<f:selectItems value="#{formulario.estadoCivilValues}" var="ec" itemLabel="#{ec.label}" itemValue="#{ec}"/>
-					</h:selectOneMenu>
-					<h:message styleClass="error" for="estadoCivil"/>
-					
-					<h:outputText value="Data Nascimento:"/>
-					<h:inputText id="dataNascimento" required="true" pt:placeholder="12/05/1992"
-									requiredMessage="Digite sua data de nascimento."
-									validatorMessage="Data inválida."
-									converterMessage="Data inválida.">
-						<f:convertDateTime pattern="dd/MM/yyyy"/>
-					</h:inputText> 
-					<h:message styleClass="error" for="dataNascimento"/>
-					
-					<h:outputText value="Telefone celular:"/>
-					<h:inputText id="telefoneCelular" required="true">
-						<f:validateRegex pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
-					</h:inputText> 
-					<h:message for="telefoneCelular"/>
-					
-					<h:outputText value="Telefone outros:"/>
-					<h:inputText id="telefoneOutros">
+					<f:selectItems value="#{formulario.estados}"/>
+				</h:selectOneMenu>
+				<h:message styleClass="error" for="estado"/>
+				
+				<h:outputText value="Nacionalidade:"/>
+				<h:inputText id="nacionalidade" required="true" pt:placeholder="Brasileira"
+								requiredMessage="Digite sua nacionalidade."
+								validatorMessage="Nacionalidade inválida."
+								converterMessage="Erro na conversão.">
+					<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+				</h:inputText> 
+				<h:message styleClass="error" for="nacionalidade"/>
+				
+				<h:outputText value="Estado civil:"/>
+				<h:selectOneMenu id="estadoCivil" value="#{formulario.candidato.estadoCivil}" required="true"
+									requiredMessage="Selecione o seu estado civil."
+									validatorMessage="Estado civil inválido."
+									converterMessage="Erro na conversão.">
+					<f:selectItems value="#{formulario.estadoCivilValues}" var="ec" itemLabel="#{ec.label}" itemValue="#{ec}"/>
+				</h:selectOneMenu>
+				<h:message styleClass="error" for="estadoCivil"/>
+				
+				<h:outputText value="Data Nascimento:"/>
+				<h:inputText id="dataNascimento" required="true" pt:placeholder="12/05/1992"
+								requiredMessage="Digite sua data de nascimento."
+								converterMessage="Data inválida.">
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+					<f:validator validatorId="dateBirthValidator"/>
+				</h:inputText> 
+				<h:message styleClass="error" for="dataNascimento"/>
+				
+				<h:outputText value="Telefone celular:"/>
+				<h:inputText id="telefoneCelular" required="true" pt:placeholder="(19)1235-1234"
+								requiredMessage="Digite o seu telefone com DDD."
+								validatorMessage="Número de telefone inválido"
+								converterMessage="Erro na conversão">
 					<f:validateRegex pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
-					</h:inputText> 
-					<h:message for="telefoneOutros"/>
-					
-					<h:outputText value="E-mail"/>
-					<h:inputText id="email" pt:type="email" required="true"/> 
-					<h:message for="email"/>
-					
-					<h:outputText value="LinkedIn"/>
-					<h:inputText id="linkedin"/>
-					<h:message for="linkedin"/>
-					
-					<h:outputText value="Objetivo Profissional:"/>
-					<h:inputText id="objetivoProfissional" />
-					<h:message for="objetivoProfissional"/>
-					
-					<h:outputText value="Pretensão Salarial:"/>
-					<h:inputText id="pretensaoSalarial" />
-					<h:message for="pretensaoSalarial"/>
-					
-					<h:commandButton value="Etapa 2 ->" action="result"/>
-				</h:panelGrid>		
-			</h:form>
-		</article>
-	</section>
+				</h:inputText> 
+				<h:message styleClass="error" for="telefoneCelular"/>
+				
+				<h:outputText value="Telefone outros:"/>
+				<h:inputText id="telefoneOutros" required="true" pt:placeholder="(19)1235-1234"
+								requiredMessage="Digite o seu telefone com DDD."
+								validatorMessage="Número de telefone inválido"
+								converterMessage="Erro na conversão">
+					<f:validateRegex pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
+				</h:inputText> 
+				<h:message styleClass="error" for="telefoneOutros"/>
+				
+				<h:outputText value="E-mail"/>
+				<h:inputText id="email" pt:type="email" required="true" pt:placeholder="jose@email.com"
+								requiredMessage="Digite o seu e-mail."
+								validatorMessage="E-mail inválido."
+								converterMessage="Erro na conversão."/> 
+				<h:message for="email"/>
+				
+				<h:outputText value="LinkedIn" />
+				<h:inputText id="linkedin" pt:placeholder="www.linkedIn.com"/>
+				<h:message for="linkedin"/>
+				
+				<h:outputText value="Objetivo Profissional:"/>
+				<h:inputText id="objetivoProfissional" required="true"
+								requiredMessage="Digite o seu objetivo profissional."
+								validatorMessage="Objetivo inválido."
+								converterMessage="Erro na conversão.">
+					<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+				</h:inputText>
+				<h:message for="objetivoProfissional"/>
+				
+				<h:outputText value="Pretensão Salarial:"/>
+				<h:inputText id="pretensaoSalarial" required="true" pt:placeholder="2000"
+								requiredMessage="Digite sua pretensão salarial."
+								validatorMessage="Valor inválido."
+								converterMessage="Erro na conversão.">
+					<f:validateDoubleRange maximum="20000"/>
+				</h:inputText>
+				<h:message for="pretensaoSalarial"/>
+				
+				<h:commandButton value="Etapa 2 ->" action="curriculo_etapa_2"/>
+			</h:panelGrid>		
+		</h:form>
+	</article>
+</section>
 </h:body>
 </html>
