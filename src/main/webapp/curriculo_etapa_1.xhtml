@@ -13,8 +13,12 @@
 	<meta name="description" content="Cadastro de Currículo Etapa - 1"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<title>Cadastro de Currículo Etapa - 1</title>
+	<h:outputScript library="js" name="cep.js"/>
 </h:head>
 <h:body>
+	<!-- Configurações -->
+	<h:outputStylesheet library="css" name="estilo.css"/>	
+	
 	<!-- Topo da página -->
 	<header>
         <h1>Cadastro de currículo</h1>
@@ -27,52 +31,93 @@
 				<h2>Dados Pessoais</h2>
                 <h3>Etapa 1 de 3</h3>
 			</header>
-			<h:form id="formularioEtapa1">
+			<h:form id="formulario">
 				<h:panelGrid columns="3">
 					<h:outputText value="Nome:"/>
-					<h:inputText id="nome" required="true"/> 
-					<h:message for="nome"/>
+					<h:inputText id="nome" value="#{formulario.candidato.nome}" required="true" pt:placeholder="José da Silva" maxlength="50" 
+								requiredMessage="Digite o seu nome."
+								validatorMessage="O nome é inválido."
+								converterMessage="Conversão inválida.">
+						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+					</h:inputText> 
+					<h:message styleClass="error" for="nome"/>
 					
 					<h:outputText value="Sexo: "/>
-					<h:selectOneRadio id="sexo">
-						<f:selectItem itemValue="1" itemLabel="Feminino" />
-						<f:selectItem itemValue="2" itemLabel="Masculino" />
+					<h:selectOneRadio id="sexo" value="#{formulario.candidato.sexo}" required="true"
+										requiredMessage="Selecione o seu sexo."
+										validatorMessage="Valor inválido"
+										converterMessage="Erro na conversão">
+						<f:selectItems value="#{formulario.sexoValues}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>
 					</h:selectOneRadio>
-					<h:message for="sexo"/>
-					
-					<h:outputText value="Endereço:"/>
-					<h:inputText id="endereco" required="true"/> 
-					<h:message for="endereco"/>
+					<h:message styleClass="error" for="sexo"/>
 					
 					<h:outputText value="CEP:"/>
-					<h:inputText id="cep" required="true"/> 
-					<h:message for="cep"/>
+					<h:inputText id="cep" value="#{formulario.candidato.endereco.cep}" required="true" maxlength="9" pt:placeholder="10100-100"
+									requiredMessage="Digite o seu CEP."
+									validatorMessage="CEP é inválido. Exemplo:10100-100."
+									converterMessage="Erro na conversão."
+									pt:onBlur="searchcep(this.value)">
+						<f:validateRegex pattern="^[0-9]{5}-[0-9]{3}$"/>
+					</h:inputText> 
+					<h:message styleClass="error" for="cep"/>
 					
+					<h:outputText value="Endereço:"/>
+					<h:inputText id="endereco" value="#{formulario.candidato.endereco.rua}" required="true" maxlength="50" pt:placeholder="Rua da Santa Rita"
+									requiredMessage="Digite o nome da sua rua"
+									validatorMessage="Rua é inválida"
+									converterMessage="Erro na conversão">
+					</h:inputText> 
+					<h:message styleClass="error" for="endereco"/>
+										
 					<h:outputText value="Bairro:"/>
-					<h:inputText id="bairro" required="true"/> 
-					<h:message for="bairro"/>
+					<h:inputText id="bairro" value="#{formulario.candidato.endereco.bairro}" required="true" maxlength="50" pt:placeholder="Jardim Florence"
+									requiredMessage="Digite o seu bairro."
+									validatorMessage="Bairro é inválido."
+									converterMessage="Erro na conversão."/>
+					<h:message styleClass="error" for="bairro"/>
 					
 					<h:outputText value="Cidade:"/>
-					<h:inputText id="cidade" required="true"/> 
-					<h:message for="cidade"/>
+					<h:inputText id="cidade" value="#{formulario.candidato.endereco.cidade}" required="true" maxlength="50" pt:placeholder="Campinas"
+									requiredMessage="Digite a sua cidade."
+									validatorMessage="Cidade é inválida."
+									converterMessage="Erro na conversão."/>
+					<h:message styleClass="error" for="cidade"/>
 					
 					<h:outputText value="Estado:"/>
-					<h:inputText id="estado" required="true"/> 
-					<h:message for="estado"/>
+					<h:selectOneMenu id="estado" value="#{formulario.candidato.endereco.estado}" required="true"
+										requiredMessage="Selecione o estado."
+										validatorMessage="Estado inválido."
+										converterMessage="Erro na conversão.">
+						<f:selectItems value="#{formulario.estados}"/>
+					</h:selectOneMenu>
+					<h:message styleClass="error" for="estado"/>
 					
 					<h:outputText value="Nacionalidade:"/>
-					<h:inputText id="nacionalidade" required="true"/> 
-					<h:message for="nacionalidade"/>
+					<h:inputText id="nacionalidade" required="true" pt:placeholder="Brasileira"
+									requiredMessage="Digite sua nacionalidade."
+									validatorMessage="Nacionalidade inválida."
+									converterMessage="Erro na conversão.">
+						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+					</h:inputText> 
+					<h:message styleClass="error" for="nacionalidade"/>
 					
 					<h:outputText value="Estado civil:"/>
-					<h:inputText id="estadoCivil" required="true"/> 
-					<h:message for="estadoCivil"/>
+					<h:selectOneMenu id="estadoCivil" value="#{formulario.candidato.estadoCivil}" required="true"
+										requiredMessage="Selecione o seu estado civil."
+										validatorMessage="Estado civil inválido."
+										converterMessage="Erro na conversão.">
+						<f:selectItems value="#{formulario.estadoCivilValues}" var="ec" itemLabel="#{ec.label}" itemValue="#{ec}"/>
+					</h:selectOneMenu>
+					<h:message styleClass="error" for="estadoCivil"/>
 					
 					<h:outputText value="Data Nascimento:"/>
-					<h:inputText id="dataNascimento" required="true">
-						<f:convertDateTime pattern="dd/MM/yyyy" type="LocalDate"/>
+					<h:inputText id="dataNascimento" required="true" pt:placeholder="12/05/1992"
+									requiredMessage="Digite sua data de nascimento."
+									validatorMessage="Data inválida."
+									converterMessage="Data inválida.">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:inputText> 
-					<h:message for="dataNascimento"/>
+					<h:message styleClass="error" for="dataNascimento"/>
 					
 					<h:outputText value="Telefone celular:"/>
 					<h:inputText id="telefoneCelular" required="true">
