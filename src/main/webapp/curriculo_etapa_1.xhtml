@@ -39,14 +39,12 @@
 							validatorMessage="O nome é inválido."
 							converterMessage="Conversão inválida.">
 					<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+					<f:ajax event="keyup" execute="@this" render="formulario:errorNome"/>
 				</h:inputText> 
-				<h:message styleClass="error" for="nome"/>
+				<h:message id="errorNome" styleClass="error" for="nome"/>
 				
 				<h:outputText value="Sexo: "/>
-				<h:selectOneRadio id="sexo" value="#{formulario.candidato.sexo}" required="true"
-									requiredMessage="Selecione o seu sexo."
-									validatorMessage="Valor inválido"
-									converterMessage="Erro na conversão">
+				<h:selectOneRadio id="sexo" value="#{formulario.candidato.sexo}">
 					<f:selectItems value="#{formulario.sexoValues}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>
 				</h:selectOneRadio>
 				<h:message styleClass="error" for="sexo"/>
@@ -129,7 +127,7 @@
 				<h:message styleClass="error" for="telefoneCelular"/>
 				
 				<h:outputText value="Telefone outros:"/>
-				<h:inputText id="telefoneOutros" required="true" pt:placeholder="(19)1235-1234"
+				<h:inputText id="telefoneOutros" pt:placeholder="(19)1235-1234"
 								requiredMessage="Digite o seu telefone com DDD."
 								validatorMessage="Número de telefone inválido"
 								converterMessage="Erro na conversão">
@@ -142,11 +140,11 @@
 								requiredMessage="Digite o seu e-mail."
 								validatorMessage="E-mail inválido."
 								converterMessage="Erro na conversão."/> 
-				<h:message for="email"/>
+				<h:message styleClass="error" for="email"/>
 				
 				<h:outputText value="LinkedIn" />
 				<h:inputText id="linkedin" pt:placeholder="www.linkedIn.com"/>
-				<h:message for="linkedin"/>
+				<h:message styleClass="error" for="linkedin"/>
 				
 				<h:outputText value="Objetivo Profissional:"/>
 				<h:inputText id="objetivoProfissional" required="true"
@@ -155,7 +153,7 @@
 								converterMessage="Erro na conversão.">
 					<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
 				</h:inputText>
-				<h:message for="objetivoProfissional"/>
+				<h:message styleClass="error" for="objetivoProfissional"/>
 				
 				<h:outputText value="Pretensão Salarial:"/>
 				<h:inputText id="pretensaoSalarial" required="true" pt:placeholder="2000"
@@ -164,7 +162,7 @@
 								converterMessage="Erro na conversão.">
 					<f:validateDoubleRange maximum="20000"/>
 				</h:inputText>
-				<h:message for="pretensaoSalarial"/>
+				<h:message styleClass="error" for="pretensaoSalarial"/>
 				
 				<h:commandButton value="Etapa 2 ->" action="curriculo_etapa_2"/>
 			</h:panelGrid>		
