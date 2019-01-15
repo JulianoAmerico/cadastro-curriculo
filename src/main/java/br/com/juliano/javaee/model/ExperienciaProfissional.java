@@ -52,6 +52,8 @@ public class ExperienciaProfissional implements Serializable {
 	@JoinColumn(name = "candidato_id")
 	private Candidato candidato;
 
+	private boolean edicao;
+	
 	public ExperienciaProfissional() {
 	}
 
@@ -126,6 +128,13 @@ public class ExperienciaProfissional implements Serializable {
 	public void setCandidato(Candidato candidato) {
 		this.candidato = candidato;
 	}
-
+	
+	public boolean isEdicao() {
+		return edicao;
+	}
+	
+	public void setEdicao(boolean edicao) {
+		this.edicao = edicao;
+	}
 	
 }
