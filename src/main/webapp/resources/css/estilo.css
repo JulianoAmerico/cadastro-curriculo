@@ -21,7 +21,7 @@
 	background: #008B45;
 }
 
-.colNumero{
+.colEmpresa{
 	text-align: center;
 	font: 13px Arial, sans-serif;
 	background: #BCEE68;
@@ -29,7 +29,7 @@
 	width: 30px;
 }
 
-.colData{
+.colInicio{
 	text-align: center;
 	font: 13px Arial, sans-serif;
 	background: #A2CD5A;
@@ -37,7 +37,7 @@
 	width: 100px;
 }
 
-.colDesc{
+.colTermino{
 	font: 13px Arial, sans-serif;
 	text-align: left;
 	background: #BCEE68;
@@ -45,7 +45,23 @@
 	width: 200px;
 }
 
-.colValor{
+.colCargo{
+	text-align: right;
+	font: 13px Arial, sans-serif;
+	background: #A2CD5A;
+	padding: 3px;
+	width: 100px;	
+}
+
+.colArea{
+	font: 13px Arial, sans-serif;
+	text-align: left;
+	background: #BCEE68;
+	padding: 3px;
+	width: 200px;
+}
+
+.colDesc{
 	text-align: right;
 	font: 13px Arial, sans-serif;
 	background: #A2CD5A;

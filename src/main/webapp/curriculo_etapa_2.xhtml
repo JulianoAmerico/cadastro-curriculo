@@ -31,7 +31,7 @@
 		</header>
 		<h:form id="formulario">
 			<h:messages/>
-			<h:dataTable value="#{formulario.candidato.expProfissional}" var="exp">
+			<h:dataTable value="#{formulario.candidato.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp">
 				<h:column>
 					<f:facet name="header">
 						Empresa
