@@ -14,6 +14,91 @@
 	<title>Cadastro de Currículo Etapa - 2</title>
 </h:head>
 <h:body>
-	
+<!-- Recursos -->
+<h:outputStylesheet library="css" name="estilo.css"/>
+
+<!-- Topo da página -->
+<header>
+	<h1>Cadastro de Currículo</h1>
+</header>
+
+<!-- Formulário de cadastro de currículo - Experiência Profissional -->
+<section>
+	<article>
+		<header>
+			<h2>Experiência Profissional</h2>
+			<h3>Etapa 2 de 3</h3>
+		</header>
+		<h:form id="formulario">
+			<h:dataTable value="#{formulario.candidato.expProfissional}" var="exp">
+				<h:column>
+					<f:facet name="header">
+						Empresa
+					</f:facet>
+					<h:outputText value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
+					<h:inputText value="#{exp.empresa}" rendered="#{exp.edicao}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Inicio
+					</f:facet>
+					<h:outputText value="#{exp.inicio}" rendered="#{!exp.edicao}"/>
+					<h:inputText value="#{exp.inicio}" rendered="#{exp.edicao}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Término
+					</f:facet>
+					<h:panelGroup rendered="#{!exp.edicao}">
+						<h:outputText value="#{exp.termino}" rendered="#{!exp.ateMomento}"/>
+						<h:outputText value="#{exp.ateMomento}" rendered="#{exp.ateMomento}"/>
+					</h:panelGroup>
+					<h:panelGroup rendered="#{exp.edicao}">
+						<h:inputText value="#{exp.termino}" />
+						<h:selectBooleanCheckbox value="#{exp.ateMomento}">
+							<f:selectItem itemLabel="Até o momento" itemValue="true"/>
+						</h:selectBooleanCheckbox>
+					</h:panelGroup>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Cargo
+					</f:facet>
+					<h:outputText value="#{exp.cargo}" rendered="#{!exp.edicao}"/>
+					<h:inputText value="#{exp.cargo}" rendered="#{exp.edicao}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Área
+					</f:facet>
+					<h:outputText value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
+					<h:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}"/>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						Descrição de trabalho
+					</f:facet>
+					<h:outputText value="#{exp.descricaoExperiencia}" rendered="#{!exp.edicao}"/>
+					<h:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}"/>
+				</h:column>
+				
+				<h:column>
+					<h:commandButton value="Salvar" action="#{formulario.salvar(exp)}" rendered="#{exp.edicao}"/>
+					<h:panelGroup rendered="#{!exp.edicao}">
+						<h:commandButton value="Editar" action="#{formulario.editar(exp)}"/> |
+						<h:commandButton value="Excluir" action="#{formulario.excluir(exp)}"/>
+					</h:panelGroup>
+				</h:column>
+			</h:dataTable>
+			
+			<h:commandButton value="Inserir" action="#{formulario.inserirNovaExpProfissional}"/>
+		</h:form>
+	</article>
+</section>
 </h:body>
 </html>

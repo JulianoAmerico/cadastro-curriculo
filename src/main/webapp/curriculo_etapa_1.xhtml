@@ -13,10 +13,9 @@
 	<meta name="description" content="Cadastro de Currículo Etapa - 1"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<title>Cadastro de Currículo Etapa - 1</title>
-	<h:outputScript library="js" name="cep.js"/>
 </h:head>
 <h:body>
-<!-- Configurações -->
+<!-- Recursos -->
 <h:outputStylesheet library="css" name="estilo.css"/>	
 
 <!-- Topo da página -->
@@ -24,7 +23,7 @@
        <h1>Cadastro de currículo</h1>
 </header>
 
-<!-- Formulário de cadastro currículo -->
+<!-- Formulário de cadastro currículo - Dados pessoais -->
 <section>
 	<article>
 		<header>
@@ -32,8 +31,9 @@
                <h3>Etapa 1 de 3</h3>
 		</header>
 		<h:form id="formulario">
-			<h:panelGrid columns="3">
+			<h:panelGrid columns="4">
 				<h:outputText value="Nome:"/>
+				<span class="required">*</span>
 				<h:inputText id="nome" value="#{formulario.candidato.nome}" required="true" pt:placeholder="José da Silva" maxlength="50" 
 							requiredMessage="Digite o seu nome."
 							validatorMessage="O nome é inválido."
@@ -44,15 +44,17 @@
 				<h:message id="errorNome" styleClass="error" for="nome"/>
 				
 				<h:outputText value="Sexo: "/>
+				<span class="required">*</span>
 				<h:selectOneRadio id="sexo" value="#{formulario.candidato.sexo}">
 					<f:selectItems value="#{formulario.sexoValues}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>
 				</h:selectOneRadio>
 				<h:message styleClass="error" for="sexo"/>
 				
 				<h:outputText value="CEP:"/>
-				<h:inputText id="cep" value="#{formulario.candidato.endereco.cep}" required="true" maxlength="9" pt:placeholder="10100-100"
+				<span class="required">*</span>
+				<h:inputText id="cep" value="#{formulario.candidato.endereco.cep}" required="true" maxlength="8" pt:placeholder="10100100"
 								requiredMessage="Digite o seu CEP."
-								validatorMessage="CEP é inválido. Exemplo:10100-100."
+								validatorMessage="CEP é inválido. Exemplo:10100100."
 								converterMessage="Erro na conversão."
 								pt:onBlur="searchcep(this.value)">
 					<f:validateRegex pattern="^[0-9]{5}-[0-9]{3}$"/>
@@ -60,6 +62,7 @@
 				<h:message styleClass="error" for="cep"/>
 				
 				<h:outputText value="Endereço:"/>
+				<span class="required">*</span>
 				<h:inputText id="endereco" value="#{formulario.candidato.endereco.rua}" required="true" maxlength="50" pt:placeholder="Rua da Santa Rita"
 								requiredMessage="Digite o nome da sua rua"
 								validatorMessage="Rua é inválida"
@@ -68,6 +71,7 @@
 				<h:message styleClass="error" for="endereco"/>
 									
 				<h:outputText value="Bairro:"/>
+				<span class="required">*</span>
 				<h:inputText id="bairro" value="#{formulario.candidato.endereco.bairro}" required="true" maxlength="50" pt:placeholder="Jardim Florence"
 								requiredMessage="Digite o seu bairro."
 								validatorMessage="Bairro é inválido."
@@ -75,6 +79,7 @@
 				<h:message styleClass="error" for="bairro"/>
 				
 				<h:outputText value="Cidade:"/>
+				<span class="required">*</span>
 				<h:inputText id="cidade" value="#{formulario.candidato.endereco.cidade}" required="true" maxlength="50" pt:placeholder="Campinas"
 								requiredMessage="Digite a sua cidade."
 								validatorMessage="Cidade é inválida."
@@ -82,6 +87,7 @@
 				<h:message styleClass="error" for="cidade"/>
 				
 				<h:outputText value="Estado:"/>
+				<span class="required">*</span>
 				<h:selectOneMenu id="estado" value="#{formulario.candidato.endereco.estado}" required="true"
 									requiredMessage="Selecione o estado."
 									validatorMessage="Estado inválido."
@@ -91,6 +97,7 @@
 				<h:message styleClass="error" for="estado"/>
 				
 				<h:outputText value="Nacionalidade:"/>
+				<span class="required">*</span>
 				<h:inputText id="nacionalidade" required="true" pt:placeholder="Brasileira"
 								requiredMessage="Digite sua nacionalidade."
 								validatorMessage="Nacionalidade inválida."
@@ -100,6 +107,7 @@
 				<h:message styleClass="error" for="nacionalidade"/>
 				
 				<h:outputText value="Estado civil:"/>
+				<span class="required">*</span>
 				<h:selectOneMenu id="estadoCivil" value="#{formulario.candidato.estadoCivil}" required="true"
 									requiredMessage="Selecione o seu estado civil."
 									validatorMessage="Estado civil inválido."
@@ -109,6 +117,7 @@
 				<h:message styleClass="error" for="estadoCivil"/>
 				
 				<h:outputText value="Data Nascimento:"/>
+				<span class="required">*</span>
 				<h:inputText id="dataNascimento" required="true" pt:placeholder="12/05/1992"
 								requiredMessage="Digite sua data de nascimento."
 								converterMessage="Data inválida.">
@@ -118,6 +127,7 @@
 				<h:message styleClass="error" for="dataNascimento"/>
 				
 				<h:outputText value="Telefone celular:"/>
+				<span class="required">*</span>
 				<h:inputText id="telefoneCelular" required="true" pt:placeholder="(19)1235-1234"
 								requiredMessage="Digite o seu telefone com DDD."
 								validatorMessage="Número de telefone inválido"
@@ -127,6 +137,7 @@
 				<h:message styleClass="error" for="telefoneCelular"/>
 				
 				<h:outputText value="Telefone outros:"/>
+				<span class="required">*</span>
 				<h:inputText id="telefoneOutros" pt:placeholder="(19)1235-1234"
 								requiredMessage="Digite o seu telefone com DDD."
 								validatorMessage="Número de telefone inválido"
@@ -136,6 +147,7 @@
 				<h:message styleClass="error" for="telefoneOutros"/>
 				
 				<h:outputText value="E-mail"/>
+				<span class="required">*</span>
 				<h:inputText id="email" pt:type="email" required="true" pt:placeholder="jose@email.com"
 								requiredMessage="Digite o seu e-mail."
 								validatorMessage="E-mail inválido."
@@ -143,10 +155,12 @@
 				<h:message styleClass="error" for="email"/>
 				
 				<h:outputText value="LinkedIn" />
+				<span class="required"></span>
 				<h:inputText id="linkedin" pt:placeholder="www.linkedIn.com"/>
 				<h:message styleClass="error" for="linkedin"/>
 				
 				<h:outputText value="Objetivo Profissional:"/>
+				<span class="required">*</span>
 				<h:inputText id="objetivoProfissional" required="true"
 								requiredMessage="Digite o seu objetivo profissional."
 								validatorMessage="Objetivo inválido."
@@ -156,6 +170,7 @@
 				<h:message styleClass="error" for="objetivoProfissional"/>
 				
 				<h:outputText value="Pretensão Salarial:"/>
+				<span class="required">*</span>
 				<h:inputText id="pretensaoSalarial" required="true" pt:placeholder="2000"
 								requiredMessage="Digite sua pretensão salarial."
 								validatorMessage="Valor inválido."
