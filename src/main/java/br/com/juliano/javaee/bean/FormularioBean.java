@@ -15,6 +15,7 @@ import br.com.juliano.javaee.model.Candidato;
 import br.com.juliano.javaee.model.Candidato.EstadoCivil;
 import br.com.juliano.javaee.model.Candidato.Sexo;
 import br.com.juliano.javaee.model.Endereco;
+import br.com.juliano.javaee.model.ExperienciaProfissional;
 
 /**
  * JSF Bean que interagi com as páginas jsf de cadastro de currículo.
@@ -26,15 +27,13 @@ import br.com.juliano.javaee.model.Endereco;
 @SessionScoped
 public class FormularioBean implements Serializable {
 
-	//TODO Criar mascáras para campos como datas, cep e telefone.
-	
 	@EJB
 	private CandidatoBean candidatoBean;
 
 	private Candidato candidato = new Candidato();
 
 	private Sexo[] sexoValues = Candidato.Sexo.values();
-	
+
 	private EstadoCivil[] estadoCivilValues = Candidato.EstadoCivil.values();
 
 	private Collection<String> estados;
@@ -60,6 +59,28 @@ public class FormularioBean implements Serializable {
 		candidatoBean.gravar(candidato);
 		return null;
 	}
+	
+	public String inserirNovaExpProfissional() {
+		ExperienciaProfissional exp = new  ExperienciaProfissional();
+		exp.setEdicao(true);
+		candidato.getExpProfissional().add(exp);
+		return null;
+	}
+	
+	public String salvar(ExperienciaProfissional exp) {
+		exp.setEdicao(false);
+		return null;
+	}
+	
+	public String editar(ExperienciaProfissional exp) {
+		exp.setEdicao(false);
+		return null;
+	}
+	
+	public String excluir(ExperienciaProfissional exp) {
+		candidato.getExpProfissional().remove(exp);
+		return null;
+	}
 
 	public CandidatoBean getCandidatoBean() {
 		return candidatoBean;
@@ -80,7 +101,7 @@ public class FormularioBean implements Serializable {
 	public Sexo[] getSexoValues() {
 		return sexoValues;
 	}
-	
+
 	public EstadoCivil[] getEstadoCivilValues() {
 		return estadoCivilValues;
 	}
@@ -88,5 +109,4 @@ public class FormularioBean implements Serializable {
 	public Collection<String> getEstados() {
 		return estados;
 	}
-
 }
