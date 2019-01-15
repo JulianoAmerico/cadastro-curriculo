@@ -26,7 +26,7 @@
 	font: 13px Arial, sans-serif;
 	background: #BCEE68;
 	padding: 3px;
-	width: 30px;
+	width: 200px;
 }
 
 .colInicio{
@@ -39,34 +39,34 @@
 
 .colTermino{
 	font: 13px Arial, sans-serif;
-	text-align: left;
+	text-align: center;
 	background: #BCEE68;
 	padding: 3px;
-	width: 200px;
+	width: 100px;
 }
 
 .colCargo{
-	text-align: right;
+	text-align: center;
 	font: 13px Arial, sans-serif;
 	background: #A2CD5A;
 	padding: 3px;
-	width: 100px;	
+	width: 200px;	
 }
 
 .colArea{
 	font: 13px Arial, sans-serif;
-	text-align: left;
+	text-align: center;
 	background: #BCEE68;
 	padding: 3px;
 	width: 200px;
 }
 
 .colDesc{
-	text-align: right;
+	text-align: justify;
 	font: 13px Arial, sans-serif;
 	background: #A2CD5A;
 	padding: 3px;
-	width: 100px;	
+	width: 200px;	
 }
 
 .colOp{
