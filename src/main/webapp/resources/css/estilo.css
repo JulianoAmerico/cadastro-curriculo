@@ -94,3 +94,11 @@
 	font-weight: bold;
 	color: red;
 }
+
+.button{
+	border: 0px;
+	border-radius: 2px;
+	color: white;
+	background-color: #464646;
+	padding: 4px;
+}
