@@ -31,7 +31,12 @@
 		</header>
 		<h:form id="formulario">
 			<h:messages/>
-			<h:dataTable value="#{formulario.candidato.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp">
+			
+			<h:commandButton value="Inserir" action="#{formulario.inserirNovaExpProfissional}" styleClass="button"/>
+			<br/>
+			<br/>			
+			<h:dataTable value="#{formulario.candidato.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp"
+				rendered="#{formulario.candidato.expProfissional.size() > 0}">
 				<h:column>
 					<f:facet name="header">
 						Empresa
@@ -99,13 +104,13 @@
 				<h:column>
 					<h:commandButton value="Salvar" action="#{formulario.salvar(exp)}" rendered="#{exp.edicao}"/>
 					<h:panelGroup rendered="#{!exp.edicao}">
-						<h:commandButton value="Editar" action="#{formulario.editar(exp)}"/> |
-						<h:commandButton value="Excluir" action="#{formulario.excluir(exp)}"/>
+						<h:commandButton value="Editar" action="#{formulario.editar(exp)}" styleClass="button"/> |
+						<h:commandButton value="Excluir" action="#{formulario.excluir(exp)}" styleClass="button"/>
 					</h:panelGroup>
 				</h:column>
 			</h:dataTable>
+			<br/>
 			
-			<h:commandButton value="Inserir" action="#{formulario.inserirNovaExpProfissional}"/>
 		</h:form>
 	</article>
 </section>
