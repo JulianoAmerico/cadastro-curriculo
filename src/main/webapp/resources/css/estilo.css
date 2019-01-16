@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 .error{
 	color: white;
 	background-color: #db2f2f;
@@ -21,12 +25,28 @@
 	background: black;
 }
 
+.inputText{
+	width: 180px;
+}
+
+.inputDate{
+	width: 80px;
+}
+
+.inputTextArea{
+	width: 180px;
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+}
+
 .colEmpresa{
 	text-align: center;
 	font: 13px Arial, sans-serif;
 	background: #a0a0a0;
 	padding: 3px;
 	width: 200px;
+	height: 50px;
 }
 
 .colInicio{
@@ -62,7 +82,7 @@
 }
 
 .colDesc{
-	text-align: justify;
+	text-align: center;
 	font: 13px Arial, sans-serif;
 	background: #c4c4c4;
 	padding: 3px;
