@@ -65,15 +65,13 @@
 						<h:outputText value="#{exp.termino}" rendered="#{!exp.ateMomento}">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
 						</h:outputText>
-						<h:outputText value="#{exp.ateMomento}" rendered="#{exp.ateMomento}"/>
+						<h:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
 					</h:panelGroup>
 					<h:panelGroup rendered="#{exp.edicao}">
 						<h:inputText value="#{exp.termino}">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
 						</h:inputText>
-						<h:selectBooleanCheckbox value="#{exp.ateMomento}">
-							<f:selectItem itemLabel="Até o momento" itemValue="true"/>
-						</h:selectBooleanCheckbox>
+						<h:selectBooleanCheckbox value="#{exp.ateMomento}"/> Até o momento						
 					</h:panelGroup>
 				</h:column>
 				
@@ -102,7 +100,7 @@
 				</h:column>
 				
 				<h:column>
-					<h:commandButton value="Salvar" action="#{formulario.salvar(exp)}" rendered="#{exp.edicao}"/>
+					<h:commandButton value="Salvar" action="#{formulario.salvar(exp)}" rendered="#{exp.edicao}" styleClass="button"/>
 					<h:panelGroup rendered="#{!exp.edicao}">
 						<h:commandButton value="Editar" action="#{formulario.editar(exp)}" styleClass="button"/> |
 						<h:commandButton value="Excluir" action="#{formulario.excluir(exp)}" styleClass="button"/>
