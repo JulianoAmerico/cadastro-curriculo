@@ -10,7 +10,7 @@
 }
 
 .tabela{
-	border: 1px solid green;
+	border: 1px solid black;
 }
 
 .cabecalho{
@@ -18,13 +18,13 @@
 	font: 13px Arial, sans-serif;
 	font-weight: bold;
 	color: Snow;
-	background: #008B45;
+	background: black;
 }
 
 .colEmpresa{
 	text-align: center;
 	font: 13px Arial, sans-serif;
-	background: #BCEE68;
+	background: #a0a0a0;
 	padding: 3px;
 	width: 200px;
 }
@@ -32,7 +32,7 @@
 .colInicio{
 	text-align: center;
 	font: 13px Arial, sans-serif;
-	background: #A2CD5A;
+	background: #c4c4c4;
 	padding: 3px;
 	width: 100px;
 }
@@ -40,7 +40,7 @@
 .colTermino{
 	font: 13px Arial, sans-serif;
 	text-align: center;
-	background: #BCEE68;
+	background: #a0a0a0;
 	padding: 3px;
 	width: 100px;
 }
@@ -48,7 +48,7 @@
 .colCargo{
 	text-align: center;
 	font: 13px Arial, sans-serif;
-	background: #A2CD5A;
+	background: #c4c4c4;
 	padding: 3px;
 	width: 200px;	
 }
@@ -56,7 +56,7 @@
 .colArea{
 	font: 13px Arial, sans-serif;
 	text-align: center;
-	background: #BCEE68;
+	background: #a0a0a0;
 	padding: 3px;
 	width: 200px;
 }
@@ -64,7 +64,7 @@
 .colDesc{
 	text-align: justify;
 	font: 13px Arial, sans-serif;
-	background: #A2CD5A;
+	background: #c4c4c4;
 	padding: 3px;
 	width: 200px;	
 }
@@ -72,7 +72,7 @@
 .colOp{
 	font: 13px Arial, sans-serif;
 	text-align: center;
-	background: #BCEE68;
+	background: #a0a0a0;
 	padding: 3px;
 	width: 120px;
 }
@@ -100,5 +100,5 @@
 	border-radius: 2px;
 	color: white;
 	background-color: #464646;
-	padding: 4px;
+	padding: 4px 6px;
 }
