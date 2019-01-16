@@ -42,7 +42,7 @@
 						Empresa
 					</f:facet>
 					<h:outputText value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
-					<h:inputText value="#{exp.empresa}" rendered="#{exp.edicao}"/>
+					<h:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText"/>
 				</h:column>
 				
 				<h:column>
@@ -52,7 +52,7 @@
 					<h:outputText value="#{exp.inicio}" rendered="#{!exp.edicao}">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:outputText>
-					<h:inputText value="#{exp.inicio}" rendered="#{exp.edicao}">
+					<h:inputText value="#{exp.inicio}" rendered="#{exp.edicao}" styleClass="inputDate">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:inputText>
 				</h:column>
@@ -68,7 +68,7 @@
 						<h:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
 					</h:panelGroup>
 					<h:panelGroup rendered="#{exp.edicao}">
-						<h:inputText value="#{exp.termino}">
+						<h:inputText value="#{exp.termino}" styleClass="inputDate">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
 						</h:inputText>
 						<h:selectBooleanCheckbox value="#{exp.ateMomento}"/> Até o momento						
@@ -80,7 +80,7 @@
 						Cargo
 					</f:facet>
 					<h:outputText value="#{exp.cargo}" rendered="#{!exp.edicao}"/>
-					<h:inputText value="#{exp.cargo}" rendered="#{exp.edicao}"/>
+					<h:inputText value="#{exp.cargo}" rendered="#{exp.edicao}" styleClass="inputText"/>
 				</h:column>
 				
 				<h:column>
@@ -88,7 +88,7 @@
 						Área
 					</f:facet>
 					<h:outputText value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
-					<h:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}"/>
+					<h:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" styleClass="inputText"/>
 				</h:column>
 				
 				<h:column>
@@ -96,7 +96,7 @@
 						Descrição de trabalho
 					</f:facet>
 					<h:outputText value="#{exp.descricaoExperiencia}" rendered="#{!exp.edicao}"/>
-					<h:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}"/>
+					<h:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}" styleClass="inputTextArea"/>
 				</h:column>
 				
 				<h:column>
@@ -108,7 +108,6 @@
 				</h:column>
 			</h:dataTable>
 			<br/>
-			
 		</h:form>
 	</article>
 </section>
