@@ -73,7 +73,7 @@ public class FormularioBean implements Serializable {
 	}
 	
 	public String editar(ExperienciaProfissional exp) {
-		exp.setEdicao(false);
+		exp.setEdicao(true);
 		return null;
 	}
 	
