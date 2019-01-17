@@ -40,6 +40,8 @@ public class Idioma implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "candidato_id")
 	private Candidato candidato;
+	
+	private boolean edicao;
 
 	public Idioma() {
 	}
@@ -74,6 +76,14 @@ public class Idioma implements Serializable {
 
 	public void setCandidato(Candidato candidato) {
 		this.candidato = candidato;
+	}
+	
+	public boolean isEdicao() {
+		return edicao;
+	}
+	
+	public void setEdicao(boolean edicao) {
+		this.edicao = edicao;
 	}
 
 }
