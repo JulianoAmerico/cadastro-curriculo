@@ -36,8 +36,9 @@
 				<h:commandButton value="Inserir" action="#{formulario.inserirFormacaoAcademica}" styleClass="button"/>
 				<br/>
 				<br/>
-				<h:dataTable>
-				
+				<h:dataTable value="#{formulario.candidato.formacaoAcademica}" var="fa" styleClass="tabela" headerClass="cabecalho"
+					columnClasses="colEmpresa,colInicio,colTermino,colCargo,colOp" rendered="#{formulario.candidato.formacaoAcademica.size() > 0}">
+					
 				</h:dataTable>
 				
 				<!-- Curso Complementar -->
