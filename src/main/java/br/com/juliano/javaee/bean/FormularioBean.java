@@ -12,12 +12,13 @@ import javax.inject.Named;
 import br.com.juliano.javaee.business.EstadosProvider;
 import br.com.juliano.javaee.ejb.CandidatoBean;
 import br.com.juliano.javaee.model.Candidato;
-import br.com.juliano.javaee.model.CursosComplementares;
 import br.com.juliano.javaee.model.Candidato.EstadoCivil;
 import br.com.juliano.javaee.model.Candidato.Sexo;
+import br.com.juliano.javaee.model.CursosComplementares;
 import br.com.juliano.javaee.model.Endereco;
 import br.com.juliano.javaee.model.ExperienciaProfissional;
 import br.com.juliano.javaee.model.FormacaoAcademica;
+import br.com.juliano.javaee.model.Idioma;
 
 /**
  * JSF Bean que interagi com as páginas jsf de cadastro de currículo.
@@ -95,6 +96,13 @@ public class FormularioBean implements Serializable {
 		CursosComplementares cursoComplementar = new CursosComplementares();
 		cursoComplementar.setEdicao(true);
 		candidato.getCursosComplementares().add(cursoComplementar);
+		return null;
+	}
+	
+	public String inserirIdioma() {
+		Idioma idioma = new Idioma();
+		idioma.setEdicao(true);
+		candidato.getIdioma().add(idioma);
 		return null;
 	}
 	
