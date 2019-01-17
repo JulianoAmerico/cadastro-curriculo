@@ -15,6 +15,24 @@
 	<title>Cadastro de Currículo Etapa - 1</title>
 </h:head>
 <h:body>
+	<!-- Topo da página -->
+	<header>
+		<h1>Cadastro de Currículo</h1>
+	</header>
 	
+	<!-- Formulário de cadastro do currículo - Formação e Cursos -->
+	<section>
+		<article>
+			<header>
+				<h2>Formação e Cursos</h2>
+				<h3>Etapa 3 de 3</h3>
+			</header>
+			<h:form id="formulario">
+				
+				<h:commandButton value="&lt; Etapa 2" action="curriculo_etapa_2"/>
+				<h:commandButton value="&gt; Finalizar" action="#{formulario.processar"/>
+			</h:form>
+		</article>
+	</section>
 </h:body>
 </html>
