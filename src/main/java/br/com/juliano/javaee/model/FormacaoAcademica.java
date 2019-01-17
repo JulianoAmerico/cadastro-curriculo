@@ -30,6 +30,8 @@ public class FormacaoAcademica extends Cursos {
 	@ManyToOne
 	@JoinColumn(name = "candidato_id")
 	private Candidato candidato;
+	
+	private boolean edicao;
 
 	public FormacaoAcademica() {
 	}
@@ -48,6 +50,14 @@ public class FormacaoAcademica extends Cursos {
 
 	public void setCandidato(Candidato candidato) {
 		this.candidato = candidato;
+	}
+	
+	public boolean isEdicao() {
+		return edicao;
+	}
+	
+	public void setEdicao(boolean edicao) {
+		this.edicao = edicao;
 	}
 
 }
