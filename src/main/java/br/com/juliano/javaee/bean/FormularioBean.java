@@ -60,28 +60,28 @@ public class FormularioBean implements Serializable {
 		return null;
 	}
 	
-	public String inserirNovaExpProfissional() {
+	public String inserirExpProfissional() {
 		ExperienciaProfissional exp = new  ExperienciaProfissional();
 		exp.setEdicao(true);
 		candidato.getExpProfissional().add(exp);
 		return null;
 	}
 	
-	public String salvar(ExperienciaProfissional exp) {
+	public String salvarExpProfissional(ExperienciaProfissional exp) {
 		exp.setEdicao(false);
 		return null;
 	}
 	
-	public String editar(ExperienciaProfissional exp) {
+	public String editarExpProfissional(ExperienciaProfissional exp) {
 		exp.setEdicao(true);
 		return null;
 	}
 	
-	public String excluir(ExperienciaProfissional exp) {
+	public String excluirExpProfissional(ExperienciaProfissional exp) {
 		candidato.getExpProfissional().remove(exp);
 		return null;
 	}
-
+	
 	public CandidatoBean getCandidatoBean() {
 		return candidatoBean;
 	}
