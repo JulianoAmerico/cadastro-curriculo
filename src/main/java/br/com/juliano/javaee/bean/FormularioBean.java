@@ -16,6 +16,7 @@ import br.com.juliano.javaee.model.Candidato.EstadoCivil;
 import br.com.juliano.javaee.model.Candidato.Sexo;
 import br.com.juliano.javaee.model.Endereco;
 import br.com.juliano.javaee.model.ExperienciaProfissional;
+import br.com.juliano.javaee.model.FormacaoAcademica;
 
 /**
  * JSF Bean que interagi com as páginas jsf de cadastro de currículo.
@@ -79,6 +80,13 @@ public class FormularioBean implements Serializable {
 	
 	public String excluirExpProfissional(ExperienciaProfissional exp) {
 		candidato.getExpProfissional().remove(exp);
+		return null;
+	}
+	
+	public String inserirFormacaAcademica() {
+		FormacaoAcademica formacaoAcademica = new FormacaoAcademica();
+		formacaoAcademica.setEdicao(true);
+		candidato.getFormacaoAcademica().add(formacaoAcademica);
 		return null;
 	}
 	
