@@ -85,7 +85,7 @@ public class FormularioBean implements Serializable {
 		return null;
 	}
 	
-	public String inserirFormacaAcademica() {
+	public String inserirFormacaoAcademica() {
 		FormacaoAcademica formacaoAcademica = new FormacaoAcademica();
 		formacaoAcademica.setEdicao(true);
 		candidato.getFormacaoAcademica().add(formacaoAcademica);
