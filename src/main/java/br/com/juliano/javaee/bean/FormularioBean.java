@@ -12,6 +12,7 @@ import javax.inject.Named;
 import br.com.juliano.javaee.business.EstadosProvider;
 import br.com.juliano.javaee.ejb.CandidatoBean;
 import br.com.juliano.javaee.model.Candidato;
+import br.com.juliano.javaee.model.CursosComplementares;
 import br.com.juliano.javaee.model.Candidato.EstadoCivil;
 import br.com.juliano.javaee.model.Candidato.Sexo;
 import br.com.juliano.javaee.model.Endereco;
@@ -87,6 +88,13 @@ public class FormularioBean implements Serializable {
 		FormacaoAcademica formacaoAcademica = new FormacaoAcademica();
 		formacaoAcademica.setEdicao(true);
 		candidato.getFormacaoAcademica().add(formacaoAcademica);
+		return null;
+	}
+	
+	public String inserirCursoComplementar() {
+		CursosComplementares cursoComplementar = new CursosComplementares();
+		cursoComplementar.setEdicao(true);
+		candidato.getCursosComplementares().add(cursoComplementar);
 		return null;
 	}
 	
