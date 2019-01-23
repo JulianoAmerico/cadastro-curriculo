@@ -55,6 +55,8 @@
 					
 					<h:column>
 						<f:facet name="header">Instituição de  Ensino</f:facet>
+						<h:outputLabel value="#{fa.instituicao}" rendered="#{!fa.edicao}"/>
+						<h:inputText value="#{fa.instituicao}" rendered="#{fa.edicao}"/>
 					</h:column>
 					
 					<h:column>
