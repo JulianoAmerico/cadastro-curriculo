@@ -37,7 +37,9 @@
 				<br/>
 				<br/>
 				<h:dataTable value="#{formulario.candidato.formacaoAcademica}" var="fa" styleClass="tabela" headerClass="cabecalho"
-					columnClasses="colEmpresa,colInicio,colTermino,colCargo,colOp" rendered="#{formulario.candidato.formacaoAcademica.size() > 0}">
+					columnClasses="colNivel,colCurso,colInstituicao,colData,colOp" rendered="#{formulario.candidato.formacaoAcademica.size() > 0}">
+					
+					
 					
 				</h:dataTable>
 				
@@ -60,7 +62,7 @@
 				</h:dataTable>
 					
 				<h:commandButton value="&lt;- Etapa 2" action="curriculo_etapa_2"/> &nbsp;
-				<h:commandButton value=" Finalizar -&gt;" action="#{formulario.processar}"/>
+				<h:commandButton value=" Enviar -&gt;" action="#{formulario.processar}"/>
 			</h:form>
 		</article>
 	</section>
