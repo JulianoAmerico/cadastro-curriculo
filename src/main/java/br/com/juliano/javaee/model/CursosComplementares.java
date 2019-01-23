@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "cursos_complementares")
@@ -13,6 +14,7 @@ public class CursosComplementares extends Cursos {
 	@JoinColumn(name = "candidato_id")
 	private Candidato candidato;
 	
+	@Transient
 	private boolean edicao;
 
 	public CursosComplementares() {

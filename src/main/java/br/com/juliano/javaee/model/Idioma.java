@@ -11,24 +11,25 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="idioma")
 public class Idioma implements Serializable {
 
 	public enum Idiomas {
-		INGLES("Inglês"), 
-		ALEMAO("Alemão"), 
-		PORTUGUES("Português"), 
-		JAPONES("Japonês"), 
+		INGLES("Inglês"),
+		ALEMAO("Alemão"),
+		PORTUGUES("Português"),
+		JAPONES("Japonês"),
 		FRANCES("Francês");
-		
+
 		private String label;
-		
+
 		Idiomas(String label){
 			this.label = label;
 		}
-		
+
 		public String getLabel() {
 			return label;
 		}
@@ -36,17 +37,17 @@ public class Idioma implements Serializable {
 	}
 
 	public enum Niveis {
-		BASICO("Básico"), 
-		INTERMEDIARIO("Intermediário"), 
-		AVANCADO("Avançado"), 
+		BASICO("Básico"),
+		INTERMEDIARIO("Intermediário"),
+		AVANCADO("Avançado"),
 		FLUENTE("Fluente");
-		
+
 		private String label;
-		
+
 		Niveis(String label){
 			this.label = label;
 		}
-		
+
 		public String getLabel() {
 			return label;
 		}
@@ -67,7 +68,8 @@ public class Idioma implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "candidato_id")
 	private Candidato candidato;
-	
+
+	@Transient
 	private boolean edicao;
 
 	public Idioma() {
@@ -104,11 +106,11 @@ public class Idioma implements Serializable {
 	public void setCandidato(Candidato candidato) {
 		this.candidato = candidato;
 	}
-	
+
 	public boolean isEdicao() {
 		return edicao;
 	}
-	
+
 	public void setEdicao(boolean edicao) {
 		this.edicao = edicao;
 	}

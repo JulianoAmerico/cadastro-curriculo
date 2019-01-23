@@ -7,19 +7,20 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "formacao_academica")
 public class FormacaoAcademica extends Cursos {
 
 	public enum NivelFormacao {
-		ENSINO_MEDIO_COMPLETO("Ensino Médio Completo"), 
+		ENSINO_MEDIO_COMPLETO("Ensino Médio Completo"),
 		ENSINO_MEDIO_INCOMPLETO("Ensino Médio Incompleto"),
-		SUPERIOR_COMPLETO("Superior Completo"), 
+		SUPERIOR_COMPLETO("Superior Completo"),
 		SUPERIOR_INCOMPLETO("Superior Incompleto"),
-		POS_GRADUACAO("Pós-Graduação"), 
-		MESTRADO("Mestrado"), 
-		DOUTORADO("Doutorado"), 
+		POS_GRADUACAO("Pós-Graduação"),
+		MESTRADO("Mestrado"),
+		DOUTORADO("Doutorado"),
 		POS_DOUTORADO("Pós-Doutorado");
 
 		private String label;
@@ -41,6 +42,7 @@ public class FormacaoAcademica extends Cursos {
 	@JoinColumn(name = "candidato_id")
 	private Candidato candidato;
 
+	@Transient
 	private boolean edicao;
 
 	public FormacaoAcademica() {
