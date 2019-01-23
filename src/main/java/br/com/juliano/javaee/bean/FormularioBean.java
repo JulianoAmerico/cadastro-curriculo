@@ -6,7 +6,9 @@ import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.Conversation;
+import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.juliano.javaee.business.EstadosProvider;
@@ -30,11 +32,14 @@ import br.com.juliano.javaee.model.Idioma.Niveis;
  *
  */
 @Named("formulario")
-@SessionScoped
+@ConversationScoped
 public class FormularioBean implements Serializable {
 
 	@EJB
 	private CandidatoBean candidatoBean;
+	
+	@Inject
+	private Conversation conversation;
 
 	private Candidato candidato = new Candidato();
 
@@ -64,6 +69,7 @@ public class FormularioBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
+		conversation.begin();
 		estados = EstadosProvider.getEstadosCollection();
 	}
 
@@ -71,6 +77,7 @@ public class FormularioBean implements Serializable {
 		candidatoBean.gravar(candidato, candidato.getExpProfissional(), candidato.getFormacaoAcademica(),
 				candidato.getCursosComplementares(), candidato.getIdiomas());
 		
+		conversation.end();
 		return "sucesso?faces-redirect=true";
 	}
 
