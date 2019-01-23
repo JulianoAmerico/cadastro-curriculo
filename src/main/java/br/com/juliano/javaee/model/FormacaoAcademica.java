@@ -14,21 +14,20 @@ public class FormacaoAcademica extends Cursos {
 
 	public enum NivelFormacao {
 		ENSINO_MEDIO_COMPLETO("Ensino Médio Completo"), 
-		ENSINO_MEDIO_INCOMPLETO("Ensino Médio Incompleto"), 
+		ENSINO_MEDIO_INCOMPLETO("Ensino Médio Incompleto"),
 		SUPERIOR_COMPLETO("Superior Completo"), 
-		SUPERIOR_INCOMPLETO("Superior Incompleto"), 
+		SUPERIOR_INCOMPLETO("Superior Incompleto"),
 		POS_GRADUACAO("Pós-Graduação"), 
-		MESTRADO("Mestrado"),
+		MESTRADO("Mestrado"), 
 		DOUTORADO("Doutorado"), 
 		POS_DOUTORADO("Pós-Doutorado");
-		
+
 		private String label;
-		
+
 		private NivelFormacao(String label) {
 			this.label = label;
 		}
-		
-		@SuppressWarnings("unused")
+
 		public String getLabel() {
 			return label;
 		}
@@ -41,7 +40,7 @@ public class FormacaoAcademica extends Cursos {
 	@ManyToOne
 	@JoinColumn(name = "candidato_id")
 	private Candidato candidato;
-	
+
 	private boolean edicao;
 
 	public FormacaoAcademica() {
@@ -62,11 +61,11 @@ public class FormacaoAcademica extends Cursos {
 	public void setCandidato(Candidato candidato) {
 		this.candidato = candidato;
 	}
-	
+
 	public boolean isEdicao() {
 		return edicao;
 	}
-	
+
 	public void setEdicao(boolean edicao) {
 		this.edicao = edicao;
 	}
