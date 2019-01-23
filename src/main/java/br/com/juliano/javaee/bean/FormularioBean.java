@@ -110,10 +110,25 @@ public class FormularioBean implements Serializable {
 		return null;
 	}
 	
-	public String inserirCursoComplementar() {
+	public String inserirCursosComplementares() {
 		CursosComplementares cursoComplementar = new CursosComplementares();
 		cursoComplementar.setEdicao(true);
 		candidato.getCursosComplementares().add(cursoComplementar);
+		return null;
+	}
+	
+	public String salvarCursosComplementares(CursosComplementares cursosComplementares) {
+		cursosComplementares.setEdicao(false);
+		return null;
+	}
+	
+	public String editarCursosComplementares(CursosComplementares cursosComplementares) {
+		cursosComplementares.setEdicao(true);
+		return null;
+	}
+	
+	public String excluirCursosComplementares(CursosComplementares cursosComplementares) {
+		candidato.getCursosComplementares().remove(cursosComplementares);
 		return null;
 	}
 	
