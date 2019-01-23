@@ -12,7 +12,7 @@
 	<meta name="keywords" content="Cadastro de Currículo, Currículo, currículo"/>
 	<meta name="description" content="Cadastro de Currículo Etapa - 3"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<title>Cadastro de Currículo Etapa - 1</title>
+	<title>Cadastro de Currículo Etapa - 3</title>
 	<h:outputStylesheet library="css" name="estilo.css"/>
 </h:head>
 <h:body>
@@ -39,7 +39,31 @@
 				<h:dataTable value="#{formulario.candidato.formacaoAcademica}" var="fa" styleClass="tabela" headerClass="cabecalho"
 					columnClasses="colNivel,colCurso,colInstituicao,colData,colOp" rendered="#{formulario.candidato.formacaoAcademica.size() > 0}">
 					
+					<h:column>
+						<f:facet name="header">Nível de Formação</f:facet>
+						<h:outputLabel value="#{fa.nivelFormacao}" rendered="#{!fa.edicao}"/>
+						<h:selectOneMenu value="#{fa.nivelFormacao}" rendered="#{fa.edicao}">
+							<f:selectItems value="#{formulario.nivelFormacaoValues}" var="nf" itemValue="#{nf}" itemLabel="#{nf.label}"/>
+						</h:selectOneMenu>
+					</h:column>
 					
+					<h:column>
+						<f:facet name="header">Nome do Curso</f:facet>
+						<h:outputLabel value="#{fa.curso}" rendered="#{!fa.edicao}"/>
+						<h:inputText value="#{fa.curso}" rendered="#{fa.edicao}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Instituição de  Ensino</f:facet>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Data de Conclusão</f:facet>
+					</h:column>
+					
+					<h:column>
+						
+					</h:column>
 					
 				</h:dataTable>
 				
