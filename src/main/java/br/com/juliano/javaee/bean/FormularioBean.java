@@ -69,7 +69,7 @@ public class FormularioBean implements Serializable {
 
 	public String processar() {
 		candidatoBean.gravar(candidato);
-		return null;
+		return "sucesso?faces-redirect=true";
 	}
 	
 	public String inserirExpProfissional() {
