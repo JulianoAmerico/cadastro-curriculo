@@ -41,7 +41,7 @@
 					
 					<h:column>
 						<f:facet name="header">Nível de Formação</f:facet>
-						<h:outputLabel value="#{fa.nivelFormacao}" rendered="#{!fa.edicao}"/>
+						<h:outputLabel value="#{fa.nivelFormacao.label}" rendered="#{!fa.edicao}"/>
 						<h:selectOneMenu value="#{fa.nivelFormacao}" rendered="#{fa.edicao}">
 							<f:selectItems value="#{formulario.nivelFormacaoValues}" var="nf" itemValue="#{nf}" itemLabel="#{nf.label}"/>
 						</h:selectOneMenu>
