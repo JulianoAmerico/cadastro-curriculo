@@ -61,10 +61,20 @@
 					
 					<h:column>
 						<f:facet name="header">Data de Conclusão</f:facet>
+						<h:outputLabel value="#{fa.dataConclusao}" rendered="#{!fa.edicao}">
+							<f:convertDateTime pattern="dd/MM/yyyy"/>
+						</h:outputLabel>
+						<h:inputText value="#{fa.dataConclusao}" rendered="#{fa.edicao}">
+							<f:convertDateTime pattern="dd/MM/yyyy"/>
+						</h:inputText>
 					</h:column>
 					
 					<h:column>
-						
+						<h:commandButton value="Salvar" action="#{formulario.salvarFormacaoAcademica(fa)}" rendered="#{fa.edicao}" styleClass="button"/>
+						<h:panelGroup rendered="#{!fa.edicao}">
+							<h:commandButton value="Editar" action="#{formulario.editarFormacaoAcademica(fa)}" styleClass="button"/> |
+							<h:commandButton value="Excluir" action="#{formulario.excluirFormacaoAcademica(fa)}" styleClass="button"/>
+						</h:panelGroup>
 					</h:column>
 					
 				</h:dataTable>
