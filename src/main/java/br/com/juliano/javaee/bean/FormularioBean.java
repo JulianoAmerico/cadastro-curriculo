@@ -18,6 +18,7 @@ import br.com.juliano.javaee.model.CursosComplementares;
 import br.com.juliano.javaee.model.Endereco;
 import br.com.juliano.javaee.model.ExperienciaProfissional;
 import br.com.juliano.javaee.model.FormacaoAcademica;
+import br.com.juliano.javaee.model.FormacaoAcademica.NivelFormacao;
 import br.com.juliano.javaee.model.Idioma;
 
 /**
@@ -38,6 +39,8 @@ public class FormularioBean implements Serializable {
 	private Sexo[] sexoValues = Candidato.Sexo.values();
 
 	private EstadoCivil[] estadoCivilValues = Candidato.EstadoCivil.values();
+	
+	private NivelFormacao[] nivelFormacaoValues = FormacaoAcademica.NivelFormacao.values();
 
 	private Collection<String> estados;
 
@@ -129,7 +132,11 @@ public class FormularioBean implements Serializable {
 	public EstadoCivil[] getEstadoCivilValues() {
 		return estadoCivilValues;
 	}
-
+	
+	public NivelFormacao[] getNivelFormacaoValues() {
+		return nivelFormacaoValues;
+	}
+	
 	public Collection<String> getEstados() {
 		return estados;
 	}
