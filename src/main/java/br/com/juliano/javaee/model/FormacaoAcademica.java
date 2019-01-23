@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "formacao_academica")
 public class FormacaoAcademica extends Cursos {
 
-	private enum NivelFormacao {
+	public enum NivelFormacao {
 		ENSINO_MEDIO_COMPLETO("Ensino Médio Completo"), 
 		ENSINO_MEDIO_INCOMPLETO("Ensino Médio Incompleto"), 
 		SUPERIOR_COMPLETO("Superior Completo"), 
