@@ -96,7 +96,7 @@ public class Candidato implements Serializable {
 	private List<ExperienciaProfissional> expProfissional;
 
 	@OneToMany(mappedBy = "candidato")
-	private List<Idioma> idioma;
+	private List<Idioma> idiomas;
 
 	@OneToMany(mappedBy = "candidato")
 	private List<FormacaoAcademica> formacaoAcademica;
@@ -211,12 +211,12 @@ public class Candidato implements Serializable {
 		this.expProfissional = expProfissional;
 	}
 
-	public List<Idioma> getIdioma() {
-		return idioma;
+	public List<Idioma> getIdiomas() {
+		return idiomas;
 	}
 
-	public void setIdioma(List<Idioma> idioma) {
-		this.idioma = idioma;
+	public void setIdiomas(List<Idioma> idiomas) {
+		this.idiomas = idiomas;
 	}
 
 	public List<FormacaoAcademica> getFormacaoAcademica() {
