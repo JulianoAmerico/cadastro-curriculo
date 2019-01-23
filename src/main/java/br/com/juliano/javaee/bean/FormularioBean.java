@@ -20,6 +20,8 @@ import br.com.juliano.javaee.model.ExperienciaProfissional;
 import br.com.juliano.javaee.model.FormacaoAcademica;
 import br.com.juliano.javaee.model.FormacaoAcademica.NivelFormacao;
 import br.com.juliano.javaee.model.Idioma;
+import br.com.juliano.javaee.model.Idioma.Idiomas;
+import br.com.juliano.javaee.model.Idioma.Niveis;
 
 /**
  * JSF Bean que interagi com as páginas jsf de cadastro de currículo.
@@ -41,6 +43,10 @@ public class FormularioBean implements Serializable {
 	private EstadoCivil[] estadoCivilValues = Candidato.EstadoCivil.values();
 	
 	private NivelFormacao[] nivelFormacaoValues = FormacaoAcademica.NivelFormacao.values();
+	
+	private Idiomas[] idiomasValues = Idioma.Idiomas.values();
+	
+	private Niveis[] niveisValues = Idioma.Niveis.values();
 
 	private Collection<String> estados;
 
@@ -50,7 +56,7 @@ public class FormularioBean implements Serializable {
 	public FormularioBean() {
 		candidato.setEndereco(new Endereco());
 		candidato.setExpProfissional(new ArrayList<>());
-		candidato.setIdioma(new ArrayList<>());
+		candidato.setIdiomas(new ArrayList<>());
 		candidato.setCursosComplementares(new ArrayList<>());
 		candidato.setFormacaoAcademica(new ArrayList<>());
 		candidato.setSexo(Candidato.Sexo.FEMININO);
@@ -135,7 +141,22 @@ public class FormularioBean implements Serializable {
 	public String inserirIdioma() {
 		Idioma idioma = new Idioma();
 		idioma.setEdicao(true);
-		candidato.getIdioma().add(idioma);
+		candidato.getIdiomas().add(idioma);
+		return null;
+	}
+	
+	public String salvarIdiomas(Idioma idioma) {
+		idioma.setEdicao(false);
+		return null;
+	}
+	
+	public String editarIdiomas(Idioma idioma) {
+		idioma.setEdicao(true);
+		return null;
+	}
+	
+	public String excluirIdiomas(Idioma idioma) {
+		candidato.getIdiomas().remove(idioma);
 		return null;
 	}
 	
@@ -165,6 +186,14 @@ public class FormularioBean implements Serializable {
 	
 	public NivelFormacao[] getNivelFormacaoValues() {
 		return nivelFormacaoValues;
+	}
+	
+	public Idiomas[] getIdiomasValues() {
+		return idiomasValues;
+	}
+	
+	public Niveis[] getNiveisValues() {
+		return niveisValues;
 	}
 	
 	public Collection<String> getEstados() {
