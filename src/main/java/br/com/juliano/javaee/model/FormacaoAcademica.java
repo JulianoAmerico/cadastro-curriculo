@@ -13,14 +13,25 @@ import javax.persistence.Table;
 public class FormacaoAcademica extends Cursos {
 
 	private enum NivelFormacao {
-		ENSINO_MEDIO_COMPLETO, 
-		ENSINO_MEDIO_INCOMPLETO, 
-		SUPERIOR_COMPLETO, 
-		SUPERIOR_INCOMPLETO, 
-		POS_GRADUACAO, 
-		MESTRADO,
-		DOUTORADO, 
-		POS_DOUTORADO;
+		ENSINO_MEDIO_COMPLETO("Ensino Médio Completo"), 
+		ENSINO_MEDIO_INCOMPLETO("Ensino Médio Incompleto"), 
+		SUPERIOR_COMPLETO("Superior Completo"), 
+		SUPERIOR_INCOMPLETO("Superior Incompleto"), 
+		POS_GRADUACAO("Pós-Graduação"), 
+		MESTRADO("Mestrado"),
+		DOUTORADO("Doutorado"), 
+		POS_DOUTORADO("Pós-Doutorado");
+		
+		private String label;
+		
+		private NivelFormacao(String label) {
+			this.label = label;
+		}
+		
+		@SuppressWarnings("unused")
+		public String getLabel() {
+			return label;
+		}
 	}
 
 	@Enumerated(EnumType.STRING)
