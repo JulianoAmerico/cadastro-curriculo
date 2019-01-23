@@ -77,7 +77,7 @@ public class Candidato implements Serializable {
 	@Column(nullable = false, length = 10)
 	private Date dataNascimento;
 
-	@Column(nullable = false, length = 13)
+	@Column(nullable = false, length = 14)
 	private String telefoneCelular;
 
 	@Column(nullable = false, length = 50)
