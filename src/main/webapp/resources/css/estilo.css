@@ -40,6 +40,8 @@
 	text-align: center;
 }
 
+
+/*Experiência Profissional*/
 .colEmpresa{
 	text-align: center;
 	font: 13px Arial, sans-serif;
@@ -97,13 +99,43 @@
 	width: 120px;
 }
 
-.smallInput{
-	width: 85px;
+/* Fim Experiência Profissional */
+
+/* Formação Acadêmica */
+.colNivel{
+	text-align: center;
+	font: 13px Arial, sans-serif;
+	background: #a0a0a0;
+	padding: 3px;
+	width: 200px;
+	height: 50px;
 }
 
-.bigInput{
-	width: 180px;
+.colCurso{
+	text-align: center;
+	font: 13px Arial, sans-serif;
+	background: #c4c4c4;
+	padding: 3px;
+	width: 200px;
 }
+
+.colInstituicao{
+	text-align: center;
+	font: 13px Arial, sans-serif;
+	background: #a0a0a0;
+	padding: 3px;
+	width: 200px;
+}
+
+.colData{
+	text-align: center;
+	font: 13px Arial, sans-serif;
+	background: #c4c4c4;
+	padding: 3px;
+	width: 120px;
+}
+
+/* Fim Formação Acadêmica */
 
 .formLabel{
 	font: 13px Arial, sans-serif;
