@@ -118,7 +118,7 @@
 				
 				<h:outputText value="Data Nascimento:"/>
 				<span class="required">*</span>
-				<h:inputText id="dataNascimento" required="true" pt:placeholder="12/05/1992"
+				<h:inputText id="dataNascimento" value="#{formulario.candidato.dataNascimento}" required="true" pt:placeholder="12/05/1992"
 								requiredMessage="Digite sua data de nascimento."
 								converterMessage="Data inválida.">
 					<f:convertDateTime pattern="dd/MM/yyyy"/>
@@ -128,7 +128,7 @@
 				
 				<h:outputText value="Telefone celular:"/>
 				<span class="required">*</span>
-				<h:inputText id="telefoneCelular" required="true" pt:placeholder="(19)1235-1234"
+				<h:inputText id="telefoneCelular" value="#{formulario.candidato.telefoneCelular}" required="true" pt:placeholder="(19)1235-1234"
 								requiredMessage="Digite o seu telefone com DDD."
 								validatorMessage="Número de telefone inválido"
 								converterMessage="Erro na conversão">
@@ -136,19 +136,9 @@
 				</h:inputText> 
 				<h:message styleClass="error" for="telefoneCelular"/>
 				
-				<h:outputText value="Telefone outros:"/>
-				<span class="required">*</span>
-				<h:inputText id="telefoneOutros" pt:placeholder="(19)1235-1234"
-								requiredMessage="Digite o seu telefone com DDD."
-								validatorMessage="Número de telefone inválido"
-								converterMessage="Erro na conversão">
-					<f:validateRegex pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
-				</h:inputText> 
-				<h:message styleClass="error" for="telefoneOutros"/>
-				
 				<h:outputText value="E-mail"/>
 				<span class="required">*</span>
-				<h:inputText id="email" pt:type="email" required="true" pt:placeholder="jose@email.com"
+				<h:inputText id="email" value="#{formulario.candidato.email}" pt:type="email" required="true" pt:placeholder="jose@email.com"
 								requiredMessage="Digite o seu e-mail."
 								validatorMessage="E-mail inválido."
 								converterMessage="Erro na conversão."/> 
@@ -156,12 +146,12 @@
 				
 				<h:outputText value="LinkedIn" />
 				<span class="required"></span>
-				<h:inputText id="linkedin" pt:placeholder="www.linkedIn.com"/>
+				<h:inputText id="linkedin" value="#{formulario.candidato.linkedin}" pt:placeholder="www.linkedIn.com"/>
 				<h:message styleClass="error" for="linkedin"/>
 				
 				<h:outputText value="Objetivo Profissional:"/>
 				<span class="required">*</span>
-				<h:inputText id="objetivoProfissional" required="true"
+				<h:inputText id="objetivoProfissional" value="#{formulario.candidato.objetivoProfissional}" required="true"
 								requiredMessage="Digite o seu objetivo profissional."
 								validatorMessage="Objetivo inválido."
 								converterMessage="Erro na conversão.">
@@ -171,7 +161,7 @@
 				
 				<h:outputText value="Pretensão Salarial:"/>
 				<span class="required">*</span>
-				<h:inputText id="pretensaoSalarial" required="true" pt:placeholder="2000"
+				<h:inputText id="pretensaoSalarial" value="#{formulario.candidato.pretensaoSalarial}" required="true" pt:placeholder="2000"
 								requiredMessage="Digite sua pretensão salarial."
 								validatorMessage="Valor inválido."
 								converterMessage="Erro na conversão.">
