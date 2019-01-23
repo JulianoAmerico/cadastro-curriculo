@@ -1,11 +1,8 @@
 package br.com.juliano.javaee.bean;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -30,7 +27,7 @@ import br.com.juliano.javaee.model.Idioma.Niveis;
 
 /**
  * JSF Bean que interagi com as páginas jsf de cadastro de currículo.
- *
+ * 
  * @author Juliano R. Américo
  *
  */
@@ -40,7 +37,7 @@ public class FormularioBean implements Serializable {
 
 	@EJB
 	private CandidatoBean candidatoBean;
-
+	
 	@Inject
 	private Conversation conversation;
 
@@ -57,8 +54,6 @@ public class FormularioBean implements Serializable {
 	private Niveis[] niveisValues = Idioma.Niveis.values();
 
 	private Collection<String> estados;
-
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	/**
 	 * Cria os objetos necessários para guardar as informações do candidato.
@@ -79,17 +74,9 @@ public class FormularioBean implements Serializable {
 	}
 
 	public String processar() {
-	    String now = sdf.format(new Date());
-
-	    try {
-            candidato.setDataCadastro(sdf.parse(now));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
 		candidatoBean.gravar(candidato, candidato.getExpProfissional(), candidato.getFormacaoAcademica(),
 				candidato.getCursosComplementares(), candidato.getIdiomas());
-
+		
 		conversation.end();
 		return "sucesso?faces-redirect=true";
 	}
