@@ -102,7 +102,7 @@ public class Candidato implements Serializable {
     private List<CursosComplementares> cursosComplementares;
 
     @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10)
     private Date dataCadastro;
 
     public Candidato() {
