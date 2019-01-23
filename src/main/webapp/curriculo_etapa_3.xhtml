@@ -81,11 +81,41 @@
 				
 				<!-- Curso Complementar -->
 				<header><h4>Curso Complementar</h4></header>
-				<h:commandButton value="Inserir" action="#{formulario.inserirCursoComplementar}" styleClass="button"/>
+				<h:commandButton value="Inserir" action="#{formulario.inserirCursosComplementares}" styleClass="button"/>
 				<br/>
 				<br/>
-				<h:dataTable>
-				
+				<h:dataTable value="#{formulario.candidato.cursosComplementares}" var="cursoComplementar" styleClass="tabela" headerClass="cabecalho"
+					columnClasses="colCurso,colInstituicao,colData,colOp" rendered="#{formulario.candidato.cursosComplementares.size() > 0}">
+					
+					<h:column>
+						<f:facet name="header">Nome do Curso</f:facet>
+						<h:outputLabel value="#{cursoComplementar.curso}" rendered="#{!cursoComplementar.edicao}"/>
+						<h:inputText value="#{cursoComplementar.curso}" rendered="#{cursoComplementar.edicao}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Instituição de Ensino</f:facet>
+						<h:outputLabel value="#{cursoComplementar.instituicao}" rendered="#{!cursoComplementar.edicao}"/>
+						<h:inputText value="#{cursoComplementar.instituicao}" rendered="#{cursoComplementar.edicao}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Data de Conclusão</f:facet>
+						<h:outputLabel value="#{cursoComplementar.dataConclusao}" rendered="#{!cursoComplementar.edicao}">
+							<f:convertDateTime pattern="MM/yyyy"/>
+						</h:outputLabel>
+						<h:inputText value="#{cursoComplementar.dataConclusao}" rendered="#{cursoComplementar.edicao}">
+							<f:convertDateTime pattern="MM/yyyy"/>
+						</h:inputText>
+					</h:column>
+					
+					<h:column>
+						<h:commandButton value="Salvar" action="#{formulario.salvarCursosComplementares(cursoComplementar)}" rendered="#{cursoComplementar.edicao}" styleClass="button"/>
+						<h:panelGroup rendered="#{!cursoComplementar.edicao}">
+							<h:commandButton value="Editar" action="#{formulario.editarCursosComplementares(cursoComplementar)}" styleClass="button"/> |
+							<h:commandButton value="Excluir" action="#{formulario.excluirCursosComplementares(cursoComplementar)}" styleClass="button"/>
+						</h:panelGroup>
+					</h:column>
 				</h:dataTable>
 				
 				<!-- Idiomas -->
