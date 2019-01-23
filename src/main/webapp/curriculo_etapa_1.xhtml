@@ -57,7 +57,7 @@
 								validatorMessage="CEP é inválido. Exemplo:10100100."
 								converterMessage="Erro na conversão."
 								pt:onBlur="searchcep(this.value)">
-					<f:validateRegex pattern="^[0-9]{5}-[0-9]{3}$"/>
+					<f:validateRegex pattern="^[0-9]{8}$"/>
 				</h:inputText> 
 				<h:message styleClass="error" for="cep"/>
 				
