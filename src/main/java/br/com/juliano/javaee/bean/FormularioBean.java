@@ -95,6 +95,21 @@ public class FormularioBean implements Serializable {
 		return null;
 	}
 	
+	public String salvarFormacaoAcademica(FormacaoAcademica fa) {
+		fa.setEdicao(false);
+		return null;
+	}
+	
+	public String editarFormacaoAcademica(FormacaoAcademica fa) {
+		fa.setEdicao(true);
+		return null;
+	}
+	
+	public String excluirFormacaoAcademica(FormacaoAcademica fa) {
+		candidato.getFormacaoAcademica().remove(fa);
+		return null;
+	}
+	
 	public String inserirCursoComplementar() {
 		CursosComplementares cursoComplementar = new CursosComplementares();
 		cursoComplementar.setEdicao(true);
