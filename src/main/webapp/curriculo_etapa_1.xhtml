@@ -98,7 +98,7 @@
 				
 				<h:outputText value="Nacionalidade:"/>
 				<span class="required">*</span>
-				<h:inputText id="nacionalidade" required="true" pt:placeholder="Brasileira"
+				<h:inputText id="nacionalidade" value="#{formulario.candidato.nacionalidade}" required="true" pt:placeholder="Brasileira"
 								requiredMessage="Digite sua nacionalidade."
 								validatorMessage="Nacionalidade inválida."
 								converterMessage="Erro na conversão.">
