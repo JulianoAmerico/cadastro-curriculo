@@ -16,13 +16,40 @@ import javax.persistence.Table;
 @Table(name="idioma")
 public class Idioma implements Serializable {
 
-	private enum Idiomas {
-		INGLES, ALEMAO, PORTUGUES, JAPONES, FRANCES;
+	public enum Idiomas {
+		INGLES("Inglês"), 
+		ALEMAO("Alemão"), 
+		PORTUGUES("Português"), 
+		JAPONES("Japonês"), 
+		FRANCES("Francês");
+		
+		private String label;
+		
+		Idiomas(String label){
+			this.label = label;
+		}
+		
+		public String getLabel() {
+			return label;
+		}
 
 	}
 
-	private enum Niveis {
-		BASICO, INTERMEDIARIO, AVANCADO;
+	public enum Niveis {
+		BASICO("Básico"), 
+		INTERMEDIARIO("Intermediário"), 
+		AVANCADO("Avançado"), 
+		FLUENTE("Fluente");
+		
+		private String label;
+		
+		Niveis(String label){
+			this.label = label;
+		}
+		
+		public String getLabel() {
+			return label;
+		}
 	}
 
 	@Id
