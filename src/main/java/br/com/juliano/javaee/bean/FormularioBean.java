@@ -41,11 +41,11 @@ public class FormularioBean implements Serializable {
 	private Sexo[] sexoValues = Candidato.Sexo.values();
 
 	private EstadoCivil[] estadoCivilValues = Candidato.EstadoCivil.values();
-	
+
 	private NivelFormacao[] nivelFormacaoValues = FormacaoAcademica.NivelFormacao.values();
-	
+
 	private Idiomas[] idiomasValues = Idioma.Idiomas.values();
-	
+
 	private Niveis[] niveisValues = Idioma.Niveis.values();
 
 	private Collection<String> estados;
@@ -68,98 +68,101 @@ public class FormularioBean implements Serializable {
 	}
 
 	public String processar() {
-		candidatoBean.gravar(candidato);
+		candidatoBean.gravar(candidato, candidato.getExpProfissional(), candidato.getFormacaoAcademica(),
+				candidato.getCursosComplementares(), candidato.getIdiomas());
+		
 		return "sucesso?faces-redirect=true";
 	}
-	
+
 	public String inserirExpProfissional() {
-		ExperienciaProfissional exp = new  ExperienciaProfissional();
+		ExperienciaProfissional exp = new ExperienciaProfissional();
 		exp.setEdicao(true);
 		candidato.getExpProfissional().add(exp);
 		return null;
 	}
-	
+
 	public String salvarExpProfissional(ExperienciaProfissional exp) {
 		exp.setEdicao(false);
 		return null;
 	}
-	
+
 	public String editarExpProfissional(ExperienciaProfissional exp) {
 		exp.setEdicao(true);
 		return null;
 	}
-	
+
 	public String excluirExpProfissional(ExperienciaProfissional exp) {
 		candidato.getExpProfissional().remove(exp);
 		return null;
 	}
-	
+
 	public String inserirFormacaoAcademica() {
 		FormacaoAcademica formacaoAcademica = new FormacaoAcademica();
 		formacaoAcademica.setEdicao(true);
 		candidato.getFormacaoAcademica().add(formacaoAcademica);
 		return null;
 	}
-	
+
 	public String salvarFormacaoAcademica(FormacaoAcademica fa) {
 		fa.setEdicao(false);
 		return null;
 	}
-	
+
 	public String editarFormacaoAcademica(FormacaoAcademica fa) {
 		fa.setEdicao(true);
 		return null;
 	}
-	
+
 	public String excluirFormacaoAcademica(FormacaoAcademica fa) {
 		candidato.getFormacaoAcademica().remove(fa);
 		return null;
 	}
-	
+
 	public String inserirCursosComplementares() {
 		CursosComplementares cursoComplementar = new CursosComplementares();
 		cursoComplementar.setEdicao(true);
 		candidato.getCursosComplementares().add(cursoComplementar);
 		return null;
 	}
-	
+
 	public String salvarCursosComplementares(CursosComplementares cursosComplementares) {
 		cursosComplementares.setEdicao(false);
 		return null;
 	}
-	
+
 	public String editarCursosComplementares(CursosComplementares cursosComplementares) {
 		cursosComplementares.setEdicao(true);
 		return null;
 	}
-	
+
 	public String excluirCursosComplementares(CursosComplementares cursosComplementares) {
 		candidato.getCursosComplementares().remove(cursosComplementares);
 		return null;
 	}
-	
+
 	public String inserirIdioma() {
 		Idioma idioma = new Idioma();
 		idioma.setEdicao(true);
 		candidato.getIdiomas().add(idioma);
+		idioma.setCandidato(candidato);
 		return null;
 	}
-	
+
 	public String salvarIdiomas(Idioma idioma) {
 		idioma.setEdicao(false);
 		return null;
 	}
-	
+
 	public String editarIdiomas(Idioma idioma) {
 		idioma.setEdicao(true);
 		return null;
 	}
-	
+
 	public String excluirIdiomas(Idioma idioma) {
 		candidato.getIdiomas().remove(idioma);
 		return null;
 	}
-	
+
 	public CandidatoBean getCandidatoBean() {
 		return candidatoBean;
 	}
@@ -183,19 +186,19 @@ public class FormularioBean implements Serializable {
 	public EstadoCivil[] getEstadoCivilValues() {
 		return estadoCivilValues;
 	}
-	
+
 	public NivelFormacao[] getNivelFormacaoValues() {
 		return nivelFormacaoValues;
 	}
-	
+
 	public Idiomas[] getIdiomasValues() {
 		return idiomasValues;
 	}
-	
+
 	public Niveis[] getNiveisValues() {
 		return niveisValues;
 	}
-	
+
 	public Collection<String> getEstados() {
 		return estados;
 	}
