@@ -1,13 +1,20 @@
 package br.com.juliano.javaee.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.com.juliano.javaee.model.Candidato;
+import br.com.juliano.javaee.model.CursosComplementares;
+import br.com.juliano.javaee.model.ExperienciaProfissional;
+import br.com.juliano.javaee.model.FormacaoAcademica;
+import br.com.juliano.javaee.model.Idioma;
 
 /**
  * Session Bean que faz o CRUD do Candidato.
+ * 
  * @author Juliano R. Américo
  *
  */
@@ -16,15 +23,41 @@ public class CandidatoBean {
 
 	@PersistenceContext
 	private EntityManager em;
-	
-    public CandidatoBean() {
-    }
-    
-    /**
-     * Grava os do candidato no banco de dados, fornecido pelo formulário do usuário.
-     * @param candidato Dados do candidato preenchido.
-     */
-    public void gravar(Candidato candidato) {
-    	em.persist(candidato);
-    }
+
+	public CandidatoBean() {
+	}
+
+	/**
+	 * Grava os do candidato no banco de dados, fornecido pelo formulário do
+	 * usuário.
+	 * 
+	 * @param candidato Dados do candidato preenchido.
+	 */
+	public void gravar(Candidato candidato, List<ExperienciaProfissional> expProfissional,
+			List<FormacaoAcademica> formacaoAcademica, List<CursosComplementares> cursosComplementares,
+			List<Idioma> idiomas) {
+
+		em.persist(candidato);
+
+		expProfissional.forEach(e -> {
+			e.setCandidato(candidato);
+			em.persist(e);
+		});
+		
+		formacaoAcademica.forEach(e -> {
+			e.setCandidato(candidato);
+			em.persist(e);
+		});
+
+		cursosComplementares.forEach(e -> {
+			e.setCandidato(candidato);
+			em.persist(e);
+		});
+
+		idiomas.forEach(e -> {
+			e.setCandidato(candidato);
+			em.persist(e);
+		});
+
+	}
 }
