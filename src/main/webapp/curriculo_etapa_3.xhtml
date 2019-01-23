@@ -80,7 +80,7 @@
 				</h:dataTable>
 				
 				<!-- Curso Complementar -->
-				<header><h4>Curso Complementar</h4></header>
+				<header><h4>Cursos Complementares</h4></header>
 				<h:commandButton value="Inserir" action="#{formulario.inserirCursosComplementares}" styleClass="button"/>
 				<br/>
 				<br/>
@@ -123,10 +123,34 @@
 				<h:commandButton value="Inserir" action="#{formulario.inserirIdioma}" styleClass="button"/>
 				<br/>
 				<br/>
-				<h:dataTable>
+				<h:dataTable value="#{formulario.candidato.idiomas}" var="i" styleClass="tabela" headerClass="cabecalho"
+					columnClasses="colCurso,colInstituicao,colData,colOp" rendered="#{formulario.candidato.idiomas.size() > 0}">
 				
-				</h:dataTable>
+					<h:column>
+						<f:facet name="header">Idioma</f:facet>
+						<h:outputText value="#{i.idioma.label}" rendered="#{!i.edicao}"/>
+						<h:selectOneMenu value="#{i.idioma}" rendered="#{i.edicao}">
+							<f:selectItems value="#{formulario.idiomasValues}" var="iv" itemValue="#{iv}" itemLabel="#{iv.label}"/>
+						</h:selectOneMenu>
+					</h:column>
 					
+					<h:column>
+						<f:facet name="header">Nível</f:facet>
+						<h:outputText value="#{i.nivel.label}" rendered="#{!i.edicao}"/>
+						<h:selectOneMenu value="#{i.nivel}" rendered="#{i.edicao}">
+							<f:selectItems value="#{formulario.niveisValues}" var="nv" itemValue="#{nv}" itemLabel="#{nv.label}"/>
+						</h:selectOneMenu>
+					</h:column>
+					
+					<h:column>
+						<h:commandButton value="Salvar" action="#{formulario.salvarIdiomas(i)}" rendered="#{i.edicao}" styleClass="button"/>
+						<h:panelGroup rendered="#{!i.edicao}">
+							<h:commandButton value="Editar" action="#{formulario.editarIdiomas(i)}" styleClass="button"/> |
+							<h:commandButton value="Excluir" action="#{formulario.excluirIdiomas(i)}" styleClass="button"/>
+						</h:panelGroup>
+					</h:column>>
+				</h:dataTable>
+				<br/>	
 				<h:commandButton value="&lt;- Etapa 2" action="curriculo_etapa_2"/> &nbsp;
 				<h:commandButton value=" Enviar" action="#{formulario.processar}"/>
 			</h:form>
