@@ -23,8 +23,10 @@
 					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}"/>
 				</h:panelGrid>
 				
-				<h:dataTable>
-				
+				<h:dataTable value="#{pesquisa.candidatosFiltrados}" var="cf" styleClass="tabela" headerClass="cabecalho"
+					columnClasses="colData,colCurso,colInstituicao,colOp" rendered="#{pesquisa.candidatosFiltrados.size() > 0}">
+					
+					
 				</h:dataTable>
 			</h:form>
 		</article>
