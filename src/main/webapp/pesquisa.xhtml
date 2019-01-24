@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Pesquisar Currículo</title>
@@ -16,9 +17,15 @@
 			<h:form id="formulario">
 				<h:panelGrid columns="3">
 					Pesquisar:
-					<h:inputText value=""/>
+					<h:inputText value="#{pesquisa.consulta}">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</h:inputText>
 					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}"/>
 				</h:panelGrid>
+				
+				<h:dataTable>
+				
+				</h:dataTable>
 			</h:form>
 		</article>
 	</section>	
