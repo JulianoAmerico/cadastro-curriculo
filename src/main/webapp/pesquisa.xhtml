@@ -26,7 +26,24 @@
 				<h:dataTable value="#{pesquisa.candidatosFiltrados}" var="cf" styleClass="tabela" headerClass="cabecalho"
 					columnClasses="colData,colNome,colObjetivo,colOp" rendered="#{pesquisa.candidatosFiltrados.size() > 0}">
 					
+					<h:column>
+						<f:facet name="header">Data de Cadastro</f:facet>
+						<h:outputText value="#{cf.dataCadastro}"/>
+					</h:column>
 					
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputText value="#{cf.nome}"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">Data de Cadastro</f:facet>
+						<h:outputText value="#{cf.dataCadastro}"/>
+					</h:column>
+					
+					<h:column>
+						<h:commandButton value="Ver mais" action=""/>
+					</h:column>
 				</h:dataTable>
 			</h:form>
 		</article>
