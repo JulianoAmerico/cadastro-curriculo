@@ -42,6 +42,7 @@
 
 
 /*Experiência Profissional*/
+
 .colEmpresa{
 	text-align: center;
 	font: 13px Arial, sans-serif;
@@ -136,6 +137,23 @@
 }
 
 /* Fim Formação Acadêmica */
+
+/* Dados Filtrados */
+.colNome{
+	text-align: center;
+	font: 13px Arial, sans-serif;
+	background: #a0a0a0;
+	padding: 3px;
+	width: 200px;
+}
+
+.colObjetivo{
+	text-align: center;
+	font: 13px Arial, sans-serif;
+	background: #c4c4c4;
+	padding: 3px;
+	width: 200px;
+}
 
 .formLabel{
 	font: 13px Arial, sans-serif;
