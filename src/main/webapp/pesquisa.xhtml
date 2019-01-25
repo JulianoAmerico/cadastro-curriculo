@@ -8,6 +8,7 @@
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>Pesquisar Currículo</title>
+<h:outputStylesheet library="css" name="estilo.css"/>
 </h:head>
 <h:body>
 	<!-- Topo da página -->
@@ -15,20 +16,31 @@
 	<section>
 		<article>
 			<h:form id="formulario">
+				<h:messages />
 				<h:panelGrid columns="3">
-					Pesquisar:
-					<h:inputText value="#{pesquisa.consulta}">
+					Pesquisar por:
+					<h:selectOneRadio value="#{pesquisa.tipoFiltro}" valueChangeListener="#{pesquisa.atualizaFiltro}" onchange="submit();">
+						<f:selectItem itemValue="true" itemLabel="dia/mês/ano"/>
+						<f:selectItem itemValue="false" itemLabel="dia/mês"/>
+					</h:selectOneRadio>
+					<h:inputHidden/>
+				
+					Data:
+					<h:inputText id="consultaFull" value="#{pesquisa.consulta}" rendered="#{pesquisa.tipoFiltro}" pt:placeholder="dd/mm/yyyy">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:inputText>
-					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}"/>
+
+					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}" styleClass="button"/>
 				</h:panelGrid>
-				
+				<br/>
 				<h:dataTable value="#{pesquisa.candidatosFiltrados}" var="cf" styleClass="tabela" headerClass="cabecalho"
 					columnClasses="colData,colNome,colObjetivo,colOp" rendered="#{pesquisa.candidatosFiltrados.size() > 0}">
 					
 					<h:column>
 						<f:facet name="header">Data de Cadastro</f:facet>
-						<h:outputText value="#{cf.dataCadastro}"/>
+						<h:outputText value="#{cf.dataCadastro}">
+							<f:convertDateTime pattern="dd/MM/yyyy"/>
+						</h:outputText>
 					</h:column>
 					
 					<h:column>
@@ -37,12 +49,12 @@
 					</h:column>
 					
 					<h:column>
-						<f:facet name="header">Data de Cadastro</f:facet>
-						<h:outputText value="#{cf.dataCadastro}"/>
+						<f:facet name="header">Objetivo Profissional</f:facet>
+						<h:outputText value="#{cf.objetivoProfissional}"/>
 					</h:column>
 					
 					<h:column>
-						<h:commandButton value="Ver mais" action=""/>
+						<h:commandButton value="Ver mais" styleClass="button"/>
 					</h:column>
 				</h:dataTable>
 			</h:form>
