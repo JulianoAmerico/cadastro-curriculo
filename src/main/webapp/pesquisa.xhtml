@@ -17,18 +17,26 @@
 		<article>
 			<h:form id="formulario">
 				<h:messages />
-				<h:panelGrid columns="3">
+				<h:panelGrid columns="2">
 					Pesquisar por:
-					<h:selectOneRadio value="#{pesquisa.tipoFiltro}" valueChangeListener="#{pesquisa.atualizaFiltro}" onchange="submit();">
+					<h:selectOneRadio value="#{pesquisa.tipoFiltro}">
 						<f:selectItem itemValue="true" itemLabel="dia/mês/ano"/>
 						<f:selectItem itemValue="false" itemLabel="dia/mês"/>
+						
+						<f:ajax event="change" execute="@this" render="formulario:group"/>
 					</h:selectOneRadio>
-					<h:inputHidden/>
 				
 					Data:
-					<h:inputText id="consultaFull" value="#{pesquisa.consulta}" rendered="#{pesquisa.tipoFiltro}" pt:placeholder="dd/mm/yyyy">
-						<f:convertDateTime pattern="dd/MM/yyyy"/>
-					</h:inputText>
+					<h:panelGroup id="group">
+						<h:inputText id="consultaFull" value="#{pesquisa.consulta}" rendered="#{pesquisa.tipoFiltro}" pt:placeholder="dd/mm/yyyy">
+							<f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
+						</h:inputText>
+						
+						<h:inputText id="consultaShort" value="#{pesquisa.consulta}" rendered="#{!pesquisa.tipoFiltro}" pt:placeholder="dd/mm">
+							<f:convertDateTime pattern="dd/MM" type="localDate"/>
+						</h:inputText>
+					
+					</h:panelGroup>
 
 					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}" styleClass="button"/>
 				</h:panelGrid>
