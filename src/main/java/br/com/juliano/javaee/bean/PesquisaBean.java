@@ -1,7 +1,7 @@
 package br.com.juliano.javaee.bean;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -16,7 +16,7 @@ import br.com.juliano.javaee.model.Candidato;
 @RequestScoped
 public class PesquisaBean implements Serializable {
 
-	private Date consulta;
+	private LocalDate consulta;
 	private List<Candidato> candidatosFiltrados;
 	private Boolean tipoFiltro = true;
 
@@ -25,6 +25,7 @@ public class PesquisaBean implements Serializable {
 
 	public String processarPesquisa() {
 //	    candidatosFiltrados = candidatoBean.consultarPorData(consulta, tipoFiltro);
+	    System.out.println("LocalDate: " + consulta);
 	    return null;
 	}
 
@@ -32,11 +33,11 @@ public class PesquisaBean implements Serializable {
 	    tipoFiltro = (Boolean) event.getNewValue();
 	}
 
-	public Date getConsulta() {
+	public LocalDate getConsulta() {
 		return consulta;
 	}
 
-	public void setConsulta(Date consulta) {
+	public void setConsulta(LocalDate consulta) {
 		this.consulta = consulta;
 	}
 
