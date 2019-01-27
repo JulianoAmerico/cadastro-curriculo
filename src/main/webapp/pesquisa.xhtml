@@ -23,21 +23,12 @@
 						<f:selectItem itemValue="true" itemLabel="dia/mês/ano"/>
 						<f:selectItem itemValue="false" itemLabel="dia/mês"/>
 						
-						<f:ajax event="change" execute="@this" render="formulario:group"/>
+						<f:ajax event="change" execute="@this" render="@this"/>
 					</h:selectOneRadio>
 				
 					Data:
-					<h:panelGroup id="group">
-						<h:inputText id="consultaFull" value="#{pesquisa.consulta}" rendered="#{pesquisa.tipoFiltro}" pt:placeholder="dd/mm/yyyy">
-							<f:convertDateTime pattern="dd/MM/yyyy" type="localDate"/>
-						</h:inputText>
+					<h:inputText value="#{pesquisa.consulta}" pt:placeholder="dd/mm/yyyy ou dd/mm"/>
 						
-						<h:inputText id="consultaShort" value="#{pesquisa.consulta}" rendered="#{!pesquisa.tipoFiltro}" pt:placeholder="dd/mm">
-							<f:convertDateTime pattern="dd/MM" type="localDate"/>
-						</h:inputText>
-					
-					</h:panelGroup>
-
 					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}" styleClass="button"/>
 				</h:panelGrid>
 				<br/>
