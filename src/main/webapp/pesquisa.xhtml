@@ -27,7 +27,9 @@
 					</h:selectOneRadio>
 				
 					Data:
-					<h:inputText value="#{pesquisa.consulta}" pt:placeholder="dd/mm/yyyy ou dd/mm"/>
+					<h:inputText id="consultaFull" value="#{pesquisa.consulta}" pt:placeholder="dd/mm/yyyy ou dd/mm">
+						<f:converter converterId="converterLocalDate" for="consultaFull"/>
+					</h:inputText>
 						
 					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}" styleClass="button"/>
 				</h:panelGrid>
