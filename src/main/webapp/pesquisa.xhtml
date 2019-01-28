@@ -18,19 +18,8 @@
 			<h:form id="formulario">
 				<h:messages />
 				<h:panelGrid columns="2">
-					Pesquisar por:
-					<h:selectOneRadio value="#{pesquisa.tipoFiltro}">
-						<f:selectItem itemValue="true" itemLabel="dia/mês/ano"/>
-						<f:selectItem itemValue="false" itemLabel="dia/mês"/>
-						
-						<f:ajax event="change" execute="@this" render="@this"/>
-					</h:selectOneRadio>
-				
 					Data:
-					<h:inputText id="consultaFull" value="#{pesquisa.consulta}" pt:placeholder="dd/mm/yyyy ou dd/mm">
-						<f:converter converterId="converterLocalDate" for="consultaFull"/>
-					</h:inputText>
-						
+					<h:inputText id="consultaFull" value="#{pesquisa.consulta}" pt:placeholder="dd/mm/aaaa ou dd/mm"/>						
 					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}" styleClass="button"/>
 				</h:panelGrid>
 				<br/>
