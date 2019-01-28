@@ -14,7 +14,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 
-@FacesConverter(value = "converterLocalDate", forClass = LocalDate.class)
+@FacesConverter(forClass = LocalDate.class)
 public class LocalDateConverter implements Converter<LocalDate> {
 
     private static final Locale LOCALE = new Locale("pt", "BR");
