@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.event.ValueChangeEvent;
 import javax.inject.Named;
 
 import br.com.juliano.javaee.ejb.CandidatoBean;
@@ -18,19 +17,13 @@ public class PesquisaBean implements Serializable {
 
 	private LocalDate consulta;
 	private List<Candidato> candidatosFiltrados;
-	private Boolean tipoFiltro = true;
 
 	@EJB
 	CandidatoBean candidatoBean;
 
 	public String processarPesquisa() {
-//	    candidatosFiltrados = candidatoBean.consultarPorData(consulta, tipoFiltro);
-	    System.out.println("LocalDate: " + consulta);
+	    candidatosFiltrados = candidatoBean.consultarPorData(consulta);
 	    return null;
-	}
-
-	public void atualizaFiltro(ValueChangeEvent event) {
-	    tipoFiltro = (Boolean) event.getNewValue();
 	}
 
 	public LocalDate getConsulta() {
@@ -47,13 +40,5 @@ public class PesquisaBean implements Serializable {
 
 	public void setCandidatosFiltrados(List<Candidato> candidatosFiltrados) {
         this.candidatosFiltrados = candidatosFiltrados;
-    }
-
-	public Boolean getTipoFiltro() {
-        return tipoFiltro;
-    }
-
-	public void setTipoFiltro(Boolean tipoFiltro) {
-        this.tipoFiltro = tipoFiltro;
     }
 }
