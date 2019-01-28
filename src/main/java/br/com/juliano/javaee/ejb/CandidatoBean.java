@@ -1,5 +1,8 @@
 package br.com.juliano.javaee.ejb;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -60,19 +63,27 @@ public class CandidatoBean {
         });
     }
 
-    @SuppressWarnings("deprecation")
-    public List<Candidato> consultarPorData(Date consulta, Boolean tipoFiltro) {
-        if (tipoFiltro) {
+    public List<Candidato> consultarPorData(LocalDate localDate) {
+        /*
+         * As colunas que tem data é do tipo java.util.Date então, é necessário converter LocalDate para Date.
+         */
+        Instant instant = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
+        Date date = Date.from(instant);
+
+        int year = localDate.getYear();
+
+        //Ano igual 0 significa que foi passado somente dia/mês na data.
+        if (year != 0) {
             String jpql = "SELECT c FROM Candidato c WHERE c.dataCadastro = :data ORDER BY c.dataCadastro DESC";
             TypedQuery<Candidato> q = em.createQuery(jpql, Candidato.class);
-            q.setParameter("data", consulta);
+            q.setParameter("data", date);
 
             return q.getResultList();
         } else {
             String jpql = "SELECT c FROM Candidato c WHERE DAY(c.dataCadastro) = :dia AND MONTH(c.dataCadastro) = :mes";
             TypedQuery<Candidato> q = em.createQuery(jpql, Candidato.class);
-            q.setParameter("dia", consulta.getDay());
-            q.setParameter("mes", consulta.getMonth());
+            q.setParameter("dia", localDate.getDayOfMonth());
+            q.setParameter("mes", localDate.getMonthValue());
 
             return q.getResultList();
         }
