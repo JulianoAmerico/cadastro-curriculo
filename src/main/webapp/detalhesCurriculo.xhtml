@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Detalhes do Currículo</title>
+<h:outputStylesheet library="css" name="estilo.css"/>
+</h:head>
+<h:body>
+	<header><h1>Informações do Currículo</h1></header>
+	
+	<!-- Topo da página -->
+	<section>
+		<article>
+			<h:form id="formulario">
+			
+				<!-- Navegação entre os dados -->
+				<h:panelGrid columns="3">
+					<h:commandButton value="Dados Pessoais">
+						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarDadosPessoais}"/>
+					</h:commandButton>
+					
+					<h:commandButton value="Dados Profissionais">
+						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarDadosProfissionais}"/>
+					</h:commandButton>
+					
+					<h:commandButton value="Formação e Cursos">
+						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarFormacaoAcademica}"/>
+					</h:commandButton>
+				</h:panelGrid>
+				
+				<!-- Dados Pessoais -->
+				<h:panelGrid columns="2" rendered="#{pesquisa.mostraDadosPessoais}">
+					<h:outputText value="Nome: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.nome}"/>
+					
+					<h:outputText value="Sexo: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.sexo}"/>
+					
+					<h:outputText value="CEP: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.endereco.cep}"/>
+					
+					<h:outputText value="Endereço: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.endereco.rua}"/>
+					
+					<h:outputText value="Bairro: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.endereco.bairro}"/>
+					
+					<h:outputText value="Cidade: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.endereco.cidade}"/>
+					
+					<h:outputText value="Estado: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.endereco.estado}"/>
+					
+					<h:outputText value="Nacionalidade: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.nacionalidade}"/>
+					
+					<h:outputText value="Estado civil: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.estadoCivil}"/>
+					
+					<h:outputText value="Data de Nascimento: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.dataNascimento}">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</h:outputText>
+					
+					<h:outputText value="Telefone: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.telefoneCelular}"/>
+					
+					<h:outputText value="E-mail: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.email}"/>
+					
+					<h:outputText value="LinkedIn: "/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.linkedin}"/>					
+					
+				</h:panelGrid>
+				
+				<!-- Dados Profissionais -->
+				<h:panelGroup rendered="#{pesquisa.mostraDadosProfissionais}">
+					<h:panelGrid columns="2">
+						<h:outputText value="Objetivo Profissional: "/>
+						<h:outputText value="#{pesquisa.candidatoSelecionado.objetivoProfissional}"/>
+						
+						<h:outputText value="Pretensão Salarial "/>
+						<h:outputText value="#{pesquisa.candidatoSelecionado.pretensaoSalarial}"/>
+					</h:panelGrid>
+					
+					<h:dataTable value="#{pesquisa.candidatoSelecionado.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp"
+						rendered="#{pesquisa.candidatoSelecionado.expProfissional.size() > 0}">
+						
+						<h:column>
+							<f:facet name="header">Empresa</f:facet>
+							<h:outputText value="#{exp.empresa}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Inicio</f:facet>
+							<h:outputText value="#{exp.inicio}">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:outputText>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Término</f:facet>
+							<h:outputText value="#{exp.termino}" rendered="#{!exp.ateMomento}">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:outputText>
+							<h:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Cargo</f:facet>
+							<h:outputText value="#{exp.cargo}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Área de atuação</f:facet>	
+							<h:outputText value="#{exp.areaAtuacao}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Descrição da Experiência</f:facet>	
+							<h:outputText value="#{exp.descricaoExperiencia}"/>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>	
+				
+				<!-- Formação Acadêmica -->
+				<h:panelGrid columns="2" rendered="#{pesquisa.mostraFormacaoAcademica}">
+					<h:dataTable>
+					
+					
+					</h:dataTable>
+				</h:panelGrid>
+				
+				<h:commandButton value="Voltar" action="pesquisa?faces-redirect=true"/>
+			</h:form>
+		</article>
+	</section>
+</h:body>
+</html>
