@@ -23,8 +23,12 @@
 					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}" styleClass="button"/>
 				</h:panelGrid>
 				<br/>
-				<h:dataTable value="#{pesquisa.candidatosFiltrados}" var="cf" styleClass="tabela" headerClass="cabecalho"
-					columnClasses="colData,colNome,colObjetivo,colOp" rendered="#{pesquisa.candidatosFiltrados.size() > 0}">
+			</h:form>
+		</article>
+		<article>
+			<h:form id="formulario-2">
+				<h:dataTable value="#{pesquisa.candidatosModel}" var="cf" styleClass="tabela" headerClass="cabecalho"
+					columnClasses="colData,colNome,colObjetivo,colOp" rendered="#{pesquisa.candidatosModel.rowCount > 0}">
 					
 					<h:column>
 						<f:facet name="header">Data de Cadastro</f:facet>
@@ -44,7 +48,7 @@
 					</h:column>
 					
 					<h:column>
-						<h:commandButton value="Ver mais" styleClass="button"/>
+						<h:commandButton value="Ver mais" styleClass="button" action="#{pesquisa.mostrarMais(cf)}"/>
 					</h:column>
 				</h:dataTable>
 			</h:form>
