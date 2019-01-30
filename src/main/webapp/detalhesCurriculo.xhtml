@@ -128,10 +128,29 @@
 					</h:dataTable>
 				</h:panelGroup>	
 				
-				<!-- Formação Acadêmica -->
+				<!-- Formação Acadêmica & Cursos -->
 				<h:panelGrid columns="2" rendered="#{pesquisa.mostraFormacaoAcademica}">
-					<h:dataTable>
 					
+					<!-- Formação -->
+					<h:dataTable value="#{pesquisa.candidatoSelecionado.formacaoAcademica}" var="fa" styleClass="tabela" headerClass="cabecalho" columnClasses="colNivel,colCurso,colInstituicao,colData,colOp"
+					 	rendered="#{formulario.candidato.formacaoAcademica.size() > 0}">
+						
+						<h:column>
+							<f:facet name="header">Nível de Formação</f:facet>
+							<h:outputText value="#{fa.nivelFormacao.label}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Instituição de Ensino</f:facet>
+							<h:outputText value="#{fa.instituicao}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Data de Conclusão</f:facet>
+							<h:outputText value="#{fa.dataConclusao}">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:outputText>
+						</h:column>
 					
 					</h:dataTable>
 				</h:panelGrid>
