@@ -5,25 +5,62 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.model.ListDataModel;
 import javax.inject.Named;
 
 import br.com.juliano.javaee.ejb.CandidatoBean;
 import br.com.juliano.javaee.model.Candidato;
 
 @Named("pesquisa")
-@RequestScoped
+@SessionScoped
 public class PesquisaBean implements Serializable {
 
 	private LocalDate consulta;
 	private List<Candidato> candidatosFiltrados;
+	private ListDataModel<Candidato> candidatosModel;
+	private Candidato candidatoSelecionado;
+	private Boolean mostraDadosPessoais = true;
+	private Boolean mostraDadosProfissionais;
+	private Boolean mostraFormacaoAcademica;
 
 	@EJB
 	CandidatoBean candidatoBean;
 
+	//Recupera do banco de dados os candidatos cadastrados na data determinada pelo usuário.
 	public String processarPesquisa() {
 	    candidatosFiltrados = candidatoBean.consultarPorData(consulta);
+	    candidatosModel = new ListDataModel<>(candidatosFiltrados);
+	    consulta = null;
 	    return null;
+	}
+
+	//Mostra mais informações do candidado que foi filtrado.
+	public String mostrarMais(Candidato candidato) {
+	    candidatoSelecionado = candidato;
+	    return "detalhesCurriculo?faces-redirect=true";
+	}
+
+	//Mostra os dados pessoais do candidato.
+	public void mostrarDadosPessoais(AjaxBehaviorEvent event) {
+	    mostraDadosPessoais = true;
+	    mostraDadosProfissionais = false;
+	    mostraFormacaoAcademica = false;
+	}
+
+	//Mostra os dados profissionais do candidato.
+	public void mostrarDadosProfissionais(AjaxBehaviorEvent event) {
+	    mostraDadosPessoais = false;
+        mostraDadosProfissionais = true;
+        mostraFormacaoAcademica = false;
+	}
+
+	//Mostra a formação acadêmica e cursos do candidato.
+	public void mostrarFormacaoAcademica(AjaxBehaviorEvent event) {
+	    mostraDadosPessoais = false;
+        mostraDadosProfissionais = false;
+        mostraFormacaoAcademica = true;
 	}
 
 	public LocalDate getConsulta() {
@@ -41,4 +78,47 @@ public class PesquisaBean implements Serializable {
 	public void setCandidatosFiltrados(List<Candidato> candidatosFiltrados) {
         this.candidatosFiltrados = candidatosFiltrados;
     }
+
+	public Candidato getCandidatoSelecionado() {
+        return candidatoSelecionado;
+    }
+
+	public void setCandidatoSelecionado(Candidato candidatoSelecionado) {
+        this.candidatoSelecionado = candidatoSelecionado;
+    }
+
+
+	public ListDataModel<Candidato> getCandidatosModel() {
+        return candidatosModel;
+    }
+
+	public void setCandidatosModel(ListDataModel<Candidato> candidatosModel) {
+        this.candidatosModel = candidatosModel;
+    }
+
+    public Boolean getMostraDadosPessoais() {
+        return mostraDadosPessoais;
+    }
+
+    public void setMostraDadosPessoais(Boolean mostraDadosPessoais) {
+        this.mostraDadosPessoais = mostraDadosPessoais;
+    }
+
+    public Boolean getMostraDadosProfissionais() {
+        return mostraDadosProfissionais;
+    }
+
+    public void setMostraDadosProfissionais(Boolean mostraDadosProfissionais) {
+        this.mostraDadosProfissionais = mostraDadosProfissionais;
+    }
+
+    public Boolean getMostraFormacaoAcademica() {
+        return mostraFormacaoAcademica;
+    }
+
+    public void setMostraFormacaoAcademica(Boolean mostraFormacaoAcademica) {
+        this.mostraFormacaoAcademica = mostraFormacaoAcademica;
+    }
+
+
 }
