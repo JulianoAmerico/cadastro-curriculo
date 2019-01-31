@@ -11,6 +11,10 @@ import javax.faces.model.ListDataModel;
 import javax.inject.Named;
 
 import br.com.juliano.javaee.ejb.CandidatoBean;
+import br.com.juliano.javaee.ejb.CursosComplementaresBean;
+import br.com.juliano.javaee.ejb.ExperienciaProfissionalBean;
+import br.com.juliano.javaee.ejb.FormacaoAcademicaBean;
+import br.com.juliano.javaee.ejb.IdiomaBean;
 import br.com.juliano.javaee.model.Candidato;
 
 @Named("pesquisa")
@@ -26,7 +30,19 @@ public class PesquisaBean implements Serializable {
 	private Boolean mostraFormacaoAcademica;
 
 	@EJB
-	CandidatoBean candidatoBean;
+	private CandidatoBean candidatoBean;
+
+	@EJB
+	private ExperienciaProfissionalBean expProfissionalBean;
+
+	@EJB
+	private FormacaoAcademicaBean formacaoAcademicaBean;
+
+	@EJB
+	private CursosComplementaresBean cursosComplementaresBean;
+
+	@EJB
+	private IdiomaBean idiomaBean;
 
 	//Recupera do banco de dados os candidatos cadastrados na data determinada pelo usuário.
 	public String processarPesquisa() {
@@ -39,6 +55,13 @@ public class PesquisaBean implements Serializable {
 	//Mostra mais informações do candidado que foi filtrado.
 	public String mostrarMais(Candidato candidato) {
 	    candidatoSelecionado = candidato;
+
+	    //Carrega as outras informações do candidato no relacionamento LAZY.
+	    candidatoSelecionado.setExpProfissional(expProfissionalBean.listar(candidatoSelecionado.getId()));
+	    candidatoSelecionado.setFormacaoAcademica(formacaoAcademicaBean.listar(candidatoSelecionado.getId()));
+	    candidatoSelecionado.setCursosComplementares(cursosComplementaresBean.listar(candidatoSelecionado.getId()));
+	    candidatoSelecionado.setIdiomas(idiomaBean.listar(candidatoSelecionado.getId()));
+
 	    return "detalhesCurriculo?faces-redirect=true";
 	}
 
