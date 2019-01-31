@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -6,19 +6,19 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Detalhes do Currículo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Detalhes do CurrÃ­culo</title>
 <h:outputStylesheet library="css" name="estilo.css"/>
 </h:head>
 <h:body>
-	<header><h1>Informações do Currículo</h1></header>
+	<header><h1>InformaÃ§Ãµes do CurrÃ­culo</h1></header>
 	
-	<!-- Topo da página -->
+	<!-- Topo da pÃ¡gina -->
 	<section>
 		<article>
 			<h:form id="formulario">
 			
-				<!-- Navegação entre os dados -->
+				<!-- NavegaÃ§Ã£o entre os dados -->
 				<h:panelGrid columns="3">
 					<h:commandButton value="Dados Pessoais">
 						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarDadosPessoais}"/>
@@ -28,7 +28,7 @@
 						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarDadosProfissionais}"/>
 					</h:commandButton>
 					
-					<h:commandButton value="Formação e Cursos">
+					<h:commandButton value="FormaÃ§Ã£o e Cursos">
 						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarFormacaoAcademica}"/>
 					</h:commandButton>
 				</h:panelGrid>
@@ -44,7 +44,7 @@
 					<h:outputText value="CEP: "/>
 					<h:outputText value="#{pesquisa.candidatoSelecionado.endereco.cep}"/>
 					
-					<h:outputText value="Endereço: "/>
+					<h:outputText value="EndereÃ§o: "/>
 					<h:outputText value="#{pesquisa.candidatoSelecionado.endereco.rua}"/>
 					
 					<h:outputText value="Bairro: "/>
@@ -84,7 +84,7 @@
 						<h:outputText value="Objetivo Profissional: "/>
 						<h:outputText value="#{pesquisa.candidatoSelecionado.objetivoProfissional}"/>
 						
-						<h:outputText value="Pretensão Salarial "/>
+						<h:outputText value="PretensÃ£o Salarial "/>
 						<h:outputText value="#{pesquisa.candidatoSelecionado.pretensaoSalarial}"/>
 					</h:panelGrid>
 					
@@ -104,11 +104,11 @@
 						</h:column>
 						
 						<h:column>
-							<f:facet name="header">Término</f:facet>
+							<f:facet name="header">TÃ©rmino</f:facet>
 							<h:outputText value="#{exp.termino}" rendered="#{!exp.ateMomento}">
 								<f:convertDateTime pattern="dd/MM/yyyy"/>
 							</h:outputText>
-							<h:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
+							<h:outputText value="AtÃ© o momento" rendered="#{exp.ateMomento}"/>
 						</h:column>
 						
 						<h:column>
@@ -117,36 +117,36 @@
 						</h:column>
 						
 						<h:column>
-							<f:facet name="header">Área de atuação</f:facet>	
+							<f:facet name="header">Ãrea de atuaÃ§Ã£o</f:facet>	
 							<h:outputText value="#{exp.areaAtuacao}"/>
 						</h:column>
 						
 						<h:column>
-							<f:facet name="header">Descrição da Experiência</f:facet>	
+							<f:facet name="header">DescriÃ§Ã£o da ExperiÃªncia</f:facet>	
 							<h:outputText value="#{exp.descricaoExperiencia}"/>
 						</h:column>
 					</h:dataTable>
 				</h:panelGroup>	
 				
-				<!-- Formação Acadêmica & Cursos -->
+				<!-- FormaÃ§Ã£o AcadÃªmica & Cursos -->
 				<h:panelGrid columns="2" rendered="#{pesquisa.mostraFormacaoAcademica}">
 					
-					<!-- Formação -->
+					<!-- FormaÃ§Ã£o -->
 					<h:dataTable value="#{pesquisa.candidatoSelecionado.formacaoAcademica}" var="fa" styleClass="tabela" headerClass="cabecalho" columnClasses="colNivel,colCurso,colInstituicao,colData,colOp"
 					 	rendered="#{formulario.candidato.formacaoAcademica.size() > 0}">
 						
 						<h:column>
-							<f:facet name="header">Nível de Formação</f:facet>
+							<f:facet name="header">NÃ­vel de FormaÃ§Ã£o</f:facet>
 							<h:outputText value="#{fa.nivelFormacao.label}"/>
 						</h:column>
 						
 						<h:column>
-							<f:facet name="header">Instituição de Ensino</f:facet>
+							<f:facet name="header">InstituiÃ§Ã£o de Ensino</f:facet>
 							<h:outputText value="#{fa.instituicao}"/>
 						</h:column>
 						
 						<h:column>
-							<f:facet name="header">Data de Conclusão</f:facet>
+							<f:facet name="header">Data de ConclusÃ£o</f:facet>
 							<h:outputText value="#{fa.dataConclusao}">
 								<f:convertDateTime pattern="dd/MM/yyyy"/>
 							</h:outputText>
