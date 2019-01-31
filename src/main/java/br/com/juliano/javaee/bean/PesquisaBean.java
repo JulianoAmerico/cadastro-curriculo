@@ -61,7 +61,6 @@ public class PesquisaBean implements Serializable {
 	    candidatoSelecionado.setFormacaoAcademica(formacaoAcademicaBean.listar(candidatoSelecionado.getId()));
 	    candidatoSelecionado.setCursosComplementares(cursosComplementaresBean.listar(candidatoSelecionado.getId()));
 	    candidatoSelecionado.setIdiomas(idiomaBean.listar(candidatoSelecionado.getId()));
-
 	    return "detalhesCurriculo?faces-redirect=true";
 	}
 
