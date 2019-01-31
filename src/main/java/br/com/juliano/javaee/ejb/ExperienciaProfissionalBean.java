@@ -16,7 +16,7 @@ public class ExperienciaProfissionalBean {
     private EntityManager em;
 
     public List<ExperienciaProfissional> listar(int idCandidato){
-        String jpql = "SELECT exp FROM experiencia_profissional exp WHERE candidato_id = :id";
+        String jpql = "SELECT exp FROM ExperienciaProfissional exp WHERE candidato_id = :id";
 
         TypedQuery<ExperienciaProfissional> query = em.createQuery(jpql, ExperienciaProfissional.class);
         query.setParameter("id", idCandidato);

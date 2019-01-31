@@ -17,7 +17,7 @@ public class IdiomaBean {
     private EntityManager em;
 
     public List<Idioma> listar(int idCandidato){
-        String jpql = "SELECT i FROM idioma i WHERE candidato_id = :id";
+        String jpql = "SELECT i FROM Idioma i WHERE candidato_id = :id";
 
         TypedQuery<Idioma> query = em.createQuery(jpql, Idioma.class);
         query.setParameter("id", idCandidato);

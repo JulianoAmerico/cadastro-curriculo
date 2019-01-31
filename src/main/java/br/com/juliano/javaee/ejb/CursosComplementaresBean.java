@@ -16,7 +16,7 @@ public class CursosComplementaresBean {
     private EntityManager em;
 
     public List<CursosComplementares> listar(int idCandidato){
-        String jpql = "SELECT curso FROM cursos_complementares curso WHERE candidato_id = :id";
+        String jpql = "SELECT curso FROM CursosComplementares curso WHERE candidato_id = :id";
 
         TypedQuery<CursosComplementares> query = em.createQuery(jpql, CursosComplementares.class);
         query.setParameter("id", idCandidato);

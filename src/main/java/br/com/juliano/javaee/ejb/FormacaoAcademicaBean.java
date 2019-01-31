@@ -16,7 +16,7 @@ public class FormacaoAcademicaBean {
     private EntityManager em;
 
     public List<FormacaoAcademica> listar(int idCandidato){
-        String jpql = "SELECT fa FROM formacao_academica fa WHERE candidato_id = :id";
+        String jpql = "SELECT fa FROM FormacaoAcademica fa WHERE candidato_id = :id";
 
         TypedQuery<FormacaoAcademica> query = em.createQuery(jpql, FormacaoAcademica.class);
         query.setParameter("id", idCandidato);
