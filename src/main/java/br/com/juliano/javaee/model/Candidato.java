@@ -93,13 +93,13 @@ public class Candidato implements Serializable {
     @OneToMany(mappedBy = "candidato", fetch=FetchType.EAGER)
     private List<ExperienciaProfissional> expProfissional;
 
-    @OneToMany(mappedBy = "candidato")
+    @OneToMany(mappedBy = "candidato", fetch=FetchType.EAGER)
     private List<Idioma> idiomas;
 
-    @OneToMany(mappedBy = "candidato")
+    @OneToMany(mappedBy = "candidato", fetch=FetchType.EAGER)
     private List<FormacaoAcademica> formacaoAcademica;
 
-    @OneToMany(mappedBy = "candidato")
+    @OneToMany(mappedBy = "candidato", fetch=FetchType.EAGER)
     private List<CursosComplementares> cursosComplementares;
 
     @Temporal(TemporalType.DATE)
