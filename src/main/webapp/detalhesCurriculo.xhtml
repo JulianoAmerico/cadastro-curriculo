@@ -39,7 +39,7 @@
 					<h:outputText value="#{pesquisa.candidatoSelecionado.nome}"/>
 					
 					<h:outputText value="Sexo: "/>
-					<h:outputText value="#{pesquisa.candidatoSelecionado.sexo}"/>
+					<h:outputText value="#{pesquisa.candidatoSelecionado.sexo.label}"/>
 					
 					<h:outputText value="CEP: "/>
 					<h:outputText value="#{pesquisa.candidatoSelecionado.endereco.cep}"/>
@@ -129,15 +129,21 @@
 				</h:panelGroup>	
 				
 				<!-- Formação Acadêmica & Cursos -->
-				<h:panelGrid columns="2" rendered="#{pesquisa.mostraFormacaoAcademica}">
+				<h:panelGrid rendered="#{pesquisa.mostraFormacaoAcademica}">
+					<h1>Formação Acadêmica</h1>
 					
 					<!-- Formação -->
 					<h:dataTable value="#{pesquisa.candidatoSelecionado.formacaoAcademica}" var="fa" styleClass="tabela" headerClass="cabecalho" columnClasses="colNivel,colCurso,colInstituicao,colData,colOp"
-					 	rendered="#{formulario.candidato.formacaoAcademica.size() > 0}">
-						
+					 	rendered="#{pesquisa.candidatoSelecionado.formacaoAcademica.size() > 0}">
+											
 						<h:column>
 							<f:facet name="header">Nível de Formação</f:facet>
 							<h:outputText value="#{fa.nivelFormacao.label}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Nome do Curso</f:facet>
+							<h:outputText value="#{fa.curso}"/>
 						</h:column>
 						
 						<h:column>
@@ -153,6 +159,54 @@
 						</h:column>
 					
 					</h:dataTable>
+					<h:outputText value="Não há formação acadêmica" rendered="#{pesquisa.candidatoSelecionado.formacaoAcademica.size() == 0}"/>
+					
+					<!-- Cursos Complementares -->
+					
+					<h1>Cursos Complementares</h1>
+					
+					<h:dataTable value="#{pesquisa.candidatoSelecionado.cursosComplementares}" var="cursoComplementar" styleClass="tabela" headerClass="cabecalho"
+					columnClasses="colCurso,colInstituicao,colData,colOp" rendered="#{pesquisa.candidatoSelecionado.cursosComplementares.size() > 0}">
+					
+						<h:column>
+							<f:facet name="header">Nome do Curso</f:facet>
+							<h:outputText value="#{cursoComplementar.curso}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Instituição de Ensino</f:facet>
+							<h:outputText value="#{cursoComplementar.instituicao}"/>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Data de Conclusão</f:facet>
+							<h:outputText value="#{cursoComplementar.dataConclusao}">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:outputText>
+						</h:column>
+					
+					</h:dataTable>
+					
+					<h:outputText value="Não há cursos complementares" rendered="#{pesquisa.candidatoSelecionado.cursosComplementares.size() == 0}"/>
+					
+					<!-- Idiomas -->
+					<h1>Idiomas</h1>
+					
+					<h:dataTable value="#{pesquisa.candidatoSelecionado.idiomas}" var="i" styleClass="tabela" headerClass="cabecalho"
+					columnClasses="colCurso,colInstituicao,colData,colOp" rendered="#{pesquisa.candidatoSelecionado.idiomas.size() > 0}">
+						
+						<h:column>
+							<f:facet name="header">Idioma</f:facet>
+							<h:outputText value="#{i.idioma.label}" />
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Nível</f:facet>
+							<h:outputText value="#{i.nivel.label}"/>
+						</h:column>
+					</h:dataTable>
+					
+					<h:outputText value="Não há idiomas" rendered="#{pesquisa.candidatoSelecionado.idiomas.size() == 0}"/>
 				</h:panelGrid>
 				
 				<h:commandButton value="Voltar" action="pesquisa?faces-redirect=true"/>
