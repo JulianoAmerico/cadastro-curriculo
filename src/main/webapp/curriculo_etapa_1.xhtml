@@ -5,6 +5,7 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
 	lang="pt-br">
 <h:head>
 	<meta charset="utf-8"/>
@@ -32,16 +33,15 @@
 		</header>
 		<h:form id="formulario">
 			<h:panelGrid columns="4">
-				<h:outputText value="Nome:"/>
-				<span class="required">*</span>
-				<h:inputText id="nome" value="#{formulario.candidato.nome}" required="true" pt:placeholder="José da Silva" maxlength="50" 
+				<p:outputLabel for="nome" value="Nome:"/>
+				<p:inputText id="nome" value="#{formulario.candidato.nome}" required="true" pt:placeholder="José da Silva" maxlength="50" 
 							requiredMessage="Digite o seu nome."
 							validatorMessage="O nome é inválido."
 							converterMessage="Conversão inválida.">
 					<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
 					<f:ajax event="keyup" execute="@this" render="formulario:errorNome"/>
-				</h:inputText> 
-				<h:message id="errorNome" styleClass="error" for="nome"/>
+				</p:inputText> 
+				<p:message id="errorNome" styleClass="error" for="nome" display="both"/>
 				
 				<h:outputText value="Sexo: "/>
 				<span class="required">*</span>
