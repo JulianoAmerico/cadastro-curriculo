@@ -1,5 +1,7 @@
 * {
 	box-sizing: border-box;
+	margin:0;
+	padding:0;
 }
 
 /*Cadastro de currículo Etapa 1*/
@@ -7,6 +9,11 @@
 .containerCadastroEtapa1{
 	width: 900px;
 	margin: auto;
+}
+
+.tituloPagina{
+	width:900px;
+	margin:auto;
 }
 
 .error{
