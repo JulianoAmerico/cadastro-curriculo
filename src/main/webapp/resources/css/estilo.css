@@ -2,6 +2,13 @@
 	box-sizing: border-box;
 }
 
+/*Cadastro de currículo Etapa 1*/
+
+.containerCadastroEtapa1{
+	width: 900px;
+	margin: auto;
+}
+
 .error{
 	color: white;
 	background-color: #db2f2f;
