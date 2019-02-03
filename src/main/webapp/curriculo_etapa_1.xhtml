@@ -15,6 +15,36 @@
 	<title>Cadastro de Currículo Etapa - 1</title>
 </h:head>
 <h:body>
+<!-- Script de idioma -->
+<script type="text/javascript">
+    PrimeFaces.locales['pt'] = {
+        closeText: 'Fechar',
+        prevText: 'Anterior',
+        nextText: 'Seguinte',
+        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+        dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+        weekHeader: 'Semana',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        timeOnlyTitle: 'Só tempo',
+        timeText: 'Tempo',
+        hourText: 'Hora',
+        minuteText: 'Minuto',
+        secondText: 'Segundo',
+        currentText: 'Fecha atual',
+        ampm: false,
+        month: 'Mês',
+        week: 'Semana',
+        day: 'Dia',
+        allDayText: 'Todo o dia'
+    };
+</script>
+
 <!-- Recursos -->
 <h:outputStylesheet library="css" name="estilo.css"/>	
 
@@ -115,12 +145,11 @@
 					<p:message for="estadoCivil"/>
 					
 					<p:outputLabel for="dataNascimento" value="Data Nascimento:"/>
-					<p:inputMask id="dataNascimento" value="#{formulario.candidato.dataNascimento}" mask="99/99/9999" required="true" pt:placeholder="12/05/1992"
+					<p:calendar id="dataNascimento" value="#{formulario.candidato.dataNascimento}" maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" required="true" mask="true" navigator="true" locale="pt"
 									requiredMessage="Digite sua data de nascimento."
 									converterMessage="Data inválida.">
-						<f:convertDateTime pattern="dd/MM/yyyy"/>
 						<f:validator validatorId="dateBirthValidator"/>
-					</p:inputMask> 
+					</p:calendar> 
 					<p:message for="dataNascimento"/>
 					
 					<p:outputLabel for="telefoneCelular" value="Telefone celular:"/>
