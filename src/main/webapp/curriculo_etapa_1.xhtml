@@ -74,8 +74,8 @@
 					<p:separator/>
 					
 					<h:panelGrid id="grid" columns="3" cellpadding="5">
-						<p:outputLabel styleClass="labelDado" for="nome" value="Nome:"/>
-						<p:inputText styleClass="inputDado" id="nome" value="#{formulario.candidato.nome}" required="true" pt:placeholder="José da Silva" maxlength="50" 
+						<p:outputLabel for="nome" value="Nome:"/>
+						<p:inputText id="nome" value="#{formulario.candidato.nome}" required="true" pt:placeholder="José da Silva" maxlength="50" 
 									requiredMessage="Digite o seu nome."
 									validatorMessage="O nome é inválido."
 									converterMessage="Conversão inválida.">
@@ -84,43 +84,43 @@
 						</p:inputText> 
 						<p:message id="errorNome" for="nome"/>
 						
-						<p:outputLabel styleClass="labelDado" for="sexo" value="Sexo: "/>
-						<p:selectOneRadio styleClass="inputDado" id="sexo" value="#{formulario.candidato.sexo}" required="true" requiredMessage="Selecione o sexo">
+						<p:outputLabel for="sexo" value="Sexo: "/>
+						<p:selectOneRadio id="sexo" value="#{formulario.candidato.sexo}" required="true" requiredMessage="Selecione o sexo">
 							<f:selectItems value="#{formulario.sexoValues}" var="s" itemLabel="#{s.label}" itemValue="#{s}"/>
 						</p:selectOneRadio>
 						<p:message for="sexo"/>
 						
-						<p:outputLabel styleClass="labelDado" for="cep" value="CEP:"/>
-						<p:inputMask styleClass="inputDado" id="cep" value="#{formulario.candidato.endereco.cep}" mask="99999-999" required="true" maxlength="8" pt:placeholder="10100100"
+						<p:outputLabel for="cep" value="CEP:"/>
+						<p:inputMask id="cep" value="#{formulario.candidato.endereco.cep}" mask="99999-999" required="true" maxlength="8" pt:placeholder="10100100"
 										requiredMessage="Digite o seu CEP."
 										validatorMessage="CEP é inválido. Exemplo:10100100."
 										converterMessage="Erro na conversão."
 										pt:onBlur="searchcep(this.value)"/>
 						<p:message for="cep"/>
 						
-						<p:outputLabel styleClass="labelDado" for="endereco" value="Endereço:"/>
-						<p:inputText styleClass="inputDado" id="endereco" value="#{formulario.candidato.endereco.rua}" required="true" maxlength="50" pt:placeholder="Rua da Santa Rita"
+						<p:outputLabel for="endereco" value="Endereço:"/>
+						<p:inputText id="endereco" value="#{formulario.candidato.endereco.rua}" required="true" maxlength="50" pt:placeholder="Rua da Santa Rita"
 										requiredMessage="Digite o nome da sua rua"
 										validatorMessage="Rua é inválida"
 										converterMessage="Erro na conversão"/>
 						<p:message for="endereco"/>
 											
-						<p:outputLabel styleClass="labelDado" for="bairro" value="Bairro:"/>
-						<p:inputText styleClass="inputDado" id="bairro" value="#{formulario.candidato.endereco.bairro}" required="true" maxlength="50" pt:placeholder="Jardim Florence"
+						<p:outputLabel for="bairro" value="Bairro:"/>
+						<p:inputText id="bairro" value="#{formulario.candidato.endereco.bairro}" required="true" maxlength="50" pt:placeholder="Jardim Florence"
 										requiredMessage="Digite o seu bairro."
 										validatorMessage="Bairro é inválido."
 										converterMessage="Erro na conversão."/>
 						<p:message for="bairro"/>
 						
-						<p:outputLabel styleClass="labelDado" for="cidade" value="Cidade:"/>
-						<p:inputText styleClass="inputDado" id="cidade" value="#{formulario.candidato.endereco.cidade}" required="true" maxlength="50" pt:placeholder="Campinas"
+						<p:outputLabel for="cidade" value="Cidade:"/>
+						<p:inputText id="cidade" value="#{formulario.candidato.endereco.cidade}" required="true" maxlength="50" pt:placeholder="Campinas"
 										requiredMessage="Digite a sua cidade."
 										validatorMessage="Cidade é inválida."
 										converterMessage="Erro na conversão."/>
 						<p:message for="cidade"/>
 						
-						<p:outputLabel styleClass="labelDado" for="estado" value="Estado:"/>
-						<p:selectOneMenu styleClass="inputDado" id="estado" value="#{formulario.candidato.endereco.estado}" required="true"
+						<p:outputLabel for="estado" value="Estado:"/>
+						<p:selectOneMenu id="estado" value="#{formulario.candidato.endereco.estado}" required="true"
 											requiredMessage="Selecione o estado."
 											validatorMessage="Estado inválido."
 											converterMessage="Erro na conversão.">
@@ -128,8 +128,8 @@
 						</p:selectOneMenu>
 						<p:message for="estado"/>
 						
-						<p:outputLabel styleClass="labelDado" for="nacionalidade" value="Nacionalidade:"/>
-						<p:inputText styleClass="inputDado" id="nacionalidade" value="#{formulario.candidato.nacionalidade}" required="true" pt:placeholder="Brasileira"
+						<p:outputLabel for="nacionalidade" value="Nacionalidade:"/>
+						<p:inputText id="nacionalidade" value="#{formulario.candidato.nacionalidade}" required="true" pt:placeholder="Brasileira"
 										requiredMessage="Digite sua nacionalidade."
 										validatorMessage="Nacionalidade inválida."
 										converterMessage="Erro na conversão.">
@@ -137,8 +137,8 @@
 						</p:inputText> 
 						<p:message for="nacionalidade"/>
 						
-						<p:outputLabel styleClass="labelDado" for="estadoCivil" value="Estado civil:"/>
-						<p:selectOneMenu styleClass="inputDado" id="estadoCivil" value="#{formulario.candidato.estadoCivil}" required="true"
+						<p:outputLabel for="estadoCivil" value="Estado civil:"/>
+						<p:selectOneMenu id="estadoCivil" value="#{formulario.candidato.estadoCivil}" required="true"
 											requiredMessage="Selecione o seu estado civil."
 											validatorMessage="Estado civil inválido."
 											converterMessage="Erro na conversão.">
@@ -146,35 +146,35 @@
 						</p:selectOneMenu>
 						<p:message for="estadoCivil"/>
 						
-						<p:outputLabel styleClass="labelDado" for="dataNascimento" value="Data Nascimento:"/>
-						<p:calendar styleClass="inputDado" id="dataNascimento" value="#{formulario.candidato.dataNascimento}" maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" required="true" mask="true" navigator="true" locale="pt"
+						<p:outputLabel for="dataNascimento" value="Data Nascimento:"/>
+						<p:calendar id="dataNascimento" value="#{formulario.candidato.dataNascimento}" maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" required="true" mask="true" navigator="true" locale="pt"
 										requiredMessage="Digite sua data de nascimento."
 										converterMessage="Data inválida.">
 							<f:validator validatorId="dateBirthValidator"/>
 						</p:calendar> 
 						<p:message for="dataNascimento"/>
 						
-						<p:outputLabel styleClass="labelDado" for="telefoneCelular" value="Telefone celular:"/>
-						<p:inputMask styleClass="inputDado" id="telefoneCelular" value="#{formulario.candidato.telefoneCelular}" mask="(99)99999-9999" required="true" pt:placeholder="(19)1235-1234"
+						<p:outputLabel for="telefoneCelular" value="Telefone celular:"/>
+						<p:inputMask id="telefoneCelular" value="#{formulario.candidato.telefoneCelular}" mask="(99)99999-9999" required="true" pt:placeholder="(19)1235-1234"
 										requiredMessage="Digite o seu telefone com DDD."
 										validatorMessage="Número de telefone inválido"
 										converterMessage="Erro na conversão">
 						</p:inputMask> 
 						<p:message for="telefoneCelular"/>
 						
-						<p:outputLabel styleClass="labelDado" for="email" value="E-mail"/>
-						<p:inputText styleClass="inputDado" id="email" value="#{formulario.candidato.email}" pt:type="email" required="true" pt:placeholder="jose@email.com"
+						<p:outputLabel for="email" value="E-mail"/>
+						<p:inputText id="email" value="#{formulario.candidato.email}" pt:type="email" required="true" pt:placeholder="jose@email.com"
 										requiredMessage="Digite o seu e-mail."
 										validatorMessage="E-mail inválido."
 										converterMessage="Erro na conversão."/> 
 						<p:message for="email"/>
 						
-						<p:outputLabel styleClass="labelDado" for="linkedin" value="LinkedIn" />
-						<p:inputText styleClass="inputDado" id="linkedin" value="#{formulario.candidato.linkedin}" pt:placeholder="www.linkedIn.com"/>
+						<p:outputLabel for="linkedin" value="LinkedIn" />
+						<p:inputText id="linkedin" value="#{formulario.candidato.linkedin}" pt:placeholder="www.linkedIn.com"/>
 						<p:message for="linkedin"/>
 						
-						<p:outputLabel styleClass="labelDado" for="objetivoProfissional" value="Objetivo Profissional:"/>
-						<p:inputText styleClass="inputDado" id="objetivoProfissional" value="#{formulario.candidato.objetivoProfissional}" required="true"
+						<p:outputLabel for="objetivoProfissional" value="Objetivo Profissional:"/>
+						<p:inputText id="objetivoProfissional" value="#{formulario.candidato.objetivoProfissional}" required="true"
 										requiredMessage="Digite o seu objetivo profissional."
 										validatorMessage="Objetivo inválido."
 										converterMessage="Erro na conversão.">
@@ -182,8 +182,8 @@
 						</p:inputText>
 						<p:message for="objetivoProfissional"/>
 						
-						<p:outputLabel styleClass="labelDado" for="pretensaoSalarial" value="Pretensão Salarial:"/>
-						<p:inputNumber styleClass="inputDado" id="pretensaoSalarial" value="#{formulario.candidato.pretensaoSalarial}" required="true" pt:placeholder="2000" 
+						<p:outputLabel for="pretensaoSalarial" value="Pretensão Salarial:"/>
+						<p:inputNumber id="pretensaoSalarial" value="#{formulario.candidato.pretensaoSalarial}" required="true" pt:placeholder="2000" 
 							decimalPlaces="2" decimalSeparator="," thousandSeparator="." symbolPosition="p" symbol="R$ "
 							requiredMessage="Digite sua pretensão salarial."
 							validatorMessage="Valor inválido."
