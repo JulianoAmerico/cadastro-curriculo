@@ -17,13 +17,10 @@
 }
 
 .containerCadastroEtapa1{
-	width: 900px;
-	margin: auto;
+	width: 100%;
 }
 
 .tituloPagina{
-	width:900px;
-	margin:auto;
 	padding: 10px 0;
 }
 
