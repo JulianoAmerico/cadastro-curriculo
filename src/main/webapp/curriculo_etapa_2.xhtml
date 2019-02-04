@@ -48,7 +48,7 @@
 					<f:facet name="header">
 						Empresa
 					</f:facet>
-					<h:outputText value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
+					<p:outputLabel value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
 					<p:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText" pt:placeholder="Company" required="true" maxlength="50" 
 								requiredMessage="Digite o nome da empresa."
 								validatorMessage="O nome da empresa é inválido."
