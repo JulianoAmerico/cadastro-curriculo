@@ -120,8 +120,9 @@
 					<f:facet name="header">
 						Descrição de trabalho
 					</f:facet>
-					<h:outputText value="#{exp.descricaoExperiencia}" rendered="#{!exp.edicao}"/>
-					<h:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}" styleClass="inputTextArea"/>
+					<p:outputLabel value="#{exp.descricaoExperiencia}" rendered="#{!exp.edicao}"/>
+					<p:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}" required="true"
+						requiredMessage="Digite a sua experiência"/>
 				</h:column>
 				
 				<h:column>
