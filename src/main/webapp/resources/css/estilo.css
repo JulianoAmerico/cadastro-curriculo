@@ -9,6 +9,14 @@
 
 /*Cadastro de currículo Etapa 1*/
 
+.container{
+	padding-bottom: 10px;
+	background-color: #e9ecef;
+	width: 1000px;
+	margin: auto;
+	border-radius: 2px;
+}
+
 .containerCadastroEtapa1{
 	width: 900px;
 	margin: auto;
@@ -17,6 +25,14 @@
 .tituloPagina{
 	width:900px;
 	margin:auto;
+}
+
+.tituloDados{
+	
+}
+
+.textoEtapa{
+	
 }
 
 .error{
