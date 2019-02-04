@@ -48,13 +48,11 @@
 						Empresa
 					</f:facet>
 					<h:outputText value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
-					<p:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText" pt:placeholder="Company"
-					  required="true" maxlength="50" 
-								requiredMessage="Digite o seu nome."
-								validatorMessage="O nome é inválido."
+					<p:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText" pt:placeholder="Company" required="true" maxlength="50" 
+								requiredMessage="Digite o nome da empresa."
+								validatorMessage="O nome da empresa é inválido."
 								converterMessage="Conversão inválida.">
 						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
-						<f:ajax event="keyup" execute="@this" render="formulario:errorNome"/>
 					</p:inputText>
 				</h:column>
 				
