@@ -32,7 +32,11 @@
 			<h3>Etapa 2 de 3</h3>
 		</header>
 		<h:form id="formulario">
-			<h:messages/>
+			<p:messages id="messages" showDetail="true" closable="true">
+				<p:autoUpdate/>
+			</p:messages>
+			
+			<p:separator/>
 			
 			<h:commandButton value="Inserir" action="#{formulario.inserirExpProfissional}" styleClass="button"/>
 			<br/>
@@ -44,7 +48,14 @@
 						Empresa
 					</f:facet>
 					<h:outputText value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
-					<h:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText"/>
+					<p:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText" pt:placeholder="Company"
+					  required="true" maxlength="50" 
+								requiredMessage="Digite o seu nome."
+								validatorMessage="O nome é inválido."
+								converterMessage="Conversão inválida.">
+						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+						<f:ajax event="keyup" execute="@this" render="formulario:errorNome"/>
+					</p:inputText>
 				</h:column>
 				
 				<h:column>
