@@ -25,14 +25,15 @@
 .tituloPagina{
 	width:900px;
 	margin:auto;
+	padding: 10px 0;
 }
 
 .tituloDados{
-	
+	padding: 5px 0;
 }
 
 .textoEtapa{
-	
+	font-size: 15px;
 }
 
 .error{
