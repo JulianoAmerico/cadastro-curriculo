@@ -108,7 +108,12 @@
 						Área
 					</f:facet>
 					<p:outputLabel value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
-					<p:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvimento de Software"/>
+					<p:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvimento de Software" required="true"
+						requiredMessage="Digite o área de atuação"
+						validatorMessage="Área de atuação é inválida."
+						converterMessage="Conversão inválida.">
+						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+					</p:inputText>
 				</h:column>
 				
 				<h:column>
