@@ -65,13 +65,11 @@
 					<h:panelGroup rendered="#{!exp.edicao}">
 						<h:outputText value="#{exp.termino}" rendered="#{!exp.ateMomento}">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
-<<<<<<< HEAD
-						</p:outputLabel>
-						<p:outputLabel value="Até o momento" rendered="#{exp.ateMomento}"/>
-=======
+						</h:outputText>
+						<h:outputLabel value="Até o momento" rendered="#{exp.ateMomento}"/>
+
 						</h:outputText>
 						<h:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
->>>>>>> parent of a7b1469... Atualizando as tags com o primefaces
 					</h:panelGroup>
 					<h:panelGroup rendered="#{exp.edicao}">
 						<h:inputText value="#{exp.termino}" styleClass="inputDate">
