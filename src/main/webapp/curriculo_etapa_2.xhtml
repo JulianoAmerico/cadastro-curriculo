@@ -31,7 +31,9 @@
 			<h3>Etapa 2 de 3</h3>
 		</header>
 		<h:form id="formulario">
-			<h:messages/>
+			<p:messages id="messages" showDetail="true" closable="true">
+				<p:autoUpdate/>
+			</p:messages>
 			
 			<h:commandButton value="Inserir" action="#{formulario.inserirExpProfissional}" styleClass="button"/>
 			<br/>
