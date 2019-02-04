@@ -80,9 +80,8 @@
 									validatorMessage="O nome é inválido."
 									converterMessage="Conversão inválida.">
 							<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
-							<f:ajax event="keyup" execute="@this" render="formulario:errorNome"/>
 						</p:inputText> 
-						<p:message id="errorNome" for="nome"/>
+						<p:message for="nome"/>
 						
 						<p:outputLabel for="sexo" value="Sexo: "/>
 						<p:selectOneRadio id="sexo" value="#{formulario.candidato.sexo}" required="true" requiredMessage="Selecione o sexo">
