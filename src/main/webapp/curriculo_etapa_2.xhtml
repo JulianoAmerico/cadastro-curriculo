@@ -67,8 +67,9 @@
 					<p:outputLabel value="#{exp.inicio}" rendered="#{!exp.edicao}">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</p:outputLabel>
-					<p:calendar value="#{exp.inicio}" rendered="#{exp.edicao}" pt:placeholder="dd/mm/aaaa"
-						maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"/>
+					<p:calendar value="#{exp.inicio}" rendered="#{exp.edicao}" pt:placeholder="dd/mm/aaaa" required="true"
+						maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"
+						requiredMessage="Digite a data de inicio"/>
 				</h:column>
 				
 				<h:column>
