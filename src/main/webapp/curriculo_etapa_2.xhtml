@@ -94,15 +94,20 @@
 						Cargo
 					</f:facet>
 					<p:outputLabel value="#{exp.cargo}" rendered="#{!exp.edicao}"/>
-					<p:inputText value="#{exp.cargo}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvedor"/>
+					<p:inputText value="#{exp.cargo}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvedor" required="true"
+						requiredMessage="Digite o cargo"
+						validatorMessage="O nome do cargo é inválido."
+						converterMessage="Conversão inválida.">
+						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+					</p:inputText>
 				</h:column>
 				
 				<h:column>
 					<f:facet name="header">
 						Área
 					</f:facet>
-					<h:outputText value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
-					<h:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" styleClass="inputText"/>
+					<p:outputLabel value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
+					<p:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvimento de Software"/>
 				</h:column>
 				
 				<h:column>
