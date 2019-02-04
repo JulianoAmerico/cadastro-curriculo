@@ -82,10 +82,10 @@
 						<p:outputLabel value="Até o momento" rendered="#{exp.ateMomento}"/>
 					</h:panelGroup>
 					<h:panelGroup rendered="#{exp.edicao}">
-						<h:inputText value="#{exp.termino}" styleClass="inputDate">
-							<f:convertDateTime pattern="dd/MM/yyyy"/>
-						</h:inputText>
-						<h:selectBooleanCheckbox value="#{exp.ateMomento}"/> Até o momento						
+						<p:calendar value="#{exp.termino}" pt:placeholder="dd/mm/aaaa"
+							maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"/>
+							
+						<p:selectBooleanCheckbox value="#{exp.ateMomento}"/> Até o momento						
 					</h:panelGroup>
 				</h:column>
 				
