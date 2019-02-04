@@ -79,7 +79,7 @@
 						<p:outputLabel value="#{exp.termino}" rendered="#{!exp.ateMomento}">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
 						</p:outputLabel>
-						<h:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
+						<p:outputLabel value="Até o momento" rendered="#{exp.ateMomento}"/>
 					</h:panelGroup>
 					<h:panelGroup rendered="#{exp.edicao}">
 						<h:inputText value="#{exp.termino}" styleClass="inputDate">
