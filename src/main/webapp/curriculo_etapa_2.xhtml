@@ -19,6 +19,9 @@
 <!-- Recursos -->
 <h:outputStylesheet library="css" name="estilo.css"/>
 
+<!-- Import script de locale do Primefaces -->
+<h:outputScript library="js" name="localePrimefaces.js"/>
+
 <!-- Topo da página -->
 <header>
 	<h1>Cadastro de Currículo</h1>
@@ -64,7 +67,7 @@
 					<p:outputLabel value="#{exp.inicio}" rendered="#{!exp.edicao}">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</p:outputLabel>
-					<p:inputText value="#{exp.inicio}" rendered="#{exp.edicao}" styleClass="inputDate" 
+					<p:calendar value="#{exp.inicio}" rendered="#{exp.edicao}"
 						maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"/>
 				</h:column>
 				
