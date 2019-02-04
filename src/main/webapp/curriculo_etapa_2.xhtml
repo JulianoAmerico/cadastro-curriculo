@@ -35,85 +35,67 @@
 				<p:autoUpdate/>
 			</p:messages>
 			
-			<h:commandButton value="Inserir" action="#{formulario.inserirExpProfissional}" styleClass="button"/>
+			<p:commandButton value="Inserir" action="#{formulario.inserirExpProfissional}" update="formulario"/>
 			<br/>
 			<br/>			
-			<h:dataTable value="#{formulario.candidato.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp"
+			<p:dataTable value="#{formulario.candidato.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp"
 				rendered="#{formulario.candidato.expProfissional.size() > 0}">
-				<h:column>
-					<f:facet name="header">
-						Empresa
-					</f:facet>
-					<h:outputText value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
-					<h:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText"/>
-				</h:column>
+				<p:column headerText="Empresa">
+					<p:outputLabel value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
+					<p:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText"/>
+				</p:column>
 				
-				<h:column>
-					<f:facet name="header">
-						Inicio
-					</f:facet>
-					<h:outputText value="#{exp.inicio}" rendered="#{!exp.edicao}">
-							<f:convertDateTime pattern="dd/MM/yyyy"/>
-					</h:outputText>
-					<h:inputText value="#{exp.inicio}" rendered="#{exp.edicao}" styleClass="inputDate">
+				<p:column headerText="Inicio">
+					<p:outputLabel value="#{exp.inicio}" rendered="#{!exp.edicao}">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
-					</h:inputText>
-				</h:column>
+					</p:outputLabel>
+					<p:inputText value="#{exp.inicio}" rendered="#{exp.edicao}" styleClass="inputDate">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</p:inputText>
+				</p:column>
 				
-				<h:column>
-					<f:facet name="header">
-						Término
-					</f:facet>
+				<p:column headerText="Término">	
 					<h:panelGroup rendered="#{!exp.edicao}">
-						<h:outputText value="#{exp.termino}" rendered="#{!exp.ateMomento}">
+						<p:outputLabel value="#{exp.termino}" rendered="#{!exp.ateMomento}">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
-						</h:outputText>
-						<h:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
+						</p:outputLabel>
+						<p:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
 					</h:panelGroup>
 					<h:panelGroup rendered="#{exp.edicao}">
-						<h:inputText value="#{exp.termino}" styleClass="inputDate">
+						<p:inputText value="#{exp.termino}" styleClass="inputDate">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
-						</h:inputText>
-						<h:selectBooleanCheckbox value="#{exp.ateMomento}"/> Até o momento						
+						</p:inputText>
+						<p:selectBooleanCheckbox value="#{exp.ateMomento}"/> Até o momento						
 					</h:panelGroup>
-				</h:column>
+				</p:column>
 				
-				<h:column>
-					<f:facet name="header">
-						Cargo
-					</f:facet>
-					<h:outputText value="#{exp.cargo}" rendered="#{!exp.edicao}"/>
-					<h:inputText value="#{exp.cargo}" rendered="#{exp.edicao}" styleClass="inputText"/>
-				</h:column>
+				<p:column headerText="Cargo">
+					<p:outputLabel value="#{exp.cargo}" rendered="#{!exp.edicao}"/>
+					<p:inputText value="#{exp.cargo}" rendered="#{exp.edicao}" styleClass="inputText"/>
+				</p:column>
 				
-				<h:column>
-					<f:facet name="header">
-						Área
-					</f:facet>
-					<h:outputText value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
-					<h:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" styleClass="inputText"/>
-				</h:column>
+				<p:column headerText="Área">
+					<p:outputLabel value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
+					<p:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" styleClass="inputText"/>
+				</p:column>
 				
-				<h:column>
-					<f:facet name="header">
-						Descrição de trabalho
-					</f:facet>
-					<h:outputText value="#{exp.descricaoExperiencia}" rendered="#{!exp.edicao}"/>
-					<h:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}" styleClass="inputTextArea"/>
-				</h:column>
+				<p:column headerText="Descrição de Trabalho">
+					<p:outputLabel value="#{exp.descricaoExperiencia}" rendered="#{!exp.edicao}"/>
+					<p:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}" styleClass="inputTextArea"/>
+				</p:column>
 				
-				<h:column>
-					<h:commandButton value="Salvar" action="#{formulario.salvarExpProfissional(exp)}" rendered="#{exp.edicao}" styleClass="button"/>
+				<p:column headerText="Ações">
+					<p:commandButton value="Salvar" action="#{formulario.salvarExpProfissional(exp)}" rendered="#{exp.edicao}"/>
 					<h:panelGroup rendered="#{!exp.edicao}">
-						<h:commandButton value="Editar" action="#{formulario.editarExpProfissional(exp)}" styleClass="button"/> |
-						<h:commandButton value="Excluir" action="#{formulario.excluirExpProfissional(exp)}" styleClass="button"/>
+						<p:commandButton value="Editar" action="#{formulario.editarExpProfissional(exp)}"/> |
+						<p:commandButton value="Excluir" action="#{formulario.excluirExpProfissional(exp)}"/>
 					</h:panelGroup>
-				</h:column>
-			</h:dataTable>
+				</p:column>
+			</p:dataTable>
 			<br/>
 			
-			<h:commandButton value="&lt;- Etapa 1" action="curriculo_etapa_1"/> &nbsp;
-			<h:commandButton value="Etapa 3 -&gt;" action="curriculo_etapa_3"/>
+			<p:commandButton value="&lt;- Etapa 1" action="curriculo_etapa_1"/> &nbsp;
+			<p:commandButton value="Etapa 3 -&gt;" action="curriculo_etapa_3"/>
 		</h:form>
 	</article>
 </section>
