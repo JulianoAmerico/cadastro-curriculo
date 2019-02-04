@@ -64,9 +64,8 @@
 					<p:outputLabel value="#{exp.inicio}" rendered="#{!exp.edicao}">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</p:outputLabel>
-					<h:inputText value="#{exp.inicio}" rendered="#{exp.edicao}" styleClass="inputDate">
-						<f:convertDateTime pattern="dd/MM/yyyy"/>
-					</h:inputText>
+					<p:inputText value="#{exp.inicio}" rendered="#{exp.edicao}" styleClass="inputDate" 
+						maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"/>
 				</h:column>
 				
 				<h:column>
