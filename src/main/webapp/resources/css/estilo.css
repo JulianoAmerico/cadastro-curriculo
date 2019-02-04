@@ -7,6 +7,15 @@
 	font-family: 'Montserrat', Helvetica, sans-serif;
 }
 
+/*Container*/
+.container{
+	width:1000px;
+	margin: auto;
+	border-radius: 2px;
+	padding-bottom: 10px;
+	background-color: #e9ecef;
+}
+
 /*Cadastro de currículo Etapa 1*/
 
 .containerCadastroEtapa1{
@@ -17,6 +26,11 @@
 .tituloPagina{
 	width:900px;
 	margin:auto;
+	padding: 20px 0;
+}
+
+.tituloDados{
+	padding-bottom: 10px;
 }
 
 .error{
