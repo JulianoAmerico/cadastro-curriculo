@@ -22,123 +22,126 @@
 <!-- Import script de locale do Primefaces -->
 <h:outputScript library="js" name="localePrimefaces.js"/>
 
-<!-- Topo da página -->
-<header>
-	<h1>Cadastro de Currículo</h1>
-</header>
-
-<!-- Formulário de cadastro de currículo - Experiência Profissional -->
-<section>
-	<article>
-		<header>
-			<h2>Experiência Profissional</h2>
-			<h3>Etapa 2 de 3</h3>
-		</header>
-		<h:form id="formulario">
-			<p:messages id="messages" showSummary="true" closable="true">
-				<p:autoUpdate/>
-			</p:messages>
-			
-			<p:separator/>
-			<br/>
-			<br/>
-			<h:commandButton value="Inserir" action="#{formulario.inserirExpProfissional}" styleClass="button"/>
-			<br/>
-			<br/>			
-			<h:dataTable value="#{formulario.candidato.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp"
-				rendered="#{formulario.candidato.expProfissional.size() > 0}">
-				<h:column>
-					<f:facet name="header">
-						Empresa
-					</f:facet>
-					<p:outputLabel value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
-					<p:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText" pt:placeholder="Company" required="true" maxlength="50" 
-								requiredMessage="Digite o nome da empresa."
-								validatorMessage="O nome da empresa é inválido."
-								converterMessage="Conversão inválida.">
-						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
-					</p:inputText>
-				</h:column>
+<!-- Container da página -->
+<div class="container">
+	<!-- Topo da página -->
+	<header>
+		<h1>Cadastro de Currículo</h1>
+	</header>
+	
+	<!-- Formulário de cadastro de currículo - Experiência Profissional -->
+	<section>
+		<article>
+			<header>
+				<h2>Experiência Profissional</h2>
+				<h3>Etapa 2 de 3</h3>
+			</header>
+			<h:form id="formulario">
+				<p:messages id="messages" showSummary="true" closable="true">
+					<p:autoUpdate/>
+				</p:messages>
 				
-				<h:column>
-					<f:facet name="header">
-						Inicio
-					</f:facet>
-					<p:outputLabel value="#{exp.inicio}" rendered="#{!exp.edicao}">
-						<f:convertDateTime pattern="dd/MM/yyyy"/>
-					</p:outputLabel>
-					<p:calendar value="#{exp.inicio}" rendered="#{exp.edicao}" pt:placeholder="dd/mm/aaaa" required="true"
-						maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"
-						requiredMessage="Digite a data de inicio"/>
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">
-						Término
-					</f:facet>
-					<h:panelGroup rendered="#{!exp.edicao}">
-						<p:outputLabel value="#{exp.termino}" rendered="#{!exp.ateMomento}">
+				<p:separator/>
+				<br/>
+				<br/>
+				<h:commandButton value="Inserir" action="#{formulario.inserirExpProfissional}" styleClass="button"/>
+				<br/>
+				<br/>			
+				<h:dataTable value="#{formulario.candidato.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp"
+					rendered="#{formulario.candidato.expProfissional.size() > 0}">
+					<h:column>
+						<f:facet name="header">
+							Empresa
+						</f:facet>
+						<p:outputLabel value="#{exp.empresa}" rendered="#{!exp.edicao}"/>
+						<p:inputText value="#{exp.empresa}" rendered="#{exp.edicao}" styleClass="inputText" pt:placeholder="Company" required="true" maxlength="50" 
+									requiredMessage="Digite o nome da empresa."
+									validatorMessage="O nome da empresa é inválido."
+									converterMessage="Conversão inválida.">
+							<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+						</p:inputText>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							Inicio
+						</f:facet>
+						<p:outputLabel value="#{exp.inicio}" rendered="#{!exp.edicao}">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
 						</p:outputLabel>
-						<p:outputLabel value="Até o momento" rendered="#{exp.ateMomento}"/>
-					</h:panelGroup>
-					<h:panelGroup rendered="#{exp.edicao}">
-						<p:calendar value="#{exp.termino}" pt:placeholder="dd/mm/aaaa"
-							maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"/>
-							
-						<p:selectBooleanCheckbox value="#{exp.ateMomento}"/> Até o momento						
-					</h:panelGroup>
-				</h:column>
+						<p:calendar value="#{exp.inicio}" rendered="#{exp.edicao}" pt:placeholder="dd/mm/aaaa" required="true"
+							maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"
+							requiredMessage="Digite a data de inicio"/>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							Término
+						</f:facet>
+						<h:panelGroup rendered="#{!exp.edicao}">
+							<p:outputLabel value="#{exp.termino}" rendered="#{!exp.ateMomento}">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</p:outputLabel>
+							<p:outputLabel value="Até o momento" rendered="#{exp.ateMomento}"/>
+						</h:panelGroup>
+						<h:panelGroup rendered="#{exp.edicao}">
+							<p:calendar value="#{exp.termino}" pt:placeholder="dd/mm/aaaa"
+								maxdate="#{formulario.maxDate}" pattern="dd/MM/yyyy" mask="true" navigator="true" locale="pt"/>
+								
+							<p:selectBooleanCheckbox value="#{exp.ateMomento}"/> Até o momento						
+						</h:panelGroup>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							Cargo
+						</f:facet>
+						<p:outputLabel value="#{exp.cargo}" rendered="#{!exp.edicao}"/>
+						<p:inputText value="#{exp.cargo}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvedor" required="true"
+							requiredMessage="Digite o cargo"
+							validatorMessage="O nome do cargo é inválido."
+							converterMessage="Conversão inválida.">
+							<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+						</p:inputText>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							Área
+						</f:facet>
+						<p:outputLabel value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
+						<p:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvimento de Software" required="true"
+							requiredMessage="Digite o área de atuação"
+							validatorMessage="Área de atuação é inválida."
+							converterMessage="Conversão inválida.">
+							<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
+						</p:inputText>
+					</h:column>
+					
+					<h:column>
+						<f:facet name="header">
+							Descrição de trabalho
+						</f:facet>
+						<p:outputLabel value="#{exp.descricaoExperiencia}" rendered="#{!exp.edicao}"/>
+						<p:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}" required="true"
+							requiredMessage="Digite a sua experiência"/>
+					</h:column>
+					
+					<h:column>
+						<h:commandButton value="Salvar" action="#{formulario.salvarExpProfissional(exp)}" rendered="#{exp.edicao}" styleClass="button"/>
+						<h:panelGroup rendered="#{!exp.edicao}">
+							<h:commandButton value="Editar" action="#{formulario.editarExpProfissional(exp)}" styleClass="button"/> |
+							<h:commandButton value="Excluir" action="#{formulario.excluirExpProfissional(exp)}" styleClass="button"/>
+						</h:panelGroup>
+					</h:column>
+				</h:dataTable>
+				<br/>
 				
-				<h:column>
-					<f:facet name="header">
-						Cargo
-					</f:facet>
-					<p:outputLabel value="#{exp.cargo}" rendered="#{!exp.edicao}"/>
-					<p:inputText value="#{exp.cargo}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvedor" required="true"
-						requiredMessage="Digite o cargo"
-						validatorMessage="O nome do cargo é inválido."
-						converterMessage="Conversão inválida.">
-						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
-					</p:inputText>
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">
-						Área
-					</f:facet>
-					<p:outputLabel value="#{exp.areaAtuacao}" rendered="#{!exp.edicao}"/>
-					<p:inputText value="#{exp.areaAtuacao}" rendered="#{exp.edicao}" pt:placeholder="Desenvolvimento de Software" required="true"
-						requiredMessage="Digite o área de atuação"
-						validatorMessage="Área de atuação é inválida."
-						converterMessage="Conversão inválida.">
-						<f:validateRegex pattern="^([a-zA-Z\u00C0-\u00FF ])+$"/>
-					</p:inputText>
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">
-						Descrição de trabalho
-					</f:facet>
-					<p:outputLabel value="#{exp.descricaoExperiencia}" rendered="#{!exp.edicao}"/>
-					<p:inputTextarea value="#{exp.descricaoExperiencia}" rendered="#{exp.edicao}" required="true"
-						requiredMessage="Digite a sua experiência"/>
-				</h:column>
-				
-				<h:column>
-					<h:commandButton value="Salvar" action="#{formulario.salvarExpProfissional(exp)}" rendered="#{exp.edicao}" styleClass="button"/>
-					<h:panelGroup rendered="#{!exp.edicao}">
-						<h:commandButton value="Editar" action="#{formulario.editarExpProfissional(exp)}" styleClass="button"/> |
-						<h:commandButton value="Excluir" action="#{formulario.excluirExpProfissional(exp)}" styleClass="button"/>
-					</h:panelGroup>
-				</h:column>
-			</h:dataTable>
-			<br/>
-			
-			<p:commandButton value="&lt;&lt; Etapa 1" action="curriculo_etapa_1"/> &nbsp;
-			<p:commandButton value="Etapa 3 &gt;&gt;" action="curriculo_etapa_3"/>
-		</h:form>
-	</article>
-</section>
+				<p:commandButton value="&lt;&lt; Etapa 1" action="curriculo_etapa_1"/> &nbsp;
+				<p:commandButton value="Etapa 3 &gt;&gt;" action="curriculo_etapa_3"/>
+			</h:form>
+		</article>
+	</section>
+</div>
 </h:body>
 </html>
