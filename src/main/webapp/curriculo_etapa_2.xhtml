@@ -76,9 +76,9 @@
 						Término
 					</f:facet>
 					<h:panelGroup rendered="#{!exp.edicao}">
-						<h:outputText value="#{exp.termino}" rendered="#{!exp.ateMomento}">
+						<p:outputLabel value="#{exp.termino}" rendered="#{!exp.ateMomento}">
 							<f:convertDateTime pattern="dd/MM/yyyy"/>
-						</h:outputText>
+						</p:outputLabel>
 						<h:outputText value="Até o momento" rendered="#{exp.ateMomento}"/>
 					</h:panelGroup>
 					<h:panelGroup rendered="#{exp.edicao}">
