@@ -50,7 +50,11 @@
 					<h:column>
 						<f:facet name="header">Nível de Formação</f:facet>
 						<p:outputLabel value="#{fa.nivelFormacao.label}" rendered="#{!fa.edicao}"/>
-						<p:selectOneMenu value="#{fa.nivelFormacao}" rendered="#{fa.edicao}">
+						<p:selectOneMenu value="#{fa.nivelFormacao}" rendered="#{fa.edicao}" required="true"
+							requiredMessage="Selecione o seu Nível de formação"
+							validatorMessage="Nível de formação inválida"
+							converterMessage="Conversão inválida">
+							<f:selectItem noSelectionOption="true" itemLabel="-- Selecione --"/>
 							<f:selectItems value="#{formulario.nivelFormacaoValues}" var="nf" itemValue="#{nf}" itemLabel="#{nf.label}"/>
 						</p:selectOneMenu>
 					</h:column>
