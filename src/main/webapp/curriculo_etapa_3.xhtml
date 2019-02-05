@@ -62,7 +62,7 @@
 					<h:column>
 						<f:facet name="header">Nome do Curso</f:facet>
 						<p:outputLabel value="#{fa.curso}" rendered="#{!fa.edicao}"/>
-						<p:inputText value="#{fa.curso}" rendered="#{fa.edicao}" required="true"
+						<p:inputText value="#{fa.curso}" rendered="#{fa.edicao}" required="true" pt:placeholder="Sistemas de Informação"
 							requiredMessage="Digite o nome do curso"
 							validatorMessage="Nome do curso inválido"
 							converterMessage="Conversão inválida"/>
