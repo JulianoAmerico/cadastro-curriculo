@@ -82,7 +82,7 @@
 						<p:outputLabel value="#{fa.dataConclusao}" rendered="#{!fa.edicao}">
 							<f:convertDateTime pattern="MM/yyyy"/>
 						</p:outputLabel>
-						<p:inputMask value="#{fa.dataConclusao}" rendered="#{fa.edicao}" required="true" mask="99/9999"
+						<p:inputMask value="#{fa.dataConclusao}" rendered="#{fa.edicao}" required="true" mask="99/9999" pt:placeholder="06/2015"
 							requiredMessage="Digite a data de conclusão do curso"
 							validatorMessage="Data de conclusão inválida"
 							converterMessage="Data de conclusão não pode ser convertida">
