@@ -42,32 +42,32 @@
 					
 					<h:column>
 						<f:facet name="header">Nível de Formação</f:facet>
-						<h:outputLabel value="#{fa.nivelFormacao.label}" rendered="#{!fa.edicao}"/>
-						<h:selectOneMenu value="#{fa.nivelFormacao}" rendered="#{fa.edicao}">
+						<p:outputLabel value="#{fa.nivelFormacao.label}" rendered="#{!fa.edicao}"/>
+						<p:selectOneMenu value="#{fa.nivelFormacao}" rendered="#{fa.edicao}">
 							<f:selectItems value="#{formulario.nivelFormacaoValues}" var="nf" itemValue="#{nf}" itemLabel="#{nf.label}"/>
-						</h:selectOneMenu>
+						</p:selectOneMenu>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Nome do Curso</f:facet>
-						<h:outputLabel value="#{fa.curso}" rendered="#{!fa.edicao}"/>
-						<h:inputText value="#{fa.curso}" rendered="#{fa.edicao}"/>
+						<p:outputLabel value="#{fa.curso}" rendered="#{!fa.edicao}"/>
+						<p:inputText value="#{fa.curso}" rendered="#{fa.edicao}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Instituição de  Ensino</f:facet>
-						<h:outputLabel value="#{fa.instituicao}" rendered="#{!fa.edicao}"/>
-						<h:inputText value="#{fa.instituicao}" rendered="#{fa.edicao}"/>
+						<p:outputLabel value="#{fa.instituicao}" rendered="#{!fa.edicao}"/>
+						<p:inputText value="#{fa.instituicao}" rendered="#{fa.edicao}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Data de Conclusão</f:facet>
-						<h:outputLabel value="#{fa.dataConclusao}" rendered="#{!fa.edicao}">
+						<p:outputLabel value="#{fa.dataConclusao}" rendered="#{!fa.edicao}">
 							<f:convertDateTime pattern="MM/yyyy"/>
-						</h:outputLabel>
-						<h:inputText value="#{fa.dataConclusao}" rendered="#{fa.edicao}">
+						</p:outputLabel>
+						<p:inputText value="#{fa.dataConclusao}" rendered="#{fa.edicao}">
 							<f:convertDateTime pattern="MM/yyyy"/>
-						</h:inputText>
+						</p:inputText>
 					</h:column>
 					
 					<h:column>
