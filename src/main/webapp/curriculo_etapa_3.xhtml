@@ -15,6 +15,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<title>Cadastro de Currículo Etapa - 3</title>
 	<h:outputStylesheet library="css" name="estilo.css"/>
+	<h:outputScript library="js" name="localePrimefaces.js"/>
 </h:head>
 <h:body>
 	<!-- Topo da página -->
@@ -65,9 +66,11 @@
 						<p:outputLabel value="#{fa.dataConclusao}" rendered="#{!fa.edicao}">
 							<f:convertDateTime pattern="MM/yyyy"/>
 						</p:outputLabel>
-						<p:inputText value="#{fa.dataConclusao}" rendered="#{fa.edicao}">
-							<f:convertDateTime pattern="MM/yyyy"/>
-						</p:inputText>
+						<p:datePicker value="#{fa.dataConclusao}" rendered="#{fa.edicao}" required="true" view="month" yearNavigation="true" yearRange="1970:2030" mask="true" pattern="MM/yyyy" locale="pt"
+							requiredMessage="Digite a data de conclusão do curso"
+							validatorMessage="Data de conclusão inválida"
+							converterMessage="Data de conclusão não pode ser convertida"/>
+							
 					</h:column>
 					
 					<h:column>
