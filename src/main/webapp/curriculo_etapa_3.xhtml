@@ -110,9 +110,12 @@
 						<p:outputLabel value="#{cursoComplementar.dataConclusao}" rendered="#{!cursoComplementar.edicao}">
 							<f:convertDateTime pattern="MM/yyyy"/>
 						</p:outputLabel>
-						<p:inputText value="#{cursoComplementar.dataConclusao}" rendered="#{cursoComplementar.edicao}">
+						<p:inputMask value="#{cursoComplementar.dataConclusao}" rendered="#{cursoComplementar.edicao}" required="true" mask="99/9999" pt:placeholder="05/2018"
+							requiredMessage="Digite a data de conclusão"
+							validatorMessage="Data de conclusão inválida"
+							converterMessage="Data não pode ser convertida">
 							<f:convertDateTime pattern="MM/yyyy"/>
-						</p:inputText>
+						</p:inputMask>
 					</h:column>
 					
 					<h:column>
