@@ -66,10 +66,12 @@
 						<p:outputLabel value="#{fa.dataConclusao}" rendered="#{!fa.edicao}">
 							<f:convertDateTime pattern="MM/yyyy"/>
 						</p:outputLabel>
-						<p:datePicker value="#{fa.dataConclusao}" rendered="#{fa.edicao}" required="true" view="month" yearNavigation="true" yearRange="1970:2030" mask="true" pattern="MM/yyyy" locale="pt"
+						<p:inputMask value="#{fa.dataConclusao}" rendered="#{fa.edicao}" required="true" mask="99/9999"
 							requiredMessage="Digite a data de conclusão do curso"
 							validatorMessage="Data de conclusão inválida"
-							converterMessage="Data de conclusão não pode ser convertida"/>
+							converterMessage="Data de conclusão não pode ser convertida">
+							<f:convertDateTime pattern="MM/yyyy"/>
+						</p:inputMask>
 							
 					</h:column>
 					
