@@ -95,24 +95,24 @@
 					
 					<h:column>
 						<f:facet name="header">Nome do Curso</f:facet>
-						<h:outputLabel value="#{cursoComplementar.curso}" rendered="#{!cursoComplementar.edicao}"/>
-						<h:inputText value="#{cursoComplementar.curso}" rendered="#{cursoComplementar.edicao}"/>
+						<p:outputLabel value="#{cursoComplementar.curso}" rendered="#{!cursoComplementar.edicao}"/>
+						<p:inputText value="#{cursoComplementar.curso}" rendered="#{cursoComplementar.edicao}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Instituição de Ensino</f:facet>
-						<h:outputLabel value="#{cursoComplementar.instituicao}" rendered="#{!cursoComplementar.edicao}"/>
-						<h:inputText value="#{cursoComplementar.instituicao}" rendered="#{cursoComplementar.edicao}"/>
+						<p:outputLabel value="#{cursoComplementar.instituicao}" rendered="#{!cursoComplementar.edicao}"/>
+						<p:inputText value="#{cursoComplementar.instituicao}" rendered="#{cursoComplementar.edicao}"/>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Data de Conclusão</f:facet>
-						<h:outputLabel value="#{cursoComplementar.dataConclusao}" rendered="#{!cursoComplementar.edicao}">
+						<p:outputLabel value="#{cursoComplementar.dataConclusao}" rendered="#{!cursoComplementar.edicao}">
 							<f:convertDateTime pattern="MM/yyyy"/>
-						</h:outputLabel>
-						<h:inputText value="#{cursoComplementar.dataConclusao}" rendered="#{cursoComplementar.edicao}">
+						</p:outputLabel>
+						<p:inputText value="#{cursoComplementar.dataConclusao}" rendered="#{cursoComplementar.edicao}">
 							<f:convertDateTime pattern="MM/yyyy"/>
-						</h:inputText>
+						</p:inputText>
 					</h:column>
 					
 					<h:column>
