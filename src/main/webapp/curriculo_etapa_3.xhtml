@@ -121,7 +121,10 @@
 					<h:column>
 						<f:facet name="header">Instituição de Ensino</f:facet>
 						<p:outputLabel value="#{cursoComplementar.instituicao}" rendered="#{!cursoComplementar.edicao}"/>
-						<p:inputText value="#{cursoComplementar.instituicao}" rendered="#{cursoComplementar.edicao}"/>
+						<p:inputText value="#{cursoComplementar.instituicao}" rendered="#{cursoComplementar.edicao}" pt:placeholder="Softblue" required="true"
+							requiredMessage="Digite o nome da Instituição"
+							validatorMessage="Nome da instituição inválida"
+							converterMessage="Conversão inválida"/>
 					</h:column>
 					
 					<h:column>
