@@ -112,7 +112,10 @@
 					<h:column>
 						<f:facet name="header">Nome do Curso</f:facet>
 						<p:outputLabel value="#{cursoComplementar.curso}" rendered="#{!cursoComplementar.edicao}"/>
-						<p:inputText value="#{cursoComplementar.curso}" rendered="#{cursoComplementar.edicao}"/>
+						<p:inputText value="#{cursoComplementar.curso}" rendered="#{cursoComplementar.edicao}" pt:placeholder="Java Básico" required="true"
+							requiredMessage="Digite o nome do curso"
+							validatorMessage="Nome do curso inválido"
+							converterMessage="Conversão inválida"/>
 					</h:column>
 					
 					<h:column>
