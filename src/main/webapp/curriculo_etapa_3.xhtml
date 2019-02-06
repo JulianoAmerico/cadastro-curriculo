@@ -169,7 +169,7 @@
 					<h:column>
 						<f:facet name="header">Nível</f:facet>
 						<p:outputLabel value="#{i.nivel.label}" rendered="#{!i.edicao}"/>
-						<p:selectOneMenu value="#{i.nivel}" rendered="#{i.edicao}">
+						<p:selectOneMenu value="#{i.nivel}" rendered="#{i.edicao}" required="true" requiredMessage="Escolha o nível do idioma">
 							<f:selectItem noSelectionOption="true" itemLabel="-- Selecione --"/>
 							<f:selectItems value="#{formulario.niveisValues}" var="nv" itemValue="#{nv}" itemLabel="#{nv.label}"/>
 						</p:selectOneMenu>
