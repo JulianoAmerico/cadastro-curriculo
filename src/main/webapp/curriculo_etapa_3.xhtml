@@ -159,18 +159,18 @@
 				
 					<h:column>
 						<f:facet name="header">Idioma</f:facet>
-						<h:outputText value="#{i.idioma.label}" rendered="#{!i.edicao}"/>
-						<h:selectOneMenu value="#{i.idioma}" rendered="#{i.edicao}">
+						<p:outputText value="#{i.idioma.label}" rendered="#{!i.edicao}"/>
+						<p:selectOneMenu value="#{i.idioma}" rendered="#{i.edicao}">
 							<f:selectItems value="#{formulario.idiomasValues}" var="iv" itemValue="#{iv}" itemLabel="#{iv.label}"/>
-						</h:selectOneMenu>
+						</p:selectOneMenu>
 					</h:column>
 					
 					<h:column>
 						<f:facet name="header">Nível</f:facet>
-						<h:outputText value="#{i.nivel.label}" rendered="#{!i.edicao}"/>
-						<h:selectOneMenu value="#{i.nivel}" rendered="#{i.edicao}">
+						<p:outputText value="#{i.nivel.label}" rendered="#{!i.edicao}"/>
+						<p:selectOneMenu value="#{i.nivel}" rendered="#{i.edicao}">
 							<f:selectItems value="#{formulario.niveisValues}" var="nv" itemValue="#{nv}" itemLabel="#{nv.label}"/>
-						</h:selectOneMenu>
+						</p:selectOneMenu>
 					</h:column>
 					
 					<h:column>
