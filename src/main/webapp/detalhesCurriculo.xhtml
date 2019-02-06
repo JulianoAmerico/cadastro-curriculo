@@ -88,7 +88,9 @@
 						<h:outputText value="#{pesquisa.candidatoSelecionado.objetivoProfissional}"/>
 						
 						<h:outputText value="Pretensão Salarial "/>
-						<h:outputText value="#{pesquisa.candidatoSelecionado.pretensaoSalarial}"/>
+						<h:outputText value="#{pesquisa.candidatoSelecionado.pretensaoSalarial}">
+							<f:convertNumber type="currency" locale="pt_BR"/>
+						</h:outputText>
 					</h:panelGrid>
 					
 					<h:dataTable value="#{pesquisa.candidatoSelecionado.expProfissional}" var="exp" styleClass="tabela" headerClass="cabecalho" columnClasses="colEmpresa,colInicio,colTermino,colCargo,colArea,colDesc,colOp"
