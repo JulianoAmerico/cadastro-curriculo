@@ -11,24 +11,26 @@
 <h:outputStylesheet library="css" name="estilo.css"/>
 </h:head>
 <h:body>
+<!-- Container da página -->
+<div class="container">
 	<header><h1>Informações do Currículo</h1></header>
-	
+	<br/>
 	<!-- Topo da página -->
 	<section>
 		<article>
 			<h:form id="formulario">
 			
 				<!-- Navegação entre os dados -->
-				<h:panelGrid columns="3">
-					<h:commandButton value="Dados Pessoais">
+				<h:panelGrid columns="3" cellpadding="30">
+					<h:commandButton value="Dados Pessoais" styleClass="button">
 						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarDadosPessoais}"/>
 					</h:commandButton>
-					
-					<h:commandButton value="Dados Profissionais">
+
+					<h:commandButton value="Dados Profissionais" styleClass="button">
 						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarDadosProfissionais}"/>
 					</h:commandButton>
-					
-					<h:commandButton value="Formação e Cursos">
+
+					<h:commandButton value="Formação e Cursos" styleClass="button">
 						<f:ajax event="click" execute="@this" render="@form" listener="#{pesquisa.mostrarFormacaoAcademica}"/>
 					</h:commandButton>
 				</h:panelGrid>
@@ -213,5 +215,6 @@
 			</h:form>
 		</article>
 	</section>
+</div>
 </h:body>
 </html>
