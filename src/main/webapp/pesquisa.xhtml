@@ -20,7 +20,10 @@
 	<section>
 		<article>
 			<h:form id="formulario">
-				<h:messages />
+				<p:messages id="messages" showSummary="true" closable="true">
+					<p:autoUpdate/>
+				</p:messages>
+				<p:separator/>
 				<h:panelGrid columns="2">
 					<p:outputLabel value="Data:"/>
 					<p:inputText id="consultaFull" value="#{pesquisa.consulta}" pt:placeholder="dd/mm/aaaa ou dd/mm"/>						
