@@ -160,7 +160,7 @@
 					<h:column>
 						<f:facet name="header">Idioma</f:facet>
 						<p:outputLabel value="#{i.idioma.label}" rendered="#{!i.edicao}"/>
-						<p:selectOneMenu value="#{i.idioma}" rendered="#{i.edicao}">
+						<p:selectOneMenu value="#{i.idioma}" rendered="#{i.edicao}" required="true" requiredMessage="Escolha o Idioma">
 							<f:selectItem noSelectionOption="true" itemLabel="-- Selecione --"/>
 							<f:selectItems value="#{formulario.idiomasValues}" var="iv" itemValue="#{iv}" itemLabel="#{iv.label}"/>
 						</p:selectOneMenu>
