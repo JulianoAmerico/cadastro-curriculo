@@ -95,6 +95,7 @@
 					</h:column>
 					
 					<h:column>
+						<f:facet name="header">Ações</f:facet>
 						<h:commandButton value="Salvar" action="#{formulario.salvarFormacaoAcademica(fa)}" rendered="#{fa.edicao}" styleClass="button"/>
 						<h:panelGroup rendered="#{!fa.edicao}">
 							<h:commandButton value="Editar" action="#{formulario.editarFormacaoAcademica(fa)}" styleClass="button"/> |
@@ -144,6 +145,7 @@
 					</h:column>
 					
 					<h:column>
+						<f:facet name="header">Ações</f:facet>
 						<h:commandButton value="Salvar" action="#{formulario.salvarCursosComplementares(cursoComplementar)}" rendered="#{cursoComplementar.edicao}" styleClass="button"/>
 						<h:panelGroup rendered="#{!cursoComplementar.edicao}">
 							<h:commandButton value="Editar" action="#{formulario.editarCursosComplementares(cursoComplementar)}" styleClass="button"/> |
@@ -179,6 +181,7 @@
 					</h:column>
 					
 					<h:column>
+						<f:facet name="header">Ações</f:facet>
 						<h:commandButton value="Salvar" action="#{formulario.salvarIdiomas(i)}" rendered="#{i.edicao}" styleClass="button"/>
 						<h:panelGroup rendered="#{!i.edicao}">
 							<h:commandButton value="Editar" action="#{formulario.editarIdiomas(i)}" styleClass="button"/> |
