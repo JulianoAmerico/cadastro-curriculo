@@ -18,6 +18,9 @@
 	<h:outputScript library="js" name="localePrimefaces.js"/>
 </h:head>
 <h:body>
+
+<!-- Container da página -->
+<div class="container">
 	<!-- Topo da página -->
 	<header>
 		<h1>Cadastro de Currículo</h1>
@@ -27,8 +30,8 @@
 	<section>
 		<article>
 			<header>
-				<h2>Formação e Cursos</h2>
-				<h3>Etapa 3 de 3</h3>
+				<h2 class="titulosDados">Formação e Cursos</h2>
+				<h3 class="textoEtapa">Etapa 3 de 3</h3>
 			</header>
 			<h:form id="formulario">
 				
@@ -181,7 +184,7 @@
 							<h:commandButton value="Editar" action="#{formulario.editarIdiomas(i)}" styleClass="button"/> |
 							<h:commandButton value="Excluir" action="#{formulario.excluirIdiomas(i)}" styleClass="button"/>
 						</h:panelGroup>
-					</h:column>>
+					</h:column>
 				</h:dataTable>
 				<br/>	
 				<h:commandButton value="&lt;- Etapa 2" action="curriculo_etapa_2"/> &nbsp;
@@ -189,5 +192,6 @@
 			</h:form>
 		</article>
 	</section>
+</div>
 </h:body>
 </html>
