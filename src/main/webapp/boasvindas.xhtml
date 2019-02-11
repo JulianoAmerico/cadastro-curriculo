@@ -15,10 +15,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </h:head>
 <h:body>
-	<header>
-		<h1>Bem-vindo, {{name}}</h1>
-	</header>
-	
-	Nome: &nbsp;<input type="text" ng-model="name"/>
+	<div class="container-fluid">
+		<header class="jumbotron text-center">
+			<h1>Bem-vindo, {{name}}</h1>
+		</header>
+		
+		Nome: &nbsp;<input type="text" ng-model="name"/>
+	</div>
 </h:body>
 </html>
