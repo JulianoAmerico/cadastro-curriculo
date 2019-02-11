@@ -4,10 +4,14 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.Conversation;
+import javax.enterprise.context.ConversationScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.ListDataModel;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.juliano.javaee.ejb.CandidatoBean;
@@ -18,7 +22,7 @@ import br.com.juliano.javaee.ejb.IdiomaBean;
 import br.com.juliano.javaee.model.Candidato;
 
 @Named("pesquisa")
-@SessionScoped
+@ConversationScoped
 public class PesquisaBean implements Serializable {
 
 	private LocalDate consulta;
@@ -44,7 +48,29 @@ public class PesquisaBean implements Serializable {
 	@EJB
 	private IdiomaBean idiomaBean;
 
-	//Recupera do banco de dados os candidatos cadastrados na data determinada pelo usuário.
+	@Inject
+	private Conversation conversation;
+
+	/**
+	 * Ativa a sessão ao construir o PesquisaBean.
+	 */
+	@PostConstruct
+	public void init() {
+	    conversation.begin();
+	}
+
+	/**
+	 * Desativa a sessão ao sair da página.
+	 */
+	@PreDestroy
+	public void onDestroy() {
+	    conversation.end();
+	}
+
+	/**
+	 * Recupera do banco de dados os candidatos cadastrados na data determinada pelo usuário.
+	 * @return null retorna a própria página e é atualizada.
+	 */
 	public String processarPesquisa() {
 	    candidatosFiltrados = candidatoBean.consultarPorData(consulta);
 	    candidatosModel = new ListDataModel<>(candidatosFiltrados);
@@ -52,7 +78,11 @@ public class PesquisaBean implements Serializable {
 	    return null;
 	}
 
-	//Mostra mais informações do candidado que foi filtrado.
+	/**
+	 * Mostra mais informações do candidado filtrado.
+	 * @param candidato escolhido pelo usuário
+	 * @return retorna a página com as informações do candidato
+	 */
 	public String mostrarMais(Candidato candidato) {
 	    candidatoSelecionado = candidato;
 
