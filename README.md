@@ -8,4 +8,5 @@ Tecnologias e APIS envolvidas:
 - JSF;
 - CDI Bean;
 - WildFly 14.0.0;
-- CSS3
+- CSS3;
+- Primefaces.
