@@ -94,26 +94,37 @@ public class PesquisaBean implements Serializable {
 	    return "detalhesCurriculo?faces-redirect=true";
 	}
 
-	//Mostra os dados pessoais do candidato.
+	/**
+	 * Mostra os dados pessoais do candidato.
+	 * @param event do tipo ajax.
+	 */
 	public void mostrarDadosPessoais(AjaxBehaviorEvent event) {
 	    mostraDadosPessoais = true;
 	    mostraDadosProfissionais = false;
 	    mostraFormacaoAcademica = false;
 	}
 
-	//Mostra os dados profissionais do candidato.
+	/**
+	 * Mostra os dados profissionais do candidato.
+	 * @param event evento do tipo ajax.
+	 */
 	public void mostrarDadosProfissionais(AjaxBehaviorEvent event) {
 	    mostraDadosPessoais = false;
         mostraDadosProfissionais = true;
         mostraFormacaoAcademica = false;
 	}
 
-	//Mostra a formação acadêmica e cursos do candidato.
+	/**
+	 * Mostra a formação acadêmica e cursos do candidato.
+	 * @param event evento do tipo ajax.
+	 */
 	public void mostrarFormacaoAcademica(AjaxBehaviorEvent event) {
 	    mostraDadosPessoais = false;
         mostraDadosProfissionais = false;
         mostraFormacaoAcademica = true;
 	}
+
+	//Getters e Setters
 
 	public LocalDate getConsulta() {
 		return consulta;
