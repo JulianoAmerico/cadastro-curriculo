@@ -28,9 +28,11 @@
 					<p:outputLabel value="Data:"/>
 					<p:inputText id="consultaFull" value="#{pesquisa.consulta}" pt:placeholder="dd/mm/aaaa ou dd/mm"/>						
 					<h:commandButton value="Pesquisar" action="#{pesquisa.processarPesquisa}" styleClass="button-1"/>
-					<h:commandButton value="Novo cadastro" action="curriculo_etapa_1" styleClass="button"/>
 				</h:panelGrid>
 				<br/>
+			</h:form>
+			<h:form id="formulario-1">
+				<h:commandButton value="Novo cadastro" action="curriculo_etapa_1?faces-redirect=true" styleClass="button"/>
 			</h:form>
 		</article>
 		<article>
