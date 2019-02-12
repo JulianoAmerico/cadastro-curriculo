@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
@@ -52,14 +51,6 @@ public class PesquisaBean implements Serializable {
 	private Conversation conversation;
 
 	/**
-	 * Ativa a sessão ao construir o PesquisaBean.
-	 */
-	@PostConstruct
-	public void init() {
-	    conversation.begin();
-	}
-
-	/**
 	 * Desativa a sessão ao sair da página.
 	 */
 	@PreDestroy
@@ -72,6 +63,7 @@ public class PesquisaBean implements Serializable {
 	 * @return null retorna a própria página e é atualizada.
 	 */
 	public String processarPesquisa() {
+	    conversation.begin();
 	    candidatosFiltrados = candidatoBean.consultarPorData(consulta);
 	    candidatosModel = new ListDataModel<>(candidatosFiltrados);
 	    consulta = null;
