@@ -24,12 +24,10 @@
 			<p><i>Cadastre seu currículo</i></p>
 		</header>
 		
-		Nome: &nbsp;<input type="text" ng-model="name"/><br/>
+		Nome: &nbsp;<input type="text" ng-model="name"/><br/><br/>
 		<h:form>
-			<h:panelGrid columns="2">
-				<h:commandButton value="Novo cadastro" action="curriculo_etapa_1?faces-redirect=true" styleClass="button"/>
-				<h:commandButton value="Procurar cadastrados" action="pesquisa?faces-redirect=true" styleClass="button"/>
-			</h:panelGrid>
+			<h:commandButton value="Novo cadastro" action="curriculo_etapa_1?faces-redirect=true" styleClass="button"/>&nbsp;&nbsp;
+			<h:commandButton value="Procurar cadastrados" action="pesquisa?faces-redirect=true" styleClass="button"/>
 		</h:form>
 	</div>
 </h:body>
