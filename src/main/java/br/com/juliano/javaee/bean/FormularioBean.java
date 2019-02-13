@@ -77,6 +77,7 @@ public class FormularioBean implements Serializable {
 
     @PostConstruct
     public void init() {
+        conversation.begin();
         estados = EstadosProvider.getEstadosCollection();
 
         /* Limitando data de aniversário */
@@ -84,7 +85,6 @@ public class FormularioBean implements Serializable {
     }
 
     public String processar() {
-        conversation.begin();
         String now = sdf.format(new Date());
 
         try {
