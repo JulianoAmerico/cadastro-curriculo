@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -49,14 +48,6 @@ public class PesquisaBean implements Serializable {
 
 	@Inject
 	private Conversation conversation;
-
-	/**
-	 * Desativa a sessão ao sair da página.
-	 */
-	@PreDestroy
-	public void onDestroy() {
-	    conversation.end();
-	}
 
 	/**
 	 * Recupera do banco de dados os candidatos cadastrados na data determinada pelo usuário.
