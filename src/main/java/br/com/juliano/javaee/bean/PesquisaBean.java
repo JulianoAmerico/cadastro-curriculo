@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
@@ -49,16 +50,25 @@ public class PesquisaBean implements Serializable {
 	@Inject
 	private Conversation conversation;
 
+	@PostConstruct
+	public void init() {
+	    conversation.begin();
+	}
+
 	/**
 	 * Recupera do banco de dados os candidatos cadastrados na data determinada pelo usuário.
 	 * @return null retorna a própria página e é atualizada.
 	 */
 	public String processarPesquisa() {
-	    conversation.begin();
 	    candidatosFiltrados = candidatoBean.consultarPorData(consulta);
 	    candidatosModel = new ListDataModel<>(candidatosFiltrados);
 	    consulta = null;
 	    return null;
+	}
+
+	public String novoCadastro() {
+	    conversation.end();
+	    return "curriculo_etapa_1?faces-redirect=true";
 	}
 
 	/**
