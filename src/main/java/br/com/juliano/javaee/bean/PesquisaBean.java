@@ -4,13 +4,10 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.Conversation;
-import javax.enterprise.context.ConversationScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.model.ListDataModel;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.juliano.javaee.ejb.CandidatoBean;
@@ -21,7 +18,7 @@ import br.com.juliano.javaee.ejb.IdiomaBean;
 import br.com.juliano.javaee.model.Candidato;
 
 @Named("pesquisa")
-@ConversationScoped
+@SessionScoped
 public class PesquisaBean implements Serializable {
 
 	private LocalDate consulta;
@@ -47,14 +44,6 @@ public class PesquisaBean implements Serializable {
 	@EJB
 	private IdiomaBean idiomaBean;
 
-	@Inject
-	private Conversation conversation;
-
-	@PostConstruct
-	public void init() {
-	    conversation.begin();
-	}
-
 	/**
 	 * Recupera do banco de dados os candidatos cadastrados na data determinada pelo usuário.
 	 * @return null retorna a própria página e é atualizada.
@@ -67,7 +56,6 @@ public class PesquisaBean implements Serializable {
 	}
 
 	public String novoCadastro() {
-	    conversation.end();
 	    return "curriculo_etapa_1?faces-redirect=true";
 	}
 
